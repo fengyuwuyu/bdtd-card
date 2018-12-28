@@ -1,4 +1,4 @@
-package com.bdtd.card.dao.consume.config;
+package com.bdtd.card.data.consume.config;
 
 import javax.sql.DataSource;
 
@@ -11,7 +11,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,15 +18,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 
-/**
- * MybatisPlus配置
- *
- * @author stylefeng
- * @Date 2017/5/20 21:58
- */
 @Configuration
 @EnableTransactionManagement(order = 2)//由于引入多数据源，所以让spring事务的aop要在多数据源切换aop的后面
-@MapperScan(basePackages = {"com.bdtd.card.*.dao"})
+@MapperScan(basePackages = {"com.bdtd.card.data.*.dao"})
 public class MybatisPlusConfig {
 
     /**
@@ -35,14 +28,14 @@ public class MybatisPlusConfig {
      */
 	@Bean(name = "dataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
-    @Primary
+//    @Primary
     public DataSource bizDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "sqlSessionFactory")
-    @Primary
-    public SqlSessionFactory testSqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
+//    @Primary
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/*.xml"));
@@ -50,14 +43,14 @@ public class MybatisPlusConfig {
     }
 
     @Bean(name = "transactionManager")
-    @Primary
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("dataSource") DataSource dataSource) {
+//    @Primary
+    public DataSourceTransactionManager transactionManager(@Qualifier("dataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean(name = "sqlSessionTemplate")
-    @Primary
-    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+//    @Primary
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 

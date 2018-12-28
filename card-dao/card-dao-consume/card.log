@@ -303,3 +303,654 @@ Caused by: java.io.FileNotFoundException: class path resource [mybatis/] cannot 
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
 	... 23 common frames omitted
 
+2018-12-28 21:33:42.660  INFO 8848 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 8848 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:33:42.662 DEBUG 8848 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:33:42.662  INFO 8848 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:33:42.709  INFO 8848 --- [restartedMain] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@272e7042: startup date [Fri Dec 28 21:33:42 CST 2018]; root of context hierarchy
+2018-12-28 21:33:43.134  WARN 8848 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.bdtd.card.data.*.dao]' package. Please check your configuration.
+2018-12-28 21:33:43.194  WARN 8848 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.bdtd.card.data.consume]' package. Please check your configuration.
+2018-12-28 21:33:44.063  INFO 8848 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:33:44.090  INFO 8848 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:33:44.091  INFO 8848 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:33:44.094  INFO 8848 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:33:44.105  INFO 8848 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.833 seconds (JVM running for 3.139)
+2018-12-28 21:33:44.118  INFO 8848 --- [Thread-8] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@272e7042: startup date [Fri Dec 28 21:33:42 CST 2018]; root of context hierarchy
+2018-12-28 21:33:44.123  INFO 8848 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 21:33:44.124  INFO 8848 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 21:36:32.261  INFO 17708 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17708 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:36:32.263 DEBUG 17708 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:36:32.263  INFO 17708 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:36:32.308  INFO 17708 --- [restartedMain] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f480452: startup date [Fri Dec 28 21:36:32 CST 2018]; root of context hierarchy
+2018-12-28 21:36:32.744  WARN 17708 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.bdtd.card.data.*.dao]' package. Please check your configuration.
+2018-12-28 21:36:32.819  WARN 17708 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.bdtd.card.data.consume]' package. Please check your configuration.
+2018-12-28 21:36:33.719  INFO 17708 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:36:33.745  INFO 17708 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:36:33.746  INFO 17708 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:36:33.751  INFO 17708 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:36:33.763  INFO 17708 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.878 seconds (JVM running for 3.09)
+2018-12-28 21:36:33.770  INFO 17708 --- [Thread-8] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2f480452: startup date [Fri Dec 28 21:36:32 CST 2018]; root of context hierarchy
+2018-12-28 21:36:33.775  INFO 17708 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 21:36:33.776  INFO 17708 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 21:42:25.479  INFO 17280 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17280 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:42:25.480 DEBUG 17280 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:42:25.481  INFO 17280 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:42:25.526  INFO 17280 --- [restartedMain] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@272e7042: startup date [Fri Dec 28 21:42:25 CST 2018]; root of context hierarchy
+2018-12-28 21:42:26.997  INFO 17280 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:42:27.022  INFO 17280 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:42:27.023  INFO 17280 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:42:27.027  INFO 17280 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:42:27.040  INFO 17280 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.952 seconds (JVM running for 3.156)
+2018-12-28 21:42:27.047  INFO 17280 --- [Thread-8] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@272e7042: startup date [Fri Dec 28 21:42:25 CST 2018]; root of context hierarchy
+2018-12-28 21:42:27.051  INFO 17280 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 21:42:27.053  INFO 17280 --- [Thread-8] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 21:43:21.596  INFO 13428 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 13428 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:43:21.598 DEBUG 13428 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:43:21.599  INFO 13428 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:43:21.678  INFO 13428 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:21 CST 2018]; root of context hierarchy
+2018-12-28 21:43:23.462  INFO 13428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 90301 (http)
+2018-12-28 21:43:23.503  INFO 13428 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 21:43:23.503  INFO 13428 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 21:43:23.516  INFO 13428 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;D:\app\ll\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_51\bin;C:\Program Files\Java\jdk1.8.0_51\jre\bin;D:\app\ll\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\soft\develop\tools\apache-maven-3.5.3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\soft\develop\tools\sonatype nexus\nexus-2.6.4-02\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Java\jdk-9.0.4\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\sbin;E:\workspace\bigdata_tools\spark-2.3.0-bin-hadoop2.7\bin;C:\Program Files (x86)\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\soft\develop\tools\anaconda\Scripts;D:\soft\develop\tools\anaconda;C:\Users\ll\AppData\Local\Microsoft\WindowsApps;C:\Users\ll\AppData\Roaming\npm;D:\soft\develop\tools\eclipse;;.]
+2018-12-28 21:43:23.667  INFO 13428 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 21:43:23.667  INFO 13428 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1989 ms
+2018-12-28 21:43:23.758  INFO 13428 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 21:43:23.762  INFO 13428 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 21:43:23.763  INFO 13428 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 21:43:23.763  INFO 13428 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 21:43:23.763  INFO 13428 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 21:43:24.257  INFO 13428 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:24.504  INFO 13428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:21 CST 2018]; root of context hierarchy
+2018-12-28 21:43:24.597  INFO 13428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 21:43:24.598  INFO 13428 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 21:43:24.636  INFO 13428 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:24.636  INFO 13428 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:25.034  INFO 13428 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:43:25.061  INFO 13428 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:43:25.062  INFO 13428 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:43:25.069  INFO 13428 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:43:25.087 ERROR 13428 --- [restartedMain] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-90301]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-90301]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:261) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:198) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) [spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.bdtd.card.data.consume.DataConsumeApplication.main(DataConsumeApplication.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_51]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1020) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	... 18 common frames omitted
+Caused by: java.lang.IllegalArgumentException: port out of range:90301
+	at java.net.InetSocketAddress.checkPort(InetSocketAddress.java:143) ~[na:1.8.0_51]
+	at java.net.InetSocketAddress.<init>(InetSocketAddress.java:188) ~[na:1.8.0_51]
+	at java.net.InetSocketAddress.<init>(InetSocketAddress.java:166) ~[na:1.8.0_51]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:218) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1156) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:591) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1018) ~[tomcat-embed-core-8.5.35.jar:8.5.35]
+	... 19 common frames omitted
+
+2018-12-28 21:43:25.092  INFO 13428 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-28 21:43:25.106  INFO 13428 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-28 21:43:25.109 ERROR 13428 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 90301 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 90301, or configure this application to listen on another port.
+
+2018-12-28 21:43:25.111  INFO 13428 --- [restartedMain] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:21 CST 2018]; root of context hierarchy
+2018-12-28 21:43:25.114  INFO 13428 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 21:43:25.114  INFO 13428 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 21:43:44.704  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 16480 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:43:44.705 DEBUG 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:43:44.706  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:43:44.785  INFO 16480 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:44 CST 2018]; root of context hierarchy
+2018-12-28 21:43:46.596  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 21:43:46.634  INFO 16480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 21:43:46.634  INFO 16480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 21:43:46.646  INFO 16480 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;D:\app\ll\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_51\bin;C:\Program Files\Java\jdk1.8.0_51\jre\bin;D:\app\ll\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\soft\develop\tools\apache-maven-3.5.3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\soft\develop\tools\sonatype nexus\nexus-2.6.4-02\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Java\jdk-9.0.4\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\sbin;E:\workspace\bigdata_tools\spark-2.3.0-bin-hadoop2.7\bin;C:\Program Files (x86)\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\soft\develop\tools\anaconda\Scripts;D:\soft\develop\tools\anaconda;C:\Users\ll\AppData\Local\Microsoft\WindowsApps;C:\Users\ll\AppData\Roaming\npm;D:\soft\develop\tools\eclipse;;.]
+2018-12-28 21:43:46.802  INFO 16480 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 21:43:46.802  INFO 16480 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2017 ms
+2018-12-28 21:43:46.896  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 21:43:46.900  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 21:43:46.901  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 21:43:46.901  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 21:43:46.901  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 21:43:47.393  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:47.630  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:44 CST 2018]; root of context hierarchy
+2018-12-28 21:43:47.713  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 21:43:47.715  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 21:43:47.751  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:47.751  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:43:48.163  INFO 16480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:43:48.194  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:43:48.195  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:43:48.201  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:43:48.255  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 21:43:48.258  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 3.987 seconds (JVM running for 5.225)
+2018-12-28 21:45:21.381  INFO 16480 --- [Thread-6] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@598c5625: startup date [Fri Dec 28 21:43:44 CST 2018]; root of context hierarchy
+2018-12-28 21:45:21.386  INFO 16480 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 21:45:21.387  INFO 16480 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 21:45:21.778  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 16480 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 21:45:21.779 DEBUG 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 21:45:21.779  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 21:45:21.784  INFO 16480 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3fdc62b7: startup date [Fri Dec 28 21:45:21 CST 2018]; root of context hierarchy
+2018-12-28 21:45:22.543  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 21:45:22.545  INFO 16480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 21:45:22.545  INFO 16480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 21:45:22.585  INFO 16480 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 21:45:22.587  INFO 16480 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 803 ms
+2018-12-28 21:45:22.602  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 21:45:22.603  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 21:45:22.603  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 21:45:22.603  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 21:45:22.603  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 21:45:22.683  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:45:22.726  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3fdc62b7: startup date [Fri Dec 28 21:45:21 CST 2018]; root of context hierarchy
+2018-12-28 21:45:22.738  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 21:45:22.738  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 21:45:22.751  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:45:22.751  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 21:45:22.840  INFO 16480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 21:45:22.859  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 21:45:22.860  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 21:45:22.862  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 21:45:22.871  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 21:45:22.872  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.146 seconds (JVM running for 99.839)
+2018-12-28 21:45:22.877  INFO 16480 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 22:26:53.089  INFO 16480 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-28 22:26:53.090  INFO 16480 --- [RMI TCP Connection(2)-192.168.56.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3fdc62b7: startup date [Fri Dec 28 21:45:21 CST 2018]; root of context hierarchy
+2018-12-28 22:26:53.092  INFO 16480 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:26:53.093  INFO 16480 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 22:27:04.312  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 16480 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:27:04.313 DEBUG 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:27:04.313  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:27:04.318  INFO 16480 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34b39ef9: startup date [Fri Dec 28 22:27:04 CST 2018]; root of context hierarchy
+2018-12-28 22:27:04.990  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:27:04.992  INFO 16480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:27:04.992  INFO 16480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:27:05.040  INFO 16480 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:27:05.041  INFO 16480 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 723 ms
+2018-12-28 22:27:05.057  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:27:05.057  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:27:05.058  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:27:05.058  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:27:05.058  INFO 16480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:27:05.136  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:05.174  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34b39ef9: startup date [Fri Dec 28 22:27:04 CST 2018]; root of context hierarchy
+2018-12-28 22:27:05.180  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:27:05.181  INFO 16480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:27:05.188  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:05.188  INFO 16480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:05.266  INFO 16480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:27:05.277  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:27:05.278  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:27:05.280  INFO 16480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:27:05.290  INFO 16480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:27:05.291  INFO 16480 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.045 seconds (JVM running for 2602.258)
+2018-12-28 22:27:05.294  INFO 16480 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 22:27:05.322 ERROR 16480 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-28 22:27:22.231  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 19296 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:27:22.232 DEBUG 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:27:22.233  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:27:22.320  INFO 19296 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@33ad894d: startup date [Fri Dec 28 22:27:22 CST 2018]; root of context hierarchy
+2018-12-28 22:27:24.107  INFO 19296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:27:24.147  INFO 19296 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:27:24.147  INFO 19296 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:27:24.158  INFO 19296 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;D:\app\ll\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_51\bin;C:\Program Files\Java\jdk1.8.0_51\jre\bin;D:\app\ll\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\soft\develop\tools\apache-maven-3.5.3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\soft\develop\tools\sonatype nexus\nexus-2.6.4-02\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Java\jdk-9.0.4\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\sbin;E:\workspace\bigdata_tools\spark-2.3.0-bin-hadoop2.7\bin;C:\Program Files (x86)\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\soft\develop\tools\anaconda\Scripts;D:\soft\develop\tools\anaconda;C:\Users\ll\AppData\Local\Microsoft\WindowsApps;C:\Users\ll\AppData\Roaming\npm;D:\soft\develop\tools\eclipse;;.]
+2018-12-28 22:27:24.315  INFO 19296 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:27:24.315  INFO 19296 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1996 ms
+2018-12-28 22:27:24.408  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:27:24.412  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:27:24.412  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:27:24.413  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:27:24.413  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:27:24.902  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:25.148  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@33ad894d: startup date [Fri Dec 28 22:27:22 CST 2018]; root of context hierarchy
+2018-12-28 22:27:25.240  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:27:25.241  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:27:25.275  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:25.276  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:27:25.663  INFO 19296 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:27:25.694  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:27:25.695  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:27:25.701  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:27:25.751  INFO 19296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:27:25.756  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 3.959 seconds (JVM running for 5.186)
+2018-12-28 22:27:25.787 ERROR 19296 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-28 22:29:57.790  INFO 19296 --- [Thread-6] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@33ad894d: startup date [Fri Dec 28 22:27:22 CST 2018]; root of context hierarchy
+2018-12-28 22:29:57.795  INFO 19296 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:29:57.796  INFO 19296 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 22:29:58.238  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 19296 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:29:58.239 DEBUG 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:29:58.239  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:29:58.242  INFO 19296 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@dac29f: startup date [Fri Dec 28 22:29:58 CST 2018]; root of context hierarchy
+2018-12-28 22:29:59.057  INFO 19296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:29:59.058  INFO 19296 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:29:59.058  INFO 19296 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:29:59.099  INFO 19296 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:29:59.100  INFO 19296 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 858 ms
+2018-12-28 22:29:59.115  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:29:59.115  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:29:59.115  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:29:59.116  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:29:59.116  INFO 19296 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:29:59.196  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:29:59.244  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@dac29f: startup date [Fri Dec 28 22:29:58 CST 2018]; root of context hierarchy
+2018-12-28 22:29:59.255  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:29:59.256  INFO 19296 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:29:59.266  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:29:59.266  INFO 19296 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:29:59.360  INFO 19296 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:29:59.377  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:29:59.378  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:29:59.381  INFO 19296 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:29:59.394  INFO 19296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:29:59.395  INFO 19296 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.209 seconds (JVM running for 158.825)
+2018-12-28 22:29:59.399  INFO 19296 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 22:29:59.403 ERROR 19296 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - jdbcUrl is required with driverClassName.
+2018-12-28 22:30:04.570  INFO 19296 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-28 22:30:04.570  INFO 19296 --- [RMI TCP Connection(2)-192.168.56.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@dac29f: startup date [Fri Dec 28 22:29:58 CST 2018]; root of context hierarchy
+2018-12-28 22:30:04.573  INFO 19296 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:30:04.573  INFO 19296 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 22:30:10.481  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:30:10.482 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:30:10.484  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:30:10.562  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 22:30:10 CST 2018]; root of context hierarchy
+2018-12-28 22:30:12.369  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:30:12.410  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:30:12.411  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:30:12.422  INFO 17892 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;D:\app\ll\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_51\bin;C:\Program Files\Java\jdk1.8.0_51\jre\bin;D:\app\ll\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\soft\develop\tools\apache-maven-3.5.3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\soft\develop\tools\sonatype nexus\nexus-2.6.4-02\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Java\jdk-9.0.4\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\sbin;E:\workspace\bigdata_tools\spark-2.3.0-bin-hadoop2.7\bin;C:\Program Files (x86)\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\soft\develop\tools\anaconda\Scripts;D:\soft\develop\tools\anaconda;C:\Users\ll\AppData\Local\Microsoft\WindowsApps;C:\Users\ll\AppData\Roaming\npm;D:\soft\develop\tools\eclipse;;.]
+2018-12-28 22:30:12.567  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:30:12.567  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2005 ms
+2018-12-28 22:30:12.662  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:30:12.666  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:30:12.666  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:30:12.666  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:30:12.666  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:30:13.171  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:30:13.434  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 22:30:10 CST 2018]; root of context hierarchy
+2018-12-28 22:30:13.519  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:30:13.521  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:30:13.562  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:30:13.562  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:30:14.019  INFO 17892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:30:14.051  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:30:14.051  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:30:14.056  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:30:14.103  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:30:14.114  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 4.065 seconds (JVM running for 5.289)
+2018-12-28 22:30:14.143 ERROR 17892 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-28 22:37:18.844  INFO 17892 --- [Thread-6] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 22:30:10 CST 2018]; root of context hierarchy
+2018-12-28 22:37:18.848  INFO 17892 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:37:18.849  INFO 17892 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 22:37:19.273  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:37:19.273 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:37:19.274  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:37:19.277  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34e63e32: startup date [Fri Dec 28 22:37:19 CST 2018]; root of context hierarchy
+2018-12-28 22:37:20.091  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:37:20.092  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:37:20.093  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:37:20.142  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:37:20.145  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 868 ms
+2018-12-28 22:37:20.181  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:37:20.181  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:37:20.182  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:37:20.182  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:37:20.182  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:37:20.264  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:20.312  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34e63e32: startup date [Fri Dec 28 22:37:19 CST 2018]; root of context hierarchy
+2018-12-28 22:37:20.323  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:37:20.323  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:37:20.333  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:20.333  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:20.431  INFO 17892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:37:20.450  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:37:20.451  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:37:20.454  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:37:20.462  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:37:20.463  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.242 seconds (JVM running for 431.638)
+2018-12-28 22:37:20.466  INFO 17892 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 22:37:20.470 ERROR 17892 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - jdbcUrl is required with driverClassName.
+2018-12-28 22:37:22.885  INFO 17892 --- [Thread-10] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34e63e32: startup date [Fri Dec 28 22:37:19 CST 2018]; root of context hierarchy
+2018-12-28 22:37:22.892  INFO 17892 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:37:22.893  INFO 17892 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 22:37:23.002  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:37:23.002 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:37:23.003  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:37:23.007  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@c3a7b7f: startup date [Fri Dec 28 22:37:23 CST 2018]; root of context hierarchy
+2018-12-28 22:37:23.145  INFO 17892 --- [Thread-10] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-28 22:37:23.362  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 22:37:23.362 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 22:37:23.362  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 22:37:23.365  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7a925eb0: startup date [Fri Dec 28 22:37:23 CST 2018]; root of context hierarchy
+2018-12-28 22:37:23.860  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:37:23.861  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:37:23.861  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:37:23.917  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:37:23.918  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 911 ms
+2018-12-28 22:37:23.931  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:37:23.932  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:37:23.932  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:37:23.932  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:37:23.932  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:37:24.015  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.024  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 22:37:24.025  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 22:37:24.025  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 22:37:24.056  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@c3a7b7f: startup date [Fri Dec 28 22:37:23 CST 2018]; root of context hierarchy
+2018-12-28 22:37:24.068  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:37:24.069  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:37:24.080  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.080  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.081  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2018-12-28 22:37:24.081  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 716 ms
+2018-12-28 22:37:24.092  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 22:37:24.093  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 22:37:24.093  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 22:37:24.093  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 22:37:24.093  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 22:37:24.179  INFO 17892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 22:37:24.180  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.193  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 22:37:24.193  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 22:37:24.195  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 22:37:24.206  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 22:37:24.207  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.253 seconds (JVM running for 435.383)
+2018-12-28 22:37:24.210  INFO 17892 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 22:37:24.214 ERROR 17892 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-3 - jdbcUrl is required with driverClassName.
+2018-12-28 22:37:24.227  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7a925eb0: startup date [Fri Dec 28 22:37:23 CST 2018]; root of context hierarchy
+2018-12-28 22:37:24.236  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 22:37:24.236  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 22:37:24.242  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.243  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 22:37:24.276  WARN 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+2018-12-28 22:37:24.276  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 22:37:24.277  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-28 22:37:24.285  INFO 17892 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-28 22:37:24.292 ERROR 17892 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$122/799204113.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.bdtd.card.data.consume.DataConsumeApplication.main(DataConsumeApplication.java:15) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_51]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+Caused by: javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:437) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerWithRepository(DefaultMBeanServerInterceptor.java:1898) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:966) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:900) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:324) ~[na:1.8.0_51]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:522) ~[na:1.8.0_51]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar.afterPropertiesSet(SpringApplicationAdminMXBeanRegistrar.java:100) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1753) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1690) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	... 22 common frames omitted
+
+2018-12-28 23:02:46.149  INFO 17892 --- [Thread-17] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@c3a7b7f: startup date [Fri Dec 28 22:37:23 CST 2018]; root of context hierarchy
+2018-12-28 23:02:46.154  INFO 17892 --- [Thread-17] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 23:02:46.157  INFO 17892 --- [Thread-17] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 23:02:46.340  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 23:02:46.344 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 23:02:46.344  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 23:02:46.352  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4d6e551f: startup date [Fri Dec 28 23:02:46 CST 2018]; root of context hierarchy
+2018-12-28 23:02:46.409  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 23:02:46.410 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 23:02:46.412  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 23:02:46.459  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18ca880d: startup date [Fri Dec 28 23:02:46 CST 2018]; root of context hierarchy
+2018-12-28 23:02:47.129  INFO 17892 --- [Thread-17] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-28 23:02:47.442  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 17892 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 23:02:47.442 DEBUG 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 23:02:47.442  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 23:02:47.449  INFO 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3721118d: startup date [Fri Dec 28 23:02:47 CST 2018]; root of context hierarchy
+2018-12-28 23:02:48.375  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 23:02:48.375  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 23:02:48.376  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 23:02:48.377  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 23:02:48.377  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 23:02:48.377  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 23:02:48.433  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2018-12-28 23:02:48.434  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2081 ms
+2018-12-28 23:02:48.434  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2018-12-28 23:02:48.435  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1976 ms
+2018-12-28 23:02:48.449  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 23:02:48.449  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 23:02:48.449  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 23:02:48.450  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 23:02:48.450  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 23:02:48.452  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 23:02:48.453  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 23:02:48.453  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 23:02:48.453  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 23:02:48.455  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 23:02:48.661  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.721  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18ca880d: startup date [Fri Dec 28 23:02:46 CST 2018]; root of context hierarchy
+2018-12-28 23:02:48.723  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.733  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 23:02:48.733  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 23:02:48.741  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.741  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.757  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 23:02:48.758  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 23:02:48.759  INFO 17892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 23:02:48.768  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4d6e551f: startup date [Fri Dec 28 23:02:46 CST 2018]; root of context hierarchy
+2018-12-28 23:02:48.785  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 23:02:48.785  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 23:02:48.793  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.794  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.811  INFO 17892 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2018-12-28 23:02:48.811  INFO 17892 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1362 ms
+2018-12-28 23:02:48.822  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 23:02:48.822  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 23:02:48.822  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 23:02:48.822  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 23:02:48.822  INFO 17892 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 23:02:48.831  INFO 17892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 23:02:48.839  WARN 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+2018-12-28 23:02:48.840  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 23:02:48.846  INFO 17892 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-28 23:02:48.847  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 23:02:48.848  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 23:02:48.851  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 23:02:48.858  INFO 17892 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-28 23:02:48.863 ERROR 17892 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$122/799204113.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.bdtd.card.data.consume.DataConsumeApplication.main(DataConsumeApplication.java:15) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_51]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+Caused by: javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:437) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerWithRepository(DefaultMBeanServerInterceptor.java:1898) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:966) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:900) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:324) ~[na:1.8.0_51]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:522) ~[na:1.8.0_51]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar.afterPropertiesSet(SpringApplicationAdminMXBeanRegistrar.java:100) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1753) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1690) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	... 22 common frames omitted
+
+2018-12-28 23:02:48.868  INFO 17892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 23:02:48.869  INFO 17892 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 2.717 seconds (JVM running for 1960.044)
+2018-12-28 23:02:48.872  INFO 17892 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 23:02:48.876 ERROR 17892 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-4 - jdbcUrl is required with driverClassName.
+2018-12-28 23:02:48.911  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.950  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3721118d: startup date [Fri Dec 28 23:02:47 CST 2018]; root of context hierarchy
+2018-12-28 23:02:48.958  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 23:02:48.959  INFO 17892 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 23:02:48.967  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:48.967  INFO 17892 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:02:49.004  WARN 17892 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+2018-12-28 23:02:49.004  INFO 17892 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 23:02:49.012  INFO 17892 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-28 23:02:49.014 ERROR 17892 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$122/799204113.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:548) ~[spring-context-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:386) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1242) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1230) [spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at com.bdtd.card.data.consume.DataConsumeApplication.main(DataConsumeApplication.java:15) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_51]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+Caused by: javax.management.InstanceAlreadyExistsException: org.springframework.boot:type=Admin,name=SpringApplication
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:437) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerWithRepository(DefaultMBeanServerInterceptor.java:1898) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:966) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:900) ~[na:1.8.0_51]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:324) ~[na:1.8.0_51]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:522) ~[na:1.8.0_51]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar.afterPropertiesSet(SpringApplicationAdminMXBeanRegistrar.java:100) ~[spring-boot-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1753) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1690) ~[spring-beans-5.0.11.RELEASE.jar:5.0.11.RELEASE]
+	... 22 common frames omitted
+
+2018-12-28 23:03:14.208  INFO 17892 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-12-28 23:03:14.208  INFO 17892 --- [RMI TCP Connection(2)-192.168.56.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@18ca880d: startup date [Fri Dec 28 23:02:46 CST 2018]; root of context hierarchy
+2018-12-28 23:03:14.210  INFO 17892 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 23:03:14.210  INFO 17892 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 23:03:46.605  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 20720 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 23:03:46.607 DEBUG 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 23:03:46.609  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 23:03:46.693  INFO 20720 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 23:03:46 CST 2018]; root of context hierarchy
+2018-12-28 23:03:48.512  INFO 20720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 23:03:48.552  INFO 20720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 23:03:48.552  INFO 20720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 23:03:48.563  INFO 20720 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\Program Files\Microsoft MPI\Bin\;D:\app\ll\product\11.2.0\dbhome_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_51\bin;C:\Program Files\Java\jdk1.8.0_51\jre\bin;D:\app\ll\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\soft\develop\tools\apache-maven-3.5.3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\soft\develop\tools\sonatype nexus\nexus-2.6.4-02\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Java\jdk-9.0.4\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\bin;E:\workspace\bigdata_tools\hadoop-2.9.0\sbin;E:\workspace\bigdata_tools\spark-2.3.0-bin-hadoop2.7\bin;C:\Program Files (x86)\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\soft\develop\tools\anaconda\Scripts;D:\soft\develop\tools\anaconda;C:\Users\ll\AppData\Local\Microsoft\WindowsApps;C:\Users\ll\AppData\Roaming\npm;D:\soft\develop\tools\eclipse;;.]
+2018-12-28 23:03:48.711  INFO 20720 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 23:03:48.711  INFO 20720 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2018 ms
+2018-12-28 23:03:48.803  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 23:03:48.807  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 23:03:48.808  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 23:03:48.808  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 23:03:48.808  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 23:03:49.287  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:03:49.526  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 23:03:46 CST 2018]; root of context hierarchy
+2018-12-28 23:03:49.621  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 23:03:49.624  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 23:03:49.656  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:03:49.656  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:03:50.057  INFO 20720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 23:03:50.092  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 23:03:50.093  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 23:03:50.098  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 23:03:50.146  INFO 20720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 23:03:50.149  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 3.977 seconds (JVM running for 5.253)
+2018-12-28 23:03:50.178 ERROR 20720 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - jdbcUrl is required with driverClassName.
+2018-12-28 23:04:45.345  INFO 20720 --- [Thread-6] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b495107: startup date [Fri Dec 28 23:03:46 CST 2018]; root of context hierarchy
+2018-12-28 23:04:45.349  INFO 20720 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-12-28 23:04:45.350  INFO 20720 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-12-28 23:04:50.716  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Starting DataConsumeApplication on DESKTOP-9ICARQ8 with PID 20720 (E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume\target\classes started by ll in E:\workspace\eclipse\bdtd\card\project\bdtd-card\card-dao\card-dao-consume)
+2018-12-28 23:04:50.717 DEBUG 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2018-12-28 23:04:50.717  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : The following profiles are active: dev
+2018-12-28 23:04:50.721  INFO 20720 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63ee2e50: startup date [Fri Dec 28 23:04:50 CST 2018]; root of context hierarchy
+2018-12-28 23:04:51.412  INFO 20720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10301 (http)
+2018-12-28 23:04:51.413  INFO 20720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 23:04:51.413  INFO 20720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.35
+2018-12-28 23:04:51.457  INFO 20720 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2018-12-28 23:04:51.459  INFO 20720 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 737 ms
+2018-12-28 23:04:51.473  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-28 23:04:51.473  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-28 23:04:51.473  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-28 23:04:51.474  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-12-28 23:04:51.474  INFO 20720 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-28 23:04:51.555  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:04:51.595  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63ee2e50: startup date [Fri Dec 28 23:04:50 CST 2018]; root of context hierarchy
+2018-12-28 23:04:51.602  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-12-28 23:04:51.603  INFO 20720 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-12-28 23:04:51.615  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:04:51.615  INFO 20720 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-12-28 23:04:51.704  INFO 20720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-12-28 23:04:51.718  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-12-28 23:04:51.718  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-12-28 23:04:51.721  INFO 20720 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-12-28 23:04:51.730  INFO 20720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 10301 (http) with context path ''
+2018-12-28 23:04:51.731  INFO 20720 --- [restartedMain] c.b.c.d.consume.DataConsumeApplication   : Started DataConsumeApplication in 1.062 seconds (JVM running for 66.835)
+2018-12-28 23:04:51.734  INFO 20720 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-12-28 23:04:51.739 ERROR 20720 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - jdbcUrl is required with driverClassName.

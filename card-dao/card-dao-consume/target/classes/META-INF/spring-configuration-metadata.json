@@ -1,0 +1,12 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.bdtd.card.dao.consume.config.MybatisPlusConfig",
+      "name": "spring.datasource",
+      "sourceMethod": "public javax.sql.DataSource bizDataSource() ",
+      "type": "javax.sql.DataSource"
+    }
+  ],
+  "properties": []
+}

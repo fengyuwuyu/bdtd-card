@@ -1,6 +1,6 @@
 package com.bdtd.card.base.common.web.util;
 
-import com.baomidou.mybatisplus.toolkit.IdWorker;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 唯一id生成器

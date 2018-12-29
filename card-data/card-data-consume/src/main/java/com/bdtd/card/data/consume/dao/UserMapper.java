@@ -2,17 +2,9 @@ package com.bdtd.card.data.consume.dao;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.bdtd.card.data.consume.model.User;
 
-/**
- * <p>
- * 管理员表 Mapper 接口
- * </p>
- *
- * @author stylefeng
- * @since 2017-07-11
- */
 public interface UserMapper extends BaseMapper<User> {
 
     /**

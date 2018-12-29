@@ -1,9 +1,9 @@
 package com.bdtd.card.base.common.web.util.model;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableField;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
-import com.baomidou.mybatisplus.toolkit.StringUtils;
 
 public class TableFieldToString {
 
@@ -33,7 +33,7 @@ public class TableFieldToString {
     	this.name = tableField.getName();
     	this.type = tableField.getType();
     	this.propertyName = tableField.getPropertyName();
-    	this.columnType = tableField.getColumnType();
+    	this.columnType = (DbColumnType) tableField.getColumnType();
     	this.comment = tableField.getComment();
     	this.fill = tableField.getFill();
     	this.nullable = nullable;
@@ -60,7 +60,7 @@ public class TableFieldToString {
             this.convert = false;
         } else {
             // 转换字段
-            if (StrategyConfig.DB_COLUMN_UNDERLINE) {
+            if (true) {
                 // 包含大写处理
                 if (StringUtils.containsUpperCase(name)) {
                     this.convert = true;

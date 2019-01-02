@@ -74,8 +74,9 @@ spring:
         maintainTimeStats: false
    
 logging:
+  config: classpath:log4j2.xml
   level.root: info
-  level.com.bdtd.card: debug
+#  level.com.bdtd.card: debug
 #  level.com.stylefeng.guns.modular.system.dao: debug
 #  level.com.stylefeng.guns.core.aop.FileLogAop: debug
   path: logs/

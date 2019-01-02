@@ -1,9 +1,9 @@
 package com.bdtd.card.base.common.web.wrapper;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.EmptyWrapper;
 
-public class MybatisCustomWrapper<T> extends EntityWrapper<T> {
+public class MybatisCustomWrapper<T> extends EmptyWrapper<T> {
 
     /**
      * 
@@ -17,7 +17,7 @@ public class MybatisCustomWrapper<T> extends EntityWrapper<T> {
     
     public Wrapper<T> bit(boolean condition, String column, Object params) {
         if (condition) {
-            sql.WHERE(formatSql(String.format("%s & {0} = {0}", column), params));
+//            sql.WHERE(formatSql(String.format("%s & {0} = {0}", column), params));
         }
         return this;
     }
@@ -28,7 +28,7 @@ public class MybatisCustomWrapper<T> extends EntityWrapper<T> {
     
     public Wrapper<T> unbit(boolean condition, String column, Object params) {
         if (condition) {
-            sql.WHERE(formatSql(String.format("%s & {0} != {0}", column), params));
+//            sql.WHERE(formatSql(String.format("%s & {0} != {0}", column), params));
         }
         return this;
     }

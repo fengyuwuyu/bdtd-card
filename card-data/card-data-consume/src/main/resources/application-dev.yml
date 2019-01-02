@@ -24,15 +24,14 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/bdtd/card/**/mapping/*.xml
-  typeAliasesPackage: com.bdtd.card.dao.consume.model
+  mapper-locations: classpath*:mybatis/*/*Mapper.xml
+  typeAliasesPackage: com.bdtd.card.data.*.model
   global-config:
     id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
     db-column-underline: false
     refresh-mapper: true
     logic-delete-value: 0
     logic-not-delete-value: 1
-    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
   configuration:
     map-underscore-to-camel-case: false
     cache-enabled: true #配置的缓存的全局开关
@@ -47,10 +46,10 @@ spring:
   profiles: dev
   datasource:
    username: root
-   password: BDtd1234
-   url:  jdbc:mysql://172.16.2.118:3306/card?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+   password: root
+   url:  jdbc:mysql://127.0.0.1:3306/bdtd_card?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
    driver-class-name: com.mysql.jdbc.Driver
-   filters: log4j,wall,mergeStat
+   filters: wall,mergeStat
    
 logging:
   level.root: info
@@ -68,8 +67,8 @@ spring:
   profiles: prod
   datasource:
    username: root
-   password: BDtd1234
-   url:  jdbc:mysql://172.16.2.118:3306/card?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+   password: root
+   url:  jdbc:mysql://127.0.0.1:3306/bdtd_card?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
    driver-class-name: com.mysql.jdbc.Driver
    filters: log4j,wall,mergeStat
    

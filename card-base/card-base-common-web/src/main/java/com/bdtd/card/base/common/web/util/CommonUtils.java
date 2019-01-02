@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.bdtd.card.base.common.consts.Consts;
 import com.bdtd.card.base.common.model.EnumOperator;
 import com.bdtd.card.base.common.util.DateUtil;

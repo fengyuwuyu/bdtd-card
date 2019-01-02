@@ -49,6 +49,7 @@ import org.beetl.core.resource.StringTemplateResourceLoader;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.generator.config.po.TableField;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.bdtd.card.base.common.util.DateUtil;
 import com.bdtd.card.base.common.util.JsonUtil;
 import com.bdtd.card.base.common.util.MapUtil;
@@ -844,7 +845,7 @@ public class ToolUtil {
 	}
 
 	public static String getXmlType(TableField field) {
-		switch (field.getColumnType()) {
+		switch ((DbColumnType)field.getColumnType()) {
 		case STRING:
 			return "string";
 		case LONG:

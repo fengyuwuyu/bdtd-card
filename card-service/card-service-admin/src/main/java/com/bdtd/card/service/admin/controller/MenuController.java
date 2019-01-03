@@ -1,24 +1,9 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
-import com.baomidou.mybatisplus.mapper.QueryWrapper;
-import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.base.tips.Tip;
-import com.stylefeng.guns.core.common.annotion.BussinessLog;
-import com.stylefeng.guns.core.common.annotion.Permission;
-import com.stylefeng.guns.core.common.constant.Const;
-import com.stylefeng.guns.core.common.constant.dictmap.MenuDict;
-import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
-import com.stylefeng.guns.core.common.constant.state.MenuStatus;
-import com.stylefeng.guns.core.common.exception.EnumBizException;
-import com.stylefeng.guns.core.exception.BdtdException;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.core.model.EnumOriginMask;
-import com.stylefeng.guns.core.node.ZTreeNode;
-import com.stylefeng.guns.core.support.BeanKit;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.model.Menu;
-import com.stylefeng.guns.modular.system.service.IMenuService;
-import com.stylefeng.guns.modular.system.warpper.MenuWarpper;
+import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,9 +14,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Map;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.bdtd.card.base.common.base.exception.BdtdException;
+import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.model.EnumOriginMask;
+import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.base.common.web.annotation.BussinessLog;
+import com.bdtd.card.base.common.web.annotation.Permission;
+import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.base.Tip;
+import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.data.admin.model.Menu;
+import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.service.IMenuService;
+import com.stylefeng.guns.core.common.constant.dictmap.MenuDict;
+import com.stylefeng.guns.core.common.constant.state.MenuStatus;
+import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.core.support.BeanKit;
+import com.stylefeng.guns.modular.system.warpper.MenuWarpper;
 
 /**
  * 菜单控制器
@@ -74,12 +75,12 @@ public class MenuController extends BaseController {
         if (ToolUtil.isEmpty(menuId)) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        Menu menu = this.menuService.selectById(menuId);
+        Menu menu = this.menuService.getById(menuId);
 
         //获取父级菜单的id
         Menu temp = new Menu();
         temp.setCode(menu.getPcode());
-        Menu pMenu = this.menuService.selectOne(new QueryWrapper<>(temp));
+        Menu pMenu = this.menuService.getOne(new QueryWrapper<>(temp));
 
         //如果父级是顶级菜单
         if (pMenu == null) {
@@ -148,7 +149,7 @@ public class MenuController extends BaseController {
         menuSetPcode(menu);
 
         menu.setStatus(MenuStatus.ENABLE.getCode());
-        this.menuService.insert(menu);
+        this.menuService.save(menu);
         return SUCCESS_TIP;
     }
 
@@ -180,7 +181,7 @@ public class MenuController extends BaseController {
         if (ToolUtil.isEmpty(menuId)) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        this.menuService.selectById(menuId);
+        this.menuService.getById(menuId);
         return SUCCESS_TIP;
     }
 
@@ -231,7 +232,7 @@ public class MenuController extends BaseController {
             menu.setLevels(1);
         } else {
             long code = Long.parseLong(menu.getPcode());
-            Menu pMenu = menuService.selectById(code);
+            Menu pMenu = menuService.getById(code);
             Integer pLevels = pMenu.getLevels();
             menu.setPcode(pMenu.getCode());
 

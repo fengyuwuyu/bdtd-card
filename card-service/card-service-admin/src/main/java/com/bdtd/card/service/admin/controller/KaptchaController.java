@@ -1,22 +1,23 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
-import com.google.code.kaptcha.Constants;
-import com.google.code.kaptcha.Producer;
-import com.stylefeng.guns.config.properties.GunsProperties;
-import com.stylefeng.guns.core.util.FileUtil;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bdtd.card.base.common.util.FileUtil;
+import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.google.code.kaptcha.Constants;
+import com.google.code.kaptcha.Producer;
 
 /**
  * 验证码生成
@@ -29,7 +30,7 @@ import java.io.IOException;
 public class KaptchaController {
 
     @Autowired
-    private GunsProperties gunsProperties;
+    private BdtdProperties bdtdProperties;
 
     @Autowired
     private Producer producer;
@@ -99,7 +100,7 @@ public class KaptchaController {
      */
     @RequestMapping("/{pictureId}")
     public void renderPicture(@PathVariable("pictureId") String pictureId, HttpServletRequest request, HttpServletResponse response) {
-        String path = gunsProperties.getFileUploadPath() + pictureId + ".jpg";
+        String path = bdtdProperties.getFileUploadPath() + pictureId + ".jpg";
         try {
             byte[] bytes = FileUtil.toByteArray(path);
             response.getOutputStream().write(bytes);

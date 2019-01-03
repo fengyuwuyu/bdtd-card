@@ -1,17 +1,8 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
-import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.common.annotion.BussinessLog;
-import com.stylefeng.guns.core.common.constant.dictmap.NoticeMap;
-import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
-import com.stylefeng.guns.core.common.exception.EnumBizException;
-import com.stylefeng.guns.core.exception.BdtdException;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.core.shiro.ShiroKit;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.model.Notice;
-import com.stylefeng.guns.modular.system.service.INoticeService;
-import com.stylefeng.guns.modular.system.warpper.NoticeWrapper;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import com.bdtd.card.base.common.base.exception.BdtdException;
+import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.web.annotation.BussinessLog;
+import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.data.admin.model.Notice;
+import com.bdtd.card.service.admin.config.shiro.ShiroKit;
+import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.service.INoticeService;
+import com.stylefeng.guns.core.common.constant.dictmap.NoticeMap;
+import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.modular.system.warpper.NoticeWrapper;
 
 /**
  * 通知控制器
@@ -61,7 +61,7 @@ public class NoticeController extends BaseController {
      */
     @RequestMapping("/notice_update/{noticeId}")
     public String noticeUpdate(@PathVariable Integer noticeId, Model model) {
-        Notice notice = this.noticeService.selectById(noticeId);
+        Notice notice = this.noticeService.getById(noticeId);
         model.addAttribute("notice",notice);
         LogObjectHolder.me().set(notice);
         return PREFIX + "notice_edit.html";
@@ -72,7 +72,7 @@ public class NoticeController extends BaseController {
      */
     @RequestMapping("/hello")
     public String hello() {
-        List<Map<String, Object>> notices = noticeService.list(null);
+        List<Map<String, Object>> notices = noticeService.listMaps(null);
         super.setAttr("noticeList",notices);
         return "/blackboard.html";
     }
@@ -114,7 +114,7 @@ public class NoticeController extends BaseController {
         //缓存通知名称
         LogObjectHolder.me().set(ConstantFactory.me().getNoticeTitle(noticeId));
 
-        this.noticeService.deleteById(noticeId);
+        this.noticeService.removeById(noticeId);
 
         return SUCCESS_TIP;
     }
@@ -129,7 +129,7 @@ public class NoticeController extends BaseController {
         if (ToolUtil.isOneEmpty(notice, notice.getId(), notice.getTitle(), notice.getContent())) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        Notice old = this.noticeService.selectById(notice.getId());
+        Notice old = this.noticeService.getById(notice.getId());
         old.setTitle(notice.getTitle());
         old.setContent(notice.getContent());
         old.updateById();

@@ -1,4 +1,4 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
 import java.io.File;
 import java.util.Date;
@@ -21,29 +21,30 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.bdtd.card.base.common.base.exception.BdtdException;
+import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.web.annotation.BussinessLog;
+import com.bdtd.card.base.common.web.annotation.Permission;
+import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.base.Tip;
+import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.data.admin.dao.UserMapper;
+import com.bdtd.card.data.admin.datascope.DataScope;
+import com.bdtd.card.data.admin.model.User;
+import com.bdtd.card.service.admin.config.shiro.ShiroKit;
+import com.bdtd.card.service.admin.config.shiro.ShiroUser;
+import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.service.IUserService;
 import com.stylefeng.guns.config.properties.GunsProperties;
 import com.stylefeng.guns.core.EnumRoleType;
-import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.base.tips.Tip;
-import com.stylefeng.guns.core.common.annotion.BussinessLog;
-import com.stylefeng.guns.core.common.annotion.Permission;
-import com.stylefeng.guns.core.common.constant.Const;
 import com.stylefeng.guns.core.common.constant.dictmap.UserDict;
-import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
 import com.stylefeng.guns.core.common.constant.state.ManagerStatus;
-import com.stylefeng.guns.core.common.exception.EnumBizException;
-import com.stylefeng.guns.core.datascope.DataScope;
 import com.stylefeng.guns.core.db.Db;
-import com.stylefeng.guns.core.exception.BdtdException;
 import com.stylefeng.guns.core.log.LogObjectHolder;
 import com.stylefeng.guns.core.model.EnumGender;
-import com.stylefeng.guns.core.shiro.ShiroKit;
-import com.stylefeng.guns.core.shiro.ShiroUser;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.dao.UserMapper;
 import com.stylefeng.guns.modular.system.factory.UserFactory;
-import com.stylefeng.guns.modular.system.model.User;
-import com.stylefeng.guns.modular.system.service.IUserService;
 import com.stylefeng.guns.modular.system.transfer.UserDto;
 import com.stylefeng.guns.modular.system.warpper.UserWarpper;
 import com.stylefeng.guns.scmmain.model.DtUser;
@@ -62,13 +63,10 @@ public class UserMgrController extends BaseController {
     private static String PREFIX = "/system/user/";
 
     @Autowired
-    private GunsProperties gunsProperties;
+    private BdtdProperties bdtdProperties;
 
     @Autowired
     private IUserService userService;
-    
-    @Autowired
-    private IDtUserService dtUserService;
 
     /**
      * 跳转到查看管理员列表的页面
@@ -113,14 +111,7 @@ public class UserMgrController extends BaseController {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
         assertAuth(userId);
-        User user = this.userService.selectById(userId);
-        DtUser dtUser = null;
-        if (user.getAccount().equals("admin")) {
-            dtUser = this.getAdminDtUser();
-        } else {
-            dtUser = this.dtUserService.findByUserNo(user.getUserNo());
-        }
-        user.setDtUser(dtUser);
+        User user = this.userService.getById(userId);
         
         model.addAttribute(user);
         model.addAttribute("roleName", ConstantFactory.me().getRoleName(user.getRoleid()));
@@ -139,15 +130,8 @@ public class UserMgrController extends BaseController {
         if (ToolUtil.isEmpty(userId)) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        User user = this.userService.selectById(userId);
-        DtUser dtUser = null;
-        if (user.getAccount().equals("admin")) {
-            dtUser = this.getAdminDtUser();
-        } else {
-            dtUser = this.dtUserService.findByUserNo(user.getUserNo());
-        }
+        User user = this.userService.getById(userId);
         
-        user.setDtUser(dtUser);
         model.addAttribute(user);
         model.addAttribute("roleName", ConstantFactory.me().getRoleName(user.getRoleid()));
         model.addAttribute("userTypeItemList", EnumRoleType.select());
@@ -155,13 +139,6 @@ public class UserMgrController extends BaseController {
         return PREFIX + "user_view.html";
     }
     
-    private DtUser getAdminDtUser() {
-        DtUser dtUser = new DtUser();
-        dtUser.setUserLname("admin");
-        dtUser.setUserDepname("admin");
-        dtUser.setUserNo("admin");
-        return dtUser;
-    }
 
     /**
      * 跳转到修改密码界面
@@ -181,7 +158,7 @@ public class UserMgrController extends BaseController {
             throw new BdtdException(EnumBizException.TWO_PWD_NOT_MATCH);
         }
         Integer userId = ShiroKit.getUser().getId();
-        User user = userService.selectById(userId);
+        User user = userService.getById(userId);
         String oldMd5 = ShiroKit.md5(oldPwd, user.getSalt());
         if (user.getPassword().equals(oldMd5)) {
             String newMd5 = ShiroKit.md5(newPwd, user.getSalt());
@@ -295,7 +272,7 @@ public class UserMgrController extends BaseController {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
         assertAuth(userId);
-        return this.userService.selectById(userId);
+        return this.userService.getById(userId);
     }
 
     /**
@@ -310,7 +287,7 @@ public class UserMgrController extends BaseController {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
         assertAuth(userId);
-        User user = this.userService.selectById(userId);
+        User user = this.userService.getById(userId);
         user.setSalt(ShiroKit.getRandomSalt(5));
         user.setPassword(ShiroKit.md5(Const.DEFAULT_PWD, user.getSalt()));
         this.userService.updateById(user);
@@ -381,7 +358,7 @@ public class UserMgrController extends BaseController {
     public String upload(@RequestPart("file") MultipartFile picture) {
         String pictureName = UUID.randomUUID().toString() + ".jpg";
         try {
-            String fileSavePath = gunsProperties.getFileUploadPath();
+            String fileSavePath = bdtdProperties.getFileUploadPath();
             picture.transferTo(new File(fileSavePath + pictureName));
         } catch (Exception e) {
             throw new BdtdException(EnumBizException.UPLOAD_ERROR);
@@ -397,7 +374,7 @@ public class UserMgrController extends BaseController {
             return;
         }
         List<Integer> deptDataScope = ShiroKit.getDeptDataScope();
-        User user = this.userService.selectById(userId);
+        User user = this.userService.getById(userId);
         Integer deptid = user.getDeptid();
         if (deptDataScope.contains(deptid)) {
             return;

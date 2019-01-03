@@ -1,27 +1,9 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
-import com.stylefeng.guns.core.EnumRoleType;
-import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.base.tips.Tip;
-import com.stylefeng.guns.core.cache.CacheKit;
-import com.stylefeng.guns.core.common.annotion.BussinessLog;
-import com.stylefeng.guns.core.common.annotion.Permission;
-import com.stylefeng.guns.core.common.constant.Const;
-import com.stylefeng.guns.core.common.constant.cache.Cache;
-import com.stylefeng.guns.core.common.constant.dictmap.RoleDict;
-import com.stylefeng.guns.core.common.constant.factory.ConstantFactory;
-import com.stylefeng.guns.core.common.exception.EnumBizException;
-import com.stylefeng.guns.core.exception.BdtdException;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.core.node.ZTreeNode;
-import com.stylefeng.guns.core.util.Convert;
-import com.stylefeng.guns.core.util.StringUtil;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.model.Role;
-import com.stylefeng.guns.modular.system.model.User;
-import com.stylefeng.guns.modular.system.service.IRoleService;
-import com.stylefeng.guns.modular.system.service.IUserService;
-import com.stylefeng.guns.modular.system.warpper.RoleWarpper;
+import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,9 +14,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Map;
+import com.bdtd.card.base.common.base.exception.BdtdException;
+import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.base.common.util.Convert;
+import com.bdtd.card.base.common.util.StringUtil;
+import com.bdtd.card.base.common.web.annotation.BussinessLog;
+import com.bdtd.card.base.common.web.annotation.Permission;
+import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.base.Tip;
+import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.data.admin.model.Role;
+import com.bdtd.card.data.admin.model.User;
+import com.bdtd.card.service.admin.cache.Cache;
+import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.service.IRoleService;
+import com.bdtd.card.service.admin.service.IUserService;
+import com.stylefeng.guns.core.EnumRoleType;
+import com.stylefeng.guns.core.cache.CacheKit;
+import com.stylefeng.guns.core.common.constant.dictmap.RoleDict;
+import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.modular.system.warpper.RoleWarpper;
 
 /**
  * 角色控制器
@@ -80,7 +81,7 @@ public class RoleController extends BaseController {
         if (ToolUtil.isEmpty(roleId)) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        Role role = this.roleService.selectById(roleId);
+        Role role = this.roleService.getById(roleId);
         model.addAttribute(role);
         model.addAttribute("pName", ConstantFactory.me().getSingleRoleName(role.getPid()));
         model.addAttribute("roleTypeItemList", EnumRoleType.select());
@@ -129,7 +130,7 @@ public class RoleController extends BaseController {
             role.setTips(role.getName());
         }
         role.setId(null);
-        this.roleService.insert(role);
+        this.roleService.save(role);
         return SUCCESS_TIP;
     }
 
@@ -192,7 +193,7 @@ public class RoleController extends BaseController {
         if (ToolUtil.isEmpty(roleId)) {
             throw new BdtdException(EnumBizException.REQUEST_NULL);
         }
-        this.roleService.selectById(roleId);
+        this.roleService.getById(roleId);
         return SUCCESS_TIP;
     }
 
@@ -228,7 +229,7 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "/roleTreeListByUserId/{userId}")
     @ResponseBody
     public List<ZTreeNode> roleTreeListByUserId(@PathVariable Integer userId) {
-        User theUser = this.userService.selectById(userId);
+        User theUser = this.userService.getById(userId);
         String roleid = theUser.getRoleid();
         if (ToolUtil.isEmpty(roleid)) {
             List<ZTreeNode> roleTreeList = this.roleService.roleTreeList();

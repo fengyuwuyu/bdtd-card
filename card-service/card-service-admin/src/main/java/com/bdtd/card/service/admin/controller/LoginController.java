@@ -1,21 +1,12 @@
-package com.stylefeng.guns.modular.system.controller;
+package com.bdtd.card.service.admin.controller;
 
-import com.google.code.kaptcha.Constants;
-import com.stylefeng.guns.config.properties.BdtdProperties;
-import com.stylefeng.guns.core.base.controller.BaseController;
-import com.stylefeng.guns.core.common.exception.InvalidKaptchaException;
-import com.stylefeng.guns.core.log.LogManager;
-import com.stylefeng.guns.core.log.factory.LogTaskFactory;
-import com.stylefeng.guns.core.node.MenuNode;
-import com.stylefeng.guns.core.shiro.ShiroKit;
-import com.stylefeng.guns.core.shiro.ShiroUser;
-import com.stylefeng.guns.core.util.ApiMenuFilter;
-import com.stylefeng.guns.core.util.IpUtil;
-import com.stylefeng.guns.core.util.KaptchaUtil;
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.modular.system.model.User;
-import com.stylefeng.guns.modular.system.service.IMenuService;
-import com.stylefeng.guns.modular.system.service.IUserService;
+import static com.stylefeng.guns.core.support.HttpKit.getIp;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.LogManager;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -26,12 +17,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import static com.stylefeng.guns.core.support.HttpKit.getIp;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
+import com.bdtd.card.base.common.model.MenuNode;
+import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.bdtd.card.base.common.web.util.IpUtil;
+import com.bdtd.card.base.common.web.util.KaptchaUtil;
+import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.data.admin.model.User;
+import com.bdtd.card.service.admin.config.shiro.ShiroKit;
+import com.bdtd.card.service.admin.config.shiro.ShiroUser;
+import com.bdtd.card.service.admin.service.IMenuService;
+import com.bdtd.card.service.admin.service.IUserService;
+import com.google.code.kaptcha.Constants;
+import com.stylefeng.guns.core.common.exception.InvalidKaptchaException;
+import com.stylefeng.guns.core.log.factory.LogTaskFactory;
+import com.stylefeng.guns.core.util.ApiMenuFilter;
 
 /**
  * 登录控制器
@@ -76,21 +76,12 @@ public class LoginController extends BaseController {
 
         //获取用户头像
         Integer id = ShiroKit.getUser().getId();
-        User user = userService.selectById(id);
+        User user = userService.getById(id);
         String avatar = user.getAvatar();
         model.addAttribute("avatar", avatar);
         
         String contextPath = request.getContextPath();
         model.addAttribute("ctxPath", contextPath);
-        model.addAttribute("address", "");
-        for (MenuNode menu : menus) {
-            for (String privilege : alertFeverPrivilegeList) {
-                if (privilege.equals(menu.getUrl())) {
-                    model.addAttribute("address", "http://" + bdtdProperties.getIp() == null ? IpUtil.getLocalAddress() : bdtdProperties.getIp() + ":" + this.port + this.contextPath);
-                    return "/index.html";
-                }
-            }
-        }
         return "/index.html";
     }
 

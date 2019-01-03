@@ -23,7 +23,6 @@ import com.bdtd.card.base.common.util.DateUtil;
 import com.bdtd.card.base.common.util.RandomUtil;
 import com.bdtd.card.base.common.util.StringUtil;
 import com.bdtd.card.base.common.web.util.model.Model2SqlEntity;
-import com.bdtd.card.base.common.web.wrapper.MybatisCustomWrapper;
 
 public class CommonUtils {
 	
@@ -263,67 +262,67 @@ public class CommonUtils {
 		}
 	}
 
-	public static <T> Wrapper<T> handleRequestParams(Wrapper<T> wrapper, Map<String, Model2SqlEntity> paramMap) {
-		if (paramMap == null || paramMap.size() == 0) {
-			return wrapper;
-		}
-
-		for (Map.Entry<String, Model2SqlEntity> entry : paramMap.entrySet()) {
-			Model2SqlEntity entity = entry.getValue();
-			String columnName = entity.getColumnName();
-			List<Object> values = entity.getValues();
-			EnumOperator operator = entity.getOperator();
-			if (!checkValues(values)) {
-				continue;
-			}
-
-			Object value = values.get(0);
-
-			switch (operator) {
-			case EQ:
-				wrapper.and().eq(columnName, value);
-				break;
-			case LIKE:
-				if (value instanceof String) {
-					wrapper.and().like(columnName, (String) value);
-				}
-				break;
-			case LT:
-				wrapper.and().lt(columnName, value);
-				break;
-			case LE:
-				wrapper.and().le(columnName, value);
-				break;
-			case GT:
-				wrapper.and().gt(columnName, value);
-				break;
-			case GE:
-				wrapper.and().ge(columnName, value);
-				break;
-			case IN:
-				wrapper.and().in(columnName, values);
-				break;
-			case NE:
-				wrapper.and().ne(columnName, value);
-				break;
-			case BETWEEN:
-				if (values.size() > 1) {
-					wrapper.and().between(columnName, values.get(0), values.get(1));
-				}
-				break;
-			case BIT:
-				((MybatisCustomWrapper<T>) wrapper.and()).bit(columnName, value);
-				break;
-			case XOR:
-				((MybatisCustomWrapper<T>) wrapper.and()).unbit(columnName, value);
-				break;
-
-			default:
-				break;
-			}
-		}
-		return wrapper;
-	}
+//	public static <T> QueryWrapper<T> handleRequestParams(QueryWrapper<T> wrapper, Map<String, Model2SqlEntity> paramMap) {
+//		if (paramMap == null || paramMap.size() == 0) {
+//			return wrapper;
+//		}
+//
+//		for (Map.Entry<String, Model2SqlEntity> entry : paramMap.entrySet()) {
+//			Model2SqlEntity entity = entry.getValue();
+//			String columnName = entity.getColumnName();
+//			List<Object> values = entity.getValues();
+//			EnumOperator operator = entity.getOperator();
+//			if (!checkValues(values)) {
+//				continue;
+//			}
+//
+//			Object value = values.get(0);
+//
+//			switch (operator) {
+//			case EQ:
+//				wrapper.and().eq(columnName, value);
+//				break;
+//			case LIKE:
+//				if (value instanceof String) {
+//					wrapper.and().like(columnName, (String) value);
+//				}
+//				break;
+//			case LT:
+//				wrapper.and().lt(columnName, value);
+//				break;
+//			case LE:
+//				wrapper.and().le(columnName, value);
+//				break;
+//			case GT:
+//				wrapper.and().gt(columnName, value);
+//				break;
+//			case GE:
+//				wrapper.and().ge(columnName, value);
+//				break;
+//			case IN:
+//				wrapper.and().in(columnName, values);
+//				break;
+//			case NE:
+//				wrapper.and().ne(columnName, value);
+//				break;
+//			case BETWEEN:
+//				if (values.size() > 1) {
+//					wrapper.and().between(columnName, values.get(0), values.get(1));
+//				}
+//				break;
+//			case BIT:
+//				((MybatisCustomWrapper<T>) wrapper.and()).bit(columnName, value);
+//				break;
+//			case XOR:
+//				((MybatisCustomWrapper<T>) wrapper.and()).unbit(columnName, value);
+//				break;
+//
+//			default:
+//				break;
+//			}
+//		}
+//		return wrapper;
+//	}
 
 	@SuppressWarnings("unchecked")
 	public static Map<String, Model2SqlEntity> createModel2SqlEntityMap(Object... objs) {

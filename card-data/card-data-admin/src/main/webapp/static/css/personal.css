@@ -1,0 +1,198 @@
+#container {
+	width: 1280px;
+	height: 1024px;
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+	font-family: "Microsoft YaHei";
+	align-items: center;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+#header {
+	width: 100%;
+	flex: 122;
+	background: url("../img/personal/header.png") no-repeat;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+
+#content {
+	position: relative;
+	width: 100%;
+	flex: 825;
+	background: url("../img/personal/content.png") no-repeat;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	box-sizing: border-box;
+}
+
+#list {
+	position: absolute;
+	width: 91.7%;
+	height: 92.18%;
+	top: 30px;
+	left: 53px;
+	/*background-color: #c4e2c7;*/
+	background-image: url("../img/personal/list_bg.png");
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	border-radius: 12px;
+	box-shadow: 5px 5px 10px #5fa0c4;
+	color: rgb(38, 95, 145);
+}
+
+#footer {
+	width: 100%;
+	flex: 77;
+	background: url("../img/personal/footer.png") no-repeat;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	font-size: 26px;
+	color: #eeeeee;
+	box-sizing: border-box;
+}
+
+#footer-time {
+	height: 77px;
+	line-height: 77px;
+	width: 500px;
+	font-size: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#btn-footer {
+	position: absolute;
+	width: 50%;
+	height: 80px;
+	box-sizing: border-box;
+	bottom: 20px;
+	right: 10px;
+}
+
+.btn-item {
+	position: relative;
+	float: right;
+    width: 117px;
+    height: 48px;
+	box-sizing: border-box;
+    margin-left: 10px;
+	
+}
+
+#btn-footer > .btn-item > a {
+	display: inline-block;
+	width: 117px;
+	height: 48px;
+}
+
+.btn-item-large {
+    position: relative;
+    float: right;
+    width: 180px;
+    height: 70px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+
+.btn-item-large-detail {
+    position: absolute;
+    width: 180px;
+    height: 70px;
+    box-sizing: border-box;
+    right: 50px;
+    bottom: 30px
+}
+
+#btn-footer > .btn-item-large > a {
+	display: inline-block;
+    width: 180px;
+    height: 70px;
+}
+
+#btn-footer div:first-of-type {
+	margin-right: 30px;
+}
+
+.btn-item>a {
+	display: inline-block;
+	width: 180px;
+	height: 71px;
+} 
+.btn-item > a > img {
+	border-radius: 10px;
+}
+
+#user-info {
+	box-sizing: border-box;
+	height: 60px;
+	line-height: 60px;
+	width: 100%;
+	margin: 8px 30px;
+	/*background: #cacaca;*/
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#user-info span {
+	width: 100px;
+	padding-right: 30px;
+}
+
+#patient-title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#patient-title span {
+	font-size: 36px;
+	font-weight: 600;
+	letter-spacing: 6px;
+}
+
+#patient-table {
+    position: relative;
+	width: 98%;
+	height: 65%;
+	margin: 0 20px;
+    overflow:scroll;
+}
+
+th, td {
+	font-size: 22px !important;
+	font-family: "Microsoft YaHei" !important;
+	text-align: center !important;
+	border-bottom: 1px solid rgba(38, 95, 136, 0.2) !important;
+	margin: 18px auto !important;
+	overflow: hidden !important;
+	word-wrap:break-word;
+}
+
+td {
+}
+
+thead {
+	border-top: 1px solid #265f91 !important;
+	border-bottom: 1px solid #265f91 !important;
+}
+
+#patient-table > .table {
+    table-layout: fixed; 
+}
+
+#user-info-btn-footer {
+	position: absolute;
+	width: 400px;
+	height: 70px;
+	bottom: 50px;
+	right: 70px;
+}
+
+#user-info-btn-footer > .user-info-btn-item {
+	float: right;
+	padding-left: 20px;
+}

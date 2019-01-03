@@ -34,8 +34,9 @@ public class ExportUtil {
         eeTemplate.callExportExcel(title, headers, fields, dataset, out, pattern, headerList, showSequence, hasTotal, landScape);
         
         if (isOnline) {
-        	DocConverter converter = new DocConverter(file.getAbsolutePath(), tmpPath + PDF_SUFFIX_PATH, fileName);
-        	converter.doc2pdf();
+        	// TODO
+//        	DocConverter converter = new DocConverter(file.getAbsolutePath(), tmpPath + PDF_SUFFIX_PATH, fileName);
+//        	converter.doc2pdf();
         } else {
         	DownLoadUtil.download(file, response, request, isOnline, fileName);
         }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.bdtd.card.data.admin.dao.DictMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.bdtd.card.data.admin.model.Dict">
+		<id column="id" property="id" />
+		<result column="pid" property="pid" />
+		<result column="name" property="name" />
+		<result column="en_name" property="enName" />
+		<result column="content" property="content" />
+		<result column="create_date" property="createDate" />
+		<result column="update_date" property="updateDate" />
+	</resultMap>
+
+	<!-- 通用查询结果列 -->
+	<sql id="Base_Column_List">
+		id, pid, name, en_name as enName, content, create_date AS createDate, update_date AS updateDate
+	</sql>
+
+	<select id="selectDictMapList" resultType="map">
+		select a.id, a.pid, a.name,a.en_name as enName,a.content, a.create_date AS createDate, a.update_date AS updateDate, b.name as parentName, a.pid as `key` from
+		sys_dict a
+		left join sys_dict b on a.pid = b.id where b.name is not null
+            order by a.en_name, a.name
+	</select>
+	
+	<select id="selectListObtainParentName" resultType="map">
+		select a.id, a.pid, a.name,a.en_name as enName,a.content, a.create_date AS createDate, a.update_date AS updateDate, b.name as parentName from sys_dict a 
+			left join sys_dict b on a.pid = b.id 
+			<where>
+				<trim prefixOverrides="and">
+					<if test="pid != null">
+					a.pid = #{pid}
+				</if>
+				<if test="name != null">
+					and a.name like concat('%', #{name}, '%')
+				</if>
+				</trim>
+			</where>
+			order by a.en_name, a.name
+	</select>
+</mapper>

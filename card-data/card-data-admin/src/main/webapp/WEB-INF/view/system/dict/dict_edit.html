@@ -1,0 +1,29 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <form id="editForm" class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+            <input type="hidden" id="pid" value="${item.pid}">
+
+            <div class="row">
+                <div class="col-sm-12 b-r">
+                            <#input id="name" name="中文类别" value="${item.name}" underline="true" dataOptions="required:true" />
+                            <#input id="enName" name="英文类别" value="${item.enName}" underline="true" />
+                            <#input id="name" name="内容" value="${item.content}" />
+                </div>
+
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="DictInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="DictInfoDlg.close()"/>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/dict/dict_info.js"></script>
+@}

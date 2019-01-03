@@ -1,0 +1,137 @@
+html, body { height: 100%; width: 100%; font-size: 12px; overflow: hidden; }
+textarea { border: solid 1px gray; }
+.sizeauto { width: auto; height: auto; }
+.scrollauto { overflow: auto; }
+
+.link { color: blue; cursor: pointer; }
+.tdtop td { vertical-align: top; }
+
+.martop5 { margin-top: 5px; }
+.martop10 { margin-top: 10px; }
+.martop15 { margin-top: 15px; }
+.martop20 { margin-top: 20px; }
+
+#footer { position: absolute; left: 0px; right: 0px; bottom: 25px; padding-top: 5px; background: #eeeee1; overflow: hidden; z-index: 1; }
+
+#footer { border-top: solid 1px #000; bottom: 0px; position: absolute; bottom: 0px; }
+#footer * { height: 16px; margin: 0px 2px; display: inline-block; vertical-align: top; line-height: 1em; height: auto; }
+#footer a { margin-top: 2px; }
+
+#login a img { color: transparent; }
+
+#mainwrap, .mainwrap { position: absolute; top: 0; left: 15px; right: 15px; bottom: 15px; overflow: hidden; }
+
+.labelright input { margin-right: 2px; }
+.labelright label { margin-right: 8px; }
+.inputwrapreset input { height: auto !important; width: auto !important; }
+thead { height: 25px; }
+th, td { padding: 6px 0 !important; margin: 0 0 !important;}
+th { vertical-align: middle; font-weight: bold; font-size: 14px; }
+td input { vertical-align: middle; }
+td { vertical-align: middle; word-break: break-all; }
+td input[type=checkbox] { height: 12px; width: 12px; }
+td.tr { font-weight: bold; font-size: 12px; }
+th { text-align: center; }
+a { color: Blue; }
+.cellbor { border: solid 1px #d8d8d8; }
+.cellbor td, .cellbor th { border: solid 1px #e6e6e6; padding: 8px 2px; }
+table tr.line td, table.line tr td { border-bottom: solid 1px #e1e1e1; }
+table tr.noline td { border: none; }
+#edittext { width: 700px; overflow: auto; }
+/*操作对话框*/
+.mainwrapassist { position: absolute; top: 32px; left: 0px; bottom: 40px; right: 0px; overflow-y: auto; overflow-x: hidden; }
+.toolbar button, #statusbar button, .statusbar button, .btnface, .footbtn { color: ButtonFace; background: #3f4b62; border: solid 1px #2d3950; border-radius: 3px; padding: 6px 10px; font-size: 12px; word-spacing: 10px; line-height: 1em; font-family: 微软雅黑; vertical-align: middle; display: inline-block; }
+#statusbar, .statusbar { position: absolute; left: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: 1; }
+
+.scrollauto > tbody > tr > td > div { height: 100%; overflow: hidden; overflow-y: auto; }
+
+
+.lightbox { position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; vertical-align: top; }
+.lightbox .mainwrapassist { bottom: 30px; }
+.lightbox iframe { width: 100%; height: 100%; border: none; border: solid 1px #e1e1e1; border-radius: 3px; }
+
+.sizeauto { width: auto; height: auto; overflow: hidden; }
+.nomargin { top: 0px; right: 0px; left: 0px; bottom: 0px; }
+.norightmargin { right: 0px; }
+.notopmargin { top: 0px; }
+
+.mainwrapassist.notoolbar { top: 0px; }
+.mainwrapassist.notitletoolbar { top: 0px; }
+.mainwrapassist.nostatusbar { bottom: 0px; }
+#statusbar object, .statusbar object { vertical-align: top; }
+
+.w650 .slipwrap { width: 650px; }
+.w480 .slipwrap { width: 480px; }
+.w580 .slipwrap { width: 580px; }
+.w500 .slipwrap { width: 500px; }
+.w610 .slipwrap { width: 610px; }
+.w370 .slipwrap { width: 370px; }
+.w350 .slipwrap { width: 350px; }
+.w300 .slipwrap { width: 300px; }
+
+.labelright input { margin-right: 2px; }
+.labelright label { margin-right: 8px; }
+.inputwrapreset input { height: auto !important; width: auto !important; }
+
+input { border: solid 1px gray; padding: 2px; }
+input[type=checkbox], input[type=radio] { border: none; }
+
+.normal { padding: 2px; margin-left: 5px; }
+.error { border: solid 1px red; color: Red; background: url(img/error.jpg) no-repeat 5px center; padding: 2px; padding-left: 25px; margin-left: 5px; }
+.succeed { color: #39bf50; background: url(img/ok.jpg) no-repeat 5px center; padding: 2px; padding-left: 25px; margin-left: 5px; }
+
+.btndelete { cursor: pointer; }
+.font12 { font-size: 12px; }
+.font14 { font-size: 14px; }
+.font20 { font-size: 20px; }
+
+.pagenav { background-color: gray; height: 30px; line-height: 30px; }
+.pagenav td a { color: white; font-weight: bold; }
+
+.pagination a { padding: 5px; }
+.pagination a.selected { color: red; font-weight: bold; font-size: 1.2em; }
+
+.ifrmenulist a { display: block; text-align: right; font-size: 12px; height: 25px; color: #3f4b62; }
+.ifrmenulist a:hover, .ifrmenulist a.selected { color: red; font-weight: bold; font-size: 14px; font-family: 微软雅黑; }
+.ifrmenulist a:hover { color: black; }
+
+.lanmubankuai { padding-right: 2em; line-height: 22px; }
+.lanmubankuai li.line { line-height: 24px; border-bottom: dashed 1px gray; }
+.lanmubankuai li input { margin-right: 5px; }
+.lanmubankuai.pad0 { padding: 0px; }
+.lanmubankuai.marleft2m { margin-left: -2em; }
+.menulayer { margin-left: 2em; }
+.menulayer.deploy { display: none; }
+.lanmubankuai > .menulayer { margin-left: 0; }
+
+
+/*标题切换样式*/
+.tabmenu { width: 100%; height: 32px; border-bottom: solid 1px #e4e4ee; }
+.tabmenu li { font-size: 14px; line-height: 1em; float: left; padding: 0px 20px; margin-top: 1px; text-align: center; cursor: pointer; line-height: 30px; }
+.tabmenu li.selected, .tabmenu li:hover { border-bottom: solid 1px #2a8fdb; background: white; }
+
+.tabtitle { width: 100%; height: 32px; border-bottom: solid 1px #e4e4ee; }
+.tabtitle h2 { float: left; font-size: 14px; line-height: 1em; border-bottom: solid 1px #2a8fdb; margin-top: 1px; text-align: center; cursor: pointer; line-height: 30px; padding: 0px 20px; }
+
+.horizontalslipwrap { overflow: hidden; }
+.horizontalslipwrap .slipwrap { float: left; overflow: hidden; }
+
+#copytxt { padding: 0 20px; }
+
+.calendarfooter { border-top: solid 1px gray; padding: 2px; }
+.calendarfooter select { appearance: normal; -ms-appearance: normal }
+
+        
+        .bottom-info {
+            position: absolute;
+            display: flex;
+            width: 90%;
+            box-sizing: border-box;
+            bottom: 5px;
+            left: 20px;
+            font-size: 14px;
+        }
+        
+        .bottom-item {
+            flex: 1;
+        }

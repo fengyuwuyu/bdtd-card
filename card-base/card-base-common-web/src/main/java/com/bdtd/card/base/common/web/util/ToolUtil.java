@@ -39,7 +39,6 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.beetl.core.Configuration;
@@ -66,7 +65,6 @@ public class ToolUtil {
 
 	private static Map<String, Map<String, Boolean>> nullableMap = new HashMap<>();
 
-	@Resource(name = "bizDataSource")
 	public void setDs(DataSource ds) {
 		ToolUtil.ds = ds;
 	}

@@ -1,5 +1,5 @@
 server:
-  port: 10301
+  port: 13001
   
 ###################  服务配置  ###################
 bdtd:
@@ -76,8 +76,8 @@ spring:
 logging:
   config: classpath:log4j2.xml
   level.root: info
-#  level.com.bdtd.card: debug
-#  level.com.stylefeng.guns.modular.system.dao: debug
+#  level.com.bdtd.card: info
+#  level.com.bdtd.card.data.admin.dao: debug
 #  level.com.stylefeng.guns.core.aop.FileLogAop: debug
   path: logs/
   file: card.log

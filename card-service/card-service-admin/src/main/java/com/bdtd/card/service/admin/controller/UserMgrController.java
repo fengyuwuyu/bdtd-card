@@ -32,23 +32,20 @@ import com.bdtd.card.base.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.dao.UserMapper;
 import com.bdtd.card.data.admin.datascope.DataScope;
 import com.bdtd.card.data.admin.model.User;
+import com.bdtd.card.data.common.util.Db;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
 import com.bdtd.card.service.admin.config.shiro.ShiroUser;
 import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.UserDict;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.factory.UserFactory;
+import com.bdtd.card.service.admin.log.LogObjectHolder;
+import com.bdtd.card.service.admin.model.UserDto;
+import com.bdtd.card.service.admin.model.enums.EnumGender;
+import com.bdtd.card.service.admin.model.enums.EnumRoleType;
+import com.bdtd.card.service.admin.model.enums.ManagerStatus;
 import com.bdtd.card.service.admin.service.IUserService;
-import com.stylefeng.guns.config.properties.GunsProperties;
-import com.stylefeng.guns.core.EnumRoleType;
-import com.stylefeng.guns.core.common.constant.dictmap.UserDict;
-import com.stylefeng.guns.core.common.constant.state.ManagerStatus;
-import com.stylefeng.guns.core.db.Db;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.core.model.EnumGender;
-import com.stylefeng.guns.modular.system.factory.UserFactory;
-import com.stylefeng.guns.modular.system.transfer.UserDto;
-import com.stylefeng.guns.modular.system.warpper.UserWarpper;
-import com.stylefeng.guns.scmmain.model.DtUser;
-import com.stylefeng.guns.scmmain.service.IDtUserService;
+import com.bdtd.card.service.admin.wrapper.UserWarpper;
 
 /**
  * 系统管理员控制器
@@ -211,7 +208,7 @@ public class UserMgrController extends BaseController {
         user.setStatus(ManagerStatus.OK.getCode());
         user.setCreatetime(new Date());
 
-        this.userService.insert(UserFactory.createUser(user));
+        this.userService.save(UserFactory.createUser(user));
         return SUCCESS_TIP;
     }
 

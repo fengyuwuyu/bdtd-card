@@ -21,7 +21,7 @@ import com.bdtd.card.service.admin.service.ILoginLogService;
 public class LoginLogServiceImpl extends ServiceImpl<LoginLogMapper, LoginLog> implements ILoginLogService {
 
     @Override
-    public List<Map<String, Object>> getLoginLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String orderByField, boolean asc) {
-        return this.baseMapper.getLoginLogs(page, beginTime, endTime, logName, orderByField, asc);
+    public List<Map<String, Object>> getLoginLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String[] ascs, String[] descs) {
+        return this.baseMapper.getLoginLogs(page, beginTime, endTime, logName, ascs, descs);
     }
 }

@@ -29,11 +29,20 @@ spring:
       exclude: static/**,WEB-INF/view/**
   aop:
     proxy-target-class: true #false为启用jdk默认动态代理,true为cglib动态代理
-    
-
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/view
+  http:
+    converters:
+      preferred-json-mapper: fastjson
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:mybatis/*/*Mapper.xml
+  mapper-locations: classpath*:com/bdtd/card/data/**/dao/mapper/*Mapper.xml
   type-aliases-package: com.bdtd.card.data.*.model
   global-config:
     db-config:
@@ -84,7 +93,7 @@ spring:
 logging:
 #  config: classpath:log4j2.xml
   level.root: info
-  level.com.bdtd.card: debug
+#  level.com.bdtd.card: debug
 #  level.com.bdtd.card.data.admin.dao: debug
 #  level.com.stylefeng.guns.core.aop.FileLogAop: debug
   path: logs/

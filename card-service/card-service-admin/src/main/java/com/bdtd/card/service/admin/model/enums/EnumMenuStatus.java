@@ -3,6 +3,8 @@ package com.bdtd.card.service.admin.model.enums;
 /**
  * 菜单的状态
  *
+ * @author 
+ * @Date 2017年1月22日 下午12:14:59
  */
 public enum EnumMenuStatus {
 

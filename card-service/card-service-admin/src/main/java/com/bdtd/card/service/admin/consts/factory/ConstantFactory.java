@@ -241,7 +241,7 @@ public class ConstantFactory implements IConstantFactory {
         temp.setName(name);
         QueryWrapper<Dict> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("name", name);
-		Dict dict = dictMapper.selectOne(queryWrapper );
+		Dict dict = dictMapper.selectOne(queryWrapper);
         if (dict == null) {
             return "";
         } else {

@@ -20,6 +20,7 @@ public interface LoginLogMapper extends BaseMapper<LoginLog> {
     /**
      * 获取登录日志
      */
-    List<Map<String, Object>> getLoginLogs(@Param("page") Page<OperationLog> page, @Param("beginTime") String beginTime, @Param("endTime") String endTime, @Param("logName") String logName, @Param("orderByField") String orderByField, @Param("isAsc") boolean isAsc);
+    List<Map<String, Object>> getLoginLogs(@Param("page") Page<OperationLog> page, @Param("beginTime") String beginTime, @Param("endTime") String endTime, 
+    		@Param("logName") String logName, @Param("ascs") String[] ascs, @Param("descs") String[] descs);
 
 }

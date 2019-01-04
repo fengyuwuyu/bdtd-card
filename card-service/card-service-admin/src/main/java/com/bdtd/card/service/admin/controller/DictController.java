@@ -83,11 +83,6 @@ public class DictController extends BaseController {
     @RequestMapping(value = "/list/{pid}")
     @ResponseBody
     public Object list(@PathVariable Integer pid, String condition, Integer offset, Integer limit) {
-    	QueryWrapper<Dict> wrapper = new QueryWrapper<>();
-    	wrapper.like("name", condition);
-    	if (pid != null) {
-    		wrapper.and().eq("pid", pid);
-    	}
     	return dictService.selectListObtainParentName(pid, condition);
     }
 

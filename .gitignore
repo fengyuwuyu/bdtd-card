@@ -19,3 +19,5 @@ target/
 /*.factorypath
 .apt_generated
 /velocity.log.1
+*.gz
+*.tmp

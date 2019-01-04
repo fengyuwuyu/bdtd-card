@@ -23,16 +23,16 @@ import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.annotation.Permission;
 import com.bdtd.card.base.common.web.base.BaseController;
 import com.bdtd.card.base.common.web.base.Tip;
+import com.bdtd.card.base.common.web.util.BeanKit;
 import com.bdtd.card.base.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.Menu;
 import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.MenuDict;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.log.LogObjectHolder;
+import com.bdtd.card.service.admin.model.enums.EnumMenuStatus;
 import com.bdtd.card.service.admin.service.IMenuService;
-import com.stylefeng.guns.core.common.constant.dictmap.MenuDict;
-import com.stylefeng.guns.core.common.constant.state.MenuStatus;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.core.support.BeanKit;
-import com.stylefeng.guns.modular.system.warpper.MenuWarpper;
+import com.bdtd.card.service.admin.wrapper.MenuWarpper;
 
 /**
  * 菜单控制器
@@ -148,7 +148,7 @@ public class MenuController extends BaseController {
         //设置父级菜单编号
         menuSetPcode(menu);
 
-        menu.setStatus(MenuStatus.ENABLE.getCode());
+        menu.setStatus(EnumMenuStatus.ENABLE.getCode());
         this.menuService.save(menu);
         return SUCCESS_TIP;
     }

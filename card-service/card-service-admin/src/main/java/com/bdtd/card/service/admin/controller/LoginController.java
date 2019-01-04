@@ -1,17 +1,12 @@
 package com.bdtd.card.service.admin.controller;
 
-import static com.stylefeng.guns.core.support.HttpKit.getIp;
-
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.LogManager;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bdtd.card.base.common.model.MenuNode;
 import com.bdtd.card.base.common.web.base.BaseController;
-import com.bdtd.card.base.common.web.properties.BdtdProperties;
 import com.bdtd.card.base.common.web.util.IpUtil;
 import com.bdtd.card.base.common.web.util.KaptchaUtil;
 import com.bdtd.card.base.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
 import com.bdtd.card.service.admin.config.shiro.ShiroUser;
+import com.bdtd.card.service.admin.exception.InvalidKaptchaException;
+import com.bdtd.card.service.admin.log.LogManager;
+import com.bdtd.card.service.admin.log.LogTaskFactory;
 import com.bdtd.card.service.admin.service.IMenuService;
 import com.bdtd.card.service.admin.service.IUserService;
+import com.bdtd.card.service.admin.util.ApiMenuFilter;
 import com.google.code.kaptcha.Constants;
-import com.stylefeng.guns.core.common.exception.InvalidKaptchaException;
-import com.stylefeng.guns.core.log.factory.LogTaskFactory;
-import com.stylefeng.guns.core.util.ApiMenuFilter;
 
 /**
  * 登录控制器
@@ -47,14 +42,6 @@ public class LoginController extends BaseController {
 
     @Autowired
     private IUserService userService;
-    @Value("${server.port}")
-    private int port;
-    @Value("${server.context-path}")
-    private String contextPath;
-    @Autowired
-    private BdtdProperties bdtdProperties;
-    
-    private List<String> alertFeverPrivilegeList = Arrays.asList("/patientInfo", "/comprehensive/fever");
 
     /**
      * 跳转到主页
@@ -132,7 +119,7 @@ public class LoginController extends BaseController {
         super.getSession().setAttribute("shiroUser", shiroUser);
         super.getSession().setAttribute("username", shiroUser.getAccount());
 
-        LogManager.me().executeLog(LogTaskFactory.loginLog(shiroUser.getId(), IpUtil.getIp()));
+        LogManager.me().executeLog(LogTaskFactory.loginLog(shiroUser.getId(), IpUtil.getLocalAddress()));
 
         ShiroKit.getSession().setAttribute("sessionFlag", true);
 
@@ -144,7 +131,7 @@ public class LoginController extends BaseController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logOut() {
-        LogManager.me().executeLog(LogTaskFactory.exitLog(ShiroKit.getUser().getId(), getIp()));
+        LogManager.me().executeLog(LogTaskFactory.exitLog(ShiroKit.getUser().getId(), IpUtil.getLocalAddress()));
         ShiroKit.getSubject().logout();
         return REDIRECT + "/login";
     }

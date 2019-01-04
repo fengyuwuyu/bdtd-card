@@ -26,16 +26,14 @@ import com.bdtd.card.base.common.web.base.Tip;
 import com.bdtd.card.base.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.Role;
 import com.bdtd.card.data.admin.model.User;
-import com.bdtd.card.service.admin.cache.Cache;
 import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.consts.RoleDict;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.log.LogObjectHolder;
+import com.bdtd.card.service.admin.model.enums.EnumRoleType;
 import com.bdtd.card.service.admin.service.IRoleService;
 import com.bdtd.card.service.admin.service.IUserService;
-import com.stylefeng.guns.core.EnumRoleType;
-import com.stylefeng.guns.core.cache.CacheKit;
-import com.stylefeng.guns.core.common.constant.dictmap.RoleDict;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.modular.system.warpper.RoleWarpper;
+import com.bdtd.card.service.admin.wrapper.RoleWarpper;
 
 /**
  * 角色控制器
@@ -151,9 +149,6 @@ public class RoleController extends BaseController {
         }
         
         this.roleService.updateById(role);
-
-        //删除缓存
-        CacheKit.removeAll(Cache.CONSTANT);
         return SUCCESS_TIP;
     }
 
@@ -178,9 +173,6 @@ public class RoleController extends BaseController {
         LogObjectHolder.me().set(ConstantFactory.me().getSingleRoleName(roleId));
 
         this.roleService.delRoleById(roleId);
-
-        //删除缓存
-        CacheKit.removeAll(Cache.CONSTANT);
         return SUCCESS_TIP;
     }
 

@@ -20,7 +20,7 @@ import com.bdtd.card.service.admin.service.IOperationLogService;
 public class OperationLogServiceImpl extends ServiceImpl<OperationLogMapper, OperationLog> implements IOperationLogService {
 
     @Override
-    public List<Map<String, Object>> getOperationLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String s, String orderByField, boolean asc) {
-        return this.baseMapper.getOperationLogs(page, beginTime, endTime, logName, s, orderByField, asc);
+    public List<Map<String, Object>> getOperationLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String s, String[] ascs, String[] descs) {
+        return this.baseMapper.getOperationLogs(page, beginTime, endTime, logName, s, ascs, descs);
     }
 }

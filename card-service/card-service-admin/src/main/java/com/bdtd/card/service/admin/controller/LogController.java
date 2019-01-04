@@ -15,13 +15,13 @@ import com.baomidou.mybatisplus.extension.toolkit.SqlRunner;
 import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.annotation.Permission;
 import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.util.BeanKit;
+import com.bdtd.card.base.common.web.util.PageFactory;
 import com.bdtd.card.data.admin.model.OperationLog;
 import com.bdtd.card.service.admin.consts.Const;
+import com.bdtd.card.service.admin.model.enums.EnumBizLogType;
 import com.bdtd.card.service.admin.service.IOperationLogService;
-import com.stylefeng.guns.core.common.constant.factory.PageFactory;
-import com.stylefeng.guns.core.common.constant.state.BizLogType;
-import com.stylefeng.guns.core.support.BeanKit;
-import com.stylefeng.guns.modular.system.warpper.LogWarpper;
+import com.bdtd.card.service.admin.wrapper.LogWarpper;
 
 /**
  * 日志管理的控制器
@@ -49,12 +49,13 @@ public class LogController extends BaseController {
     /**
      * 查询操作日志列表
      */
-    @RequestMapping("/list")
+    @SuppressWarnings("unchecked")
+	@RequestMapping("/list")
     @Permission(Const.ADMIN_NAME)
     @ResponseBody
     public Object list(@RequestParam(required = false) String beginTime, @RequestParam(required = false) String endTime, @RequestParam(required = false) String logName, @RequestParam(required = false) Integer logType) {
         Page<OperationLog> page = new PageFactory<OperationLog>().defaultPage();
-        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName, BizLogType.valueOf(logType), page.getOrderByField(), page.isAsc());
+        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName, EnumBizLogType.valueOf(logType), page.ascs(), page.descs());
         page.setRecords((List<OperationLog>) new LogWarpper(result).warp());
         return super.packForBT(page);
     }
@@ -66,7 +67,7 @@ public class LogController extends BaseController {
     @Permission(Const.ADMIN_NAME)
     @ResponseBody
     public Object detail(@PathVariable Integer id) {
-        OperationLog operationLog = operationLogService.selectById(id);
+        OperationLog operationLog = operationLogService.getById(id);
         Map<String, Object> stringObjectMap = BeanKit.beanToMap(operationLog);
         return super.warpObject(new LogWarpper(stringObjectMap));
     }

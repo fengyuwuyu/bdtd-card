@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
+import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
@@ -23,10 +25,10 @@ public class MybatisPlusConfig {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
-//    @Bean
-//    public ISqlInjector LogicSqlInjector() {
-//    	return new LogicSqlInjector();
-//    }
+    @Bean
+    public ISqlInjector LogicSqlInjector() {
+    	return new LogicSqlInjector();
+    }
 
     /**
      * mybatis-plus分页插件
@@ -43,16 +45,6 @@ public class MybatisPlusConfig {
 //    public DataScopeInterceptor dataScopeInterceptor() {
 //        return new DataScopeInterceptor();
 //    }
-
-    /**
-     * 自定义注入语句
-     *
-     * @return
-     */
-    @Bean
-    public MybatisPlusSqlInjector mybatisPlusSqlInjector() {
-        return new MybatisPlusSqlInjector();
-    }
 
     /**
      * 乐观锁mybatis插件

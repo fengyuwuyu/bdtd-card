@@ -14,11 +14,11 @@ import com.baomidou.mybatisplus.extension.toolkit.SqlRunner;
 import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.annotation.Permission;
 import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.base.common.web.util.PageFactory;
 import com.bdtd.card.data.admin.model.OperationLog;
 import com.bdtd.card.service.admin.consts.Const;
 import com.bdtd.card.service.admin.service.ILoginLogService;
-import com.stylefeng.guns.core.common.constant.factory.PageFactory;
-import com.stylefeng.guns.modular.system.warpper.LogWarpper;
+import com.bdtd.card.service.admin.wrapper.LogWarpper;
 
 /**
  * 日志管理的控制器
@@ -46,12 +46,13 @@ public class LoginLogController extends BaseController {
     /**
      * 查询登录日志列表
      */
-    @RequestMapping("/list")
+    @SuppressWarnings("unchecked")
+	@RequestMapping("/list")
     @Permission(Const.ADMIN_NAME)
     @ResponseBody
     public Object list(@RequestParam(required = false) String beginTime, @RequestParam(required = false) String endTime, @RequestParam(required = false) String logName) {
         Page<OperationLog> page = new PageFactory<OperationLog>().defaultPage();
-        List<Map<String, Object>> result = loginLogService.getLoginLogs(page, beginTime, endTime, logName, page.getOrderByField(), page.isAsc());
+        List<Map<String, Object>> result = loginLogService.getLoginLogs(page, beginTime, endTime, logName, page.ascs(), page.descs());
         page.setRecords((List<OperationLog>) new LogWarpper(result).warp());
         return super.packForBT(page);
     }

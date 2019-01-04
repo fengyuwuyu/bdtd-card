@@ -19,11 +19,11 @@ import com.bdtd.card.base.common.web.base.BaseController;
 import com.bdtd.card.base.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.Notice;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
+import com.bdtd.card.service.admin.consts.NoticeMap;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
+import com.bdtd.card.service.admin.log.LogObjectHolder;
 import com.bdtd.card.service.admin.service.INoticeService;
-import com.stylefeng.guns.core.common.constant.dictmap.NoticeMap;
-import com.stylefeng.guns.core.log.LogObjectHolder;
-import com.stylefeng.guns.modular.system.warpper.NoticeWrapper;
+import com.bdtd.card.service.admin.wrapper.NoticeWrapper;
 
 /**
  * 通知控制器

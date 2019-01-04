@@ -17,5 +17,5 @@ public interface IOperationLogService extends IService<OperationLog> {
     /**
      * 获取操作日志列表
      */
-    List<Map<String, Object>> getOperationLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String s, String orderByField, boolean asc);
+    List<Map<String, Object>> getOperationLogs(Page<OperationLog> page, String beginTime, String endTime, String logName, String s, String[] ascs, String[] descs);
 }

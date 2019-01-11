@@ -3,7 +3,7 @@ package com.bdtd.card.base.common.web.util;
 import javax.servlet.http.HttpServletRequest;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.bdtd.card.base.common.web.model.EnumOrder;
+import com.bdtd.card.base.common.web.model.Order;
 
 /**
  * BootStrap Table默认的分页参数创建
@@ -24,7 +24,7 @@ public class PageFactory<T> {
             return page;
         } else {
             Page<T> page = new Page<>((offset / limit + 1), limit);
-            if (EnumOrder.ASC.getDes().equals(order)) {
+            if (Order.ASC.getDes().equals(order)) {
                 page.setAsc(sort);
             } else {
                 page.setDesc(sort);

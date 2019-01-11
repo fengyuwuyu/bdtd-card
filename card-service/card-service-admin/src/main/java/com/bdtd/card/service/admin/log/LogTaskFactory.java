@@ -11,8 +11,8 @@ import com.bdtd.card.data.admin.dao.OperationLogMapper;
 import com.bdtd.card.data.admin.model.LoginLog;
 import com.bdtd.card.data.admin.model.OperationLog;
 import com.bdtd.card.data.common.util.Db;
-import com.bdtd.card.service.admin.model.enums.EnumLogSucceed;
-import com.bdtd.card.service.admin.model.enums.EnumLogType;
+import com.bdtd.card.service.admin.model.enums.LogSucceed;
+import com.bdtd.card.service.admin.model.enums.LogType;
 
 /**
  * 日志操作任务创建工厂
@@ -31,7 +31,7 @@ public class LogTaskFactory {
             @Override
             public void run() {
                 try {
-                    LoginLog loginLog = LogFactory.createLoginLog(EnumLogType.LOGIN, userId, null, ip);
+                    LoginLog loginLog = LogFactory.createLoginLog(LogType.LOGIN, userId, null, ip);
                     loginLogMapper.insert(loginLog);
                 } catch (Exception e) {
                     logger.error("创建登录日志异常!", e);
@@ -45,7 +45,7 @@ public class LogTaskFactory {
             @Override
             public void run() {
                 LoginLog loginLog = LogFactory.createLoginLog(
-                        EnumLogType.LOGIN_FAIL, null, "账号:" + username + "," + msg, ip);
+                        LogType.LOGIN_FAIL, null, "账号:" + username + "," + msg, ip);
                 try {
                     loginLogMapper.insert(loginLog);
                 } catch (Exception e) {
@@ -59,7 +59,7 @@ public class LogTaskFactory {
         return new TimerTask() {
             @Override
             public void run() {
-                LoginLog loginLog = LogFactory.createLoginLog(EnumLogType.EXIT, userId, null,ip);
+                LoginLog loginLog = LogFactory.createLoginLog(LogType.EXIT, userId, null,ip);
                 try {
                     loginLogMapper.insert(loginLog);
                 } catch (Exception e) {
@@ -74,7 +74,7 @@ public class LogTaskFactory {
             @Override
             public void run() {
                 OperationLog operationLog = LogFactory.createOperationLog(
-                        EnumLogType.BUSSINESS, userId, bussinessName, clazzName, methodName, msg, EnumLogSucceed.SUCCESS);
+                        LogType.BUSSINESS, userId, bussinessName, clazzName, methodName, msg, LogSucceed.SUCCESS);
                 try {
                     operationLogMapper.insert(operationLog);
                 } catch (Exception e) {
@@ -90,7 +90,7 @@ public class LogTaskFactory {
             public void run() {
                 String msg = ToolUtil.getExceptionMsg(exception);
                 OperationLog operationLog = LogFactory.createOperationLog(
-                        EnumLogType.EXCEPTION, userId, "", null, null, msg, EnumLogSucceed.FAIL);
+                        LogType.EXCEPTION, userId, "", null, null, msg, LogSucceed.FAIL);
                 try {
                     operationLogMapper.insert(operationLog);
                 } catch (Exception e) {

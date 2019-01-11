@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.bdtd.card.base.common.consts.Consts;
-import com.bdtd.card.base.common.model.EnumOperator;
+import com.bdtd.card.base.common.model.Operator;
 import com.bdtd.card.base.common.util.DateUtil;
 import com.bdtd.card.base.common.util.RandomUtil;
 import com.bdtd.card.base.common.util.StringUtil;
@@ -236,16 +236,16 @@ public class CommonUtils {
 
 		if (beginDate != null && endDate != null) {
 			CommonUtils.handleRequestParams(wrapper, columnName, Arrays.asList(beginDate, endDate),
-					EnumOperator.BETWEEN);
+					Operator.BETWEEN);
 			return;
 		}
 
 		if (beginDate != null) {
-			CommonUtils.handleRequestParams(wrapper, columnName, beginDate, EnumOperator.GE);
+			CommonUtils.handleRequestParams(wrapper, columnName, beginDate, Operator.GE);
 			return;
 		}
 
-		CommonUtils.handleRequestParams(wrapper, columnName, endDate, EnumOperator.LE);
+		CommonUtils.handleRequestParams(wrapper, columnName, endDate, Operator.LE);
 	}
 
 	public static <T> Wrapper<T> handleRequestParams(Wrapper<T> wrapper, Object... objs) {
@@ -253,10 +253,10 @@ public class CommonUtils {
 	}
 
 	public static <T> void handleDateRequestParams(Wrapper<T> wrapper, String columnName, String date, String pattern,
-			EnumOperator operator) {
+			Operator operator) {
 		if (!StringUtil.isNullEmpty(date)) {
 			pattern = StringUtil.isNullEmpty(pattern) ? Consts.DATE_PATTERN : pattern;
-			operator = operator == null ? EnumOperator.GE : operator;
+			operator = operator == null ? Operator.GE : operator;
 			Date d = DateUtil.parse(date, pattern);
 			handleRequestParams(wrapper, createModel2SqlEntityMap(columnName, d, operator));
 		}
@@ -334,8 +334,8 @@ public class CommonUtils {
 
 		for (int i = 0; i < objs.length; i += 3) {
 			if (objs[i] instanceof String
-					&& (objs[i + 2] == null || (objs[i + 2] != null && objs[i + 2] instanceof EnumOperator))) {
-				EnumOperator operator = objs[i + 2] == null ? EnumOperator.EQ : (EnumOperator) objs[i + 2];
+					&& (objs[i + 2] == null || (objs[i + 2] != null && objs[i + 2] instanceof Operator))) {
+				Operator operator = objs[i + 2] == null ? Operator.EQ : (Operator) objs[i + 2];
 				if (objs[i + 1] instanceof List) {
 					paramMap.put(((String) objs[i]) + "-" + RandomUtil.randomString(6),
 							new Model2SqlEntity((String) objs[i], (List<Object>) objs[i + 1], operator));

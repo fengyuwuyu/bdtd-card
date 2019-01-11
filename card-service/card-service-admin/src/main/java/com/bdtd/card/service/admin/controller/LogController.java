@@ -19,7 +19,7 @@ import com.bdtd.card.base.common.web.util.BeanKit;
 import com.bdtd.card.base.common.web.util.PageFactory;
 import com.bdtd.card.data.admin.model.OperationLog;
 import com.bdtd.card.service.admin.consts.Const;
-import com.bdtd.card.service.admin.model.enums.EnumBizLogType;
+import com.bdtd.card.service.admin.model.enums.BizLogType;
 import com.bdtd.card.service.admin.service.IOperationLogService;
 import com.bdtd.card.service.admin.wrapper.LogWarpper;
 
@@ -55,7 +55,7 @@ public class LogController extends BaseController {
     @ResponseBody
     public Object list(@RequestParam(required = false) String beginTime, @RequestParam(required = false) String endTime, @RequestParam(required = false) String logName, @RequestParam(required = false) Integer logType) {
         Page<OperationLog> page = new PageFactory<OperationLog>().defaultPage();
-        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName, EnumBizLogType.valueOf(logType), page.ascs(), page.descs());
+        List<Map<String, Object>> result = operationLogService.getOperationLogs(page, beginTime, endTime, logName, BizLogType.valueOf(logType), page.ascs(), page.descs());
         page.setRecords((List<OperationLog>) new LogWarpper(result).warp());
         return super.packForBT(page);
     }

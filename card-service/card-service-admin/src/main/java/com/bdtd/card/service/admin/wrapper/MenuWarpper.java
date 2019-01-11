@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.bdtd.card.base.common.web.wrapper.BaseControllerWarpper;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
-import com.bdtd.card.service.admin.model.enums.EnumIsMenu;
+import com.bdtd.card.service.admin.model.enums.IsMenu;
 
 /**
  * 菜单列表的包装类
@@ -22,7 +22,7 @@ public class MenuWarpper extends BaseControllerWarpper {
     @Override
     public void warpTheMap(Map<String, Object> map) {
         map.put("statusName", ConstantFactory.me().getMenuStatusName((Integer) map.get("status")));
-        map.put("isMenuName", EnumIsMenu.valueOf((Integer) map.get("ismenu")));
+        map.put("isMenuName", IsMenu.valueOf((Integer) map.get("ismenu")));
     }
 
 }

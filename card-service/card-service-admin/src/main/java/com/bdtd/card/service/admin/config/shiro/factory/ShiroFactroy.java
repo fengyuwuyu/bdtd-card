@@ -20,7 +20,7 @@ import com.bdtd.card.data.admin.dao.UserMapper;
 import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.service.admin.config.shiro.ShiroUser;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
-import com.bdtd.card.service.admin.model.enums.EnumManagerStatus;
+import com.bdtd.card.service.admin.model.enums.ManagerStatus;
 
 @Service
 @DependsOn("springContextHolder")
@@ -46,7 +46,7 @@ public class ShiroFactroy implements IShiro {
             throw new CredentialsException();
         }
         // 账号被冻结
-        if (user.getStatus() != EnumManagerStatus.OK.getCode()) {
+        if (user.getStatus() != ManagerStatus.OK.getCode()) {
             throw new LockedAccountException();
         }
         return user;

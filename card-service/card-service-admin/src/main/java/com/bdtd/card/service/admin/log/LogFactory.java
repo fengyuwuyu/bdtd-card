@@ -4,8 +4,8 @@ import java.util.Date;
 
 import com.bdtd.card.data.admin.model.LoginLog;
 import com.bdtd.card.data.admin.model.OperationLog;
-import com.bdtd.card.service.admin.model.enums.EnumLogSucceed;
-import com.bdtd.card.service.admin.model.enums.EnumLogType;
+import com.bdtd.card.service.admin.model.enums.LogSucceed;
+import com.bdtd.card.service.admin.model.enums.LogType;
 
 /**
  * 日志对象创建工厂
@@ -18,7 +18,7 @@ public class LogFactory {
     /**
      * 创建操作日志
      */
-    public static OperationLog createOperationLog(EnumLogType logType, Integer userId, String bussinessName, String clazzName, String methodName, String msg, EnumLogSucceed succeed) {
+    public static OperationLog createOperationLog(LogType logType, Integer userId, String bussinessName, String clazzName, String methodName, String msg, LogSucceed succeed) {
         OperationLog operationLog = new OperationLog();
         operationLog.setLogtype(logType.getMessage());
         operationLog.setLogname(bussinessName);
@@ -34,12 +34,12 @@ public class LogFactory {
     /**
      * 创建登录日志
      */
-    public static LoginLog createLoginLog(EnumLogType logType, Integer userId, String msg, String ip) {
+    public static LoginLog createLoginLog(LogType logType, Integer userId, String msg, String ip) {
         LoginLog loginLog = new LoginLog();
         loginLog.setLogname(logType.getMessage());
         loginLog.setUserid(userId);
         loginLog.setCreatetime(new Date());
-        loginLog.setSucceed(EnumLogSucceed.SUCCESS.getMessage());
+        loginLog.setSucceed(LogSucceed.SUCCESS.getMessage());
         loginLog.setIp(ip);
         loginLog.setMessage(msg);
         return loginLog;

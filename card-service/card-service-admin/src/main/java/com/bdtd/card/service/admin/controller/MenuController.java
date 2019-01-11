@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.EnumBizException;
-import com.bdtd.card.base.common.model.EnumOriginMask;
+import com.bdtd.card.base.common.base.model.BizException;
+import com.bdtd.card.base.common.model.OriginMask;
 import com.bdtd.card.base.common.model.ZTreeNode;
 import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.annotation.Permission;
@@ -30,7 +30,7 @@ import com.bdtd.card.service.admin.consts.Const;
 import com.bdtd.card.service.admin.consts.MenuDict;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
 import com.bdtd.card.service.admin.log.LogObjectHolder;
-import com.bdtd.card.service.admin.model.enums.EnumMenuStatus;
+import com.bdtd.card.service.admin.model.enums.MenuStatus;
 import com.bdtd.card.service.admin.service.IMenuService;
 import com.bdtd.card.service.admin.wrapper.MenuWarpper;
 
@@ -62,7 +62,7 @@ public class MenuController extends BaseController {
      */
     @RequestMapping(value = "/menu_add")
     public String menuAdd(Model model) {
-        model.addAttribute("menuItemList", EnumOriginMask.select());
+        model.addAttribute("menuItemList", OriginMask.select());
         return PREFIX + "menu_add.html";
     }
 
@@ -73,7 +73,7 @@ public class MenuController extends BaseController {
     @RequestMapping(value = "/menu_edit/{menuId}")
     public String menuEdit(@PathVariable Long menuId, Model model) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         Menu menu = this.menuService.getById(menuId);
 
@@ -94,7 +94,7 @@ public class MenuController extends BaseController {
         menuMap.put("pcodeName", ConstantFactory.me().getMenuNameByCode(temp.getCode()));
         model.addAttribute("menu", menuMap);
         LogObjectHolder.me().set(menu);
-        model.addAttribute("menuItemList", EnumOriginMask.select());
+        model.addAttribute("menuItemList", OriginMask.select());
         return PREFIX + "menu_edit.html";
     }
 
@@ -107,7 +107,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip edit(@Valid Menu menu, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         //设置父级菜单编号
         menuSetPcode(menu);
@@ -136,19 +136,19 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip add(@Valid Menu menu, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
 
         //判断是否存在该编号
         String existedMenuName = ConstantFactory.me().getMenuNameByCode(menu.getCode());
         if (ToolUtil.isNotEmpty(existedMenuName)) {
-            throw new BdtdException(EnumBizException.EXISTED_THE_MENU);
+            throw new BdtdException(BizException.EXISTED_THE_MENU);
         }
 
         //设置父级菜单编号
         menuSetPcode(menu);
 
-        menu.setStatus(EnumMenuStatus.ENABLE.getCode());
+        menu.setStatus(MenuStatus.ENABLE.getCode());
         this.menuService.save(menu);
         return SUCCESS_TIP;
     }
@@ -162,7 +162,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip remove(@RequestParam Long menuId) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
 
         //缓存菜单的名称
@@ -179,7 +179,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip view(@PathVariable Long menuId) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         this.menuService.getById(menuId);
         return SUCCESS_TIP;
@@ -238,7 +238,7 @@ public class MenuController extends BaseController {
 
             //如果编号和父编号一致会导致无限递归
             if (menu.getCode().equals(menu.getPcode())) {
-                throw new BdtdException(EnumBizException.MENU_PCODE_COINCIDENCE);
+                throw new BdtdException(BizException.MENU_PCODE_COINCIDENCE);
             }
 
             menu.setLevels(pLevels + 1);

@@ -3,31 +3,31 @@ package com.bdtd.card.base.common.web.util.model;
 import java.util.Arrays;
 import java.util.List;
 
-import com.bdtd.card.base.common.model.EnumOperator;
+import com.bdtd.card.base.common.model.Operator;
 
 public class Model2SqlEntity {
 
     private String columnName;
     private List<Object> values;
-    private EnumOperator operator;
+    private Operator operator;
 
     public Model2SqlEntity() {
     }
 
 
     public Model2SqlEntity(String columnName, Object value) {
-        this(columnName, value, EnumOperator.EQ);
+        this(columnName, value, Operator.EQ);
     }
     
-    public Model2SqlEntity(String columnName, Object value, EnumOperator operator) {
+    public Model2SqlEntity(String columnName, Object value, Operator operator) {
         this(columnName, Arrays.asList(value), operator);
     }
     
     public Model2SqlEntity(String columnName, List<Object> values) {
-        this(columnName, values, EnumOperator.EQ);
+        this(columnName, values, Operator.EQ);
     }
 
-    public Model2SqlEntity(String columnName, List<Object> values, EnumOperator operator) {
+    public Model2SqlEntity(String columnName, List<Object> values, Operator operator) {
         this.columnName = columnName;
         this.values = values;
         this.operator = operator;
@@ -49,11 +49,11 @@ public class Model2SqlEntity {
         this.values = values;
     }
 
-    public EnumOperator getOperator() {
+    public Operator getOperator() {
         return operator;
     }
 
-    public void setOperator(EnumOperator operator) {
+    public void setOperator(Operator operator) {
         this.operator = operator;
     }
 

@@ -1,6 +1,6 @@
 package com.bdtd.card.base.common.base.exception;
 
-import com.bdtd.card.base.common.base.model.EnumServiceException;
+import com.bdtd.card.base.common.base.model.ServiceException;
 
 /**
  * 封装全局异常
@@ -16,7 +16,7 @@ public class BdtdException extends RuntimeException {
 
     private String message;
 
-    public BdtdException(EnumServiceException serviceExceptionEnum) {
+    public BdtdException(ServiceException serviceExceptionEnum) {
         this.code = serviceExceptionEnum.getCode();
         this.message = serviceExceptionEnum.getMessage();
     }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.base.model.BizException;
 import com.bdtd.card.base.common.model.ZTreeNode;
 import com.bdtd.card.base.common.util.Convert;
 import com.bdtd.card.base.common.util.StringUtil;
@@ -30,7 +30,7 @@ import com.bdtd.card.service.admin.consts.Const;
 import com.bdtd.card.service.admin.consts.RoleDict;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
 import com.bdtd.card.service.admin.log.LogObjectHolder;
-import com.bdtd.card.service.admin.model.enums.EnumRoleType;
+import com.bdtd.card.service.admin.model.enums.RoleType;
 import com.bdtd.card.service.admin.service.IRoleService;
 import com.bdtd.card.service.admin.service.IUserService;
 import com.bdtd.card.service.admin.wrapper.RoleWarpper;
@@ -66,7 +66,7 @@ public class RoleController extends BaseController {
      */
     @RequestMapping(value = "/role_add")
     public String roleAdd(Model model) {
-        model.addAttribute("roleTypeItemList", EnumRoleType.select());
+        model.addAttribute("roleTypeItemList", RoleType.select());
         return PREFIX + "/role_add.html";
     }
 
@@ -77,12 +77,12 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "/role_edit/{roleId}")
     public String roleEdit(@PathVariable Integer roleId, Model model) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         Role role = this.roleService.getById(roleId);
         model.addAttribute(role);
         model.addAttribute("pName", ConstantFactory.me().getSingleRoleName(role.getPid()));
-        model.addAttribute("roleTypeItemList", EnumRoleType.select());
+        model.addAttribute("roleTypeItemList", RoleType.select());
         LogObjectHolder.me().set(role);
         return PREFIX + "/role_edit.html";
     }
@@ -94,7 +94,7 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "/role_assign/{roleId}")
     public String roleAssign(@PathVariable("roleId") Integer roleId, Model model) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         model.addAttribute("roleId", roleId);
         model.addAttribute("roleName", ConstantFactory.me().getSingleRoleName(roleId));
@@ -121,7 +121,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip add(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         
         if (StringUtil.isNullEmpty(role.getTips())) {
@@ -141,7 +141,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip edit(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         
         if (StringUtil.isNullEmpty(role.getTips())) {
@@ -161,12 +161,12 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip remove(@RequestParam Integer roleId) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
 
         //不能删除超级管理员角色
         if (roleId.equals(Const.ADMIN_ROLE_ID)) {
-            throw new BdtdException(EnumBizException.CANT_DELETE_ADMIN);
+            throw new BdtdException(BizException.CANT_DELETE_ADMIN);
         }
 
         //缓存被删除的角色名称
@@ -183,7 +183,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip view(@PathVariable Integer roleId) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         this.roleService.getById(roleId);
         return SUCCESS_TIP;
@@ -198,7 +198,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip setAuthority(@RequestParam("roleId") Integer roleId, @RequestParam("ids") String ids) {
         if (ToolUtil.isOneEmpty(roleId)) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         this.roleService.setAuthority(roleId, ids);
         return SUCCESS_TIP;

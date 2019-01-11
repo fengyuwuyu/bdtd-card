@@ -253,7 +253,7 @@ public class MenuNode implements Comparable {
     public static List<MenuNode> clearBtn(List<MenuNode> nodes) {
         ArrayList<MenuNode> noBtns = new ArrayList<MenuNode>();
         for (MenuNode node : nodes) {
-            if(node.getIsmenu() == EnumOriginMask.YES.getType()){
+            if(node.getIsmenu() == OriginMask.YES.getType()){
                 noBtns.add(node);
             }
         }

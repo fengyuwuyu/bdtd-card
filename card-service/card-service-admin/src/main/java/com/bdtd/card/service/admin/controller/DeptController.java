@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.base.model.BizException;
 import com.bdtd.card.base.common.model.ZTreeNode;
 import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.annotation.Permission;
@@ -83,7 +83,7 @@ public class DeptController extends BaseController {
     @ResponseBody
     public Object add(Dept dept) {
         if (ToolUtil.isOneEmpty(dept, dept.getSimplename())) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         //完善pids,根据pid拿到pid的pids
         deptSetPids(dept);
@@ -120,7 +120,7 @@ public class DeptController extends BaseController {
     @ResponseBody
     public Object update(Dept dept) {
         if (ToolUtil.isEmpty(dept) || dept.getId() == null) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         deptSetPids(dept);
         deptService.updateById(dept);

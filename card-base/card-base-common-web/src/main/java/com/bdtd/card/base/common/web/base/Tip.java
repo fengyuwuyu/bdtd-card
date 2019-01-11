@@ -1,6 +1,6 @@
 package com.bdtd.card.base.common.web.base;
 
-import com.bdtd.card.base.common.base.model.EnumBdtdError;
+import com.bdtd.card.base.common.base.model.BdtdError;
 
 /**
  * 返回给前台的提示（最终转化为json形式）
@@ -26,7 +26,7 @@ public class Tip {
 		this.message = message;
 	}
 	
-	public Tip(EnumBdtdError error) {
+	public Tip(BdtdError error) {
 		super();
 		this.code = error.getErrorCode();
 		this.message = error.getMessage();

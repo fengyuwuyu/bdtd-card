@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.EnumBizException;
+import com.bdtd.card.base.common.base.model.BizException;
 import com.bdtd.card.base.common.web.annotation.BussinessLog;
 import com.bdtd.card.base.common.web.base.BaseController;
 import com.bdtd.card.base.common.web.util.ToolUtil;
@@ -95,7 +95,7 @@ public class NoticeController extends BaseController {
     @BussinessLog(value = "新增通知",key = "title",dict = NoticeMap.class)
     public Object add(Notice notice) {
         if (ToolUtil.isOneEmpty(notice, notice.getTitle(), notice.getContent())) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         notice.setCreater(ShiroKit.getUser().getId());
         notice.setCreatetime(new Date());
@@ -127,7 +127,7 @@ public class NoticeController extends BaseController {
     @BussinessLog(value = "修改通知",key = "title",dict = NoticeMap.class)
     public Object update(Notice notice) {
         if (ToolUtil.isOneEmpty(notice, notice.getId(), notice.getTitle(), notice.getContent())) {
-            throw new BdtdException(EnumBizException.REQUEST_NULL);
+            throw new BdtdException(BizException.REQUEST_NULL);
         }
         Notice old = this.noticeService.getById(notice.getId());
         old.setTitle(notice.getTitle());

@@ -27,8 +27,8 @@ import com.bdtd.card.data.admin.model.Role;
 import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.service.admin.cache.Cache;
 import com.bdtd.card.service.admin.cache.CacheKey;
-import com.bdtd.card.service.admin.model.enums.EnumManagerStatus;
-import com.bdtd.card.service.admin.model.enums.EnumMenuStatus;
+import com.bdtd.card.service.admin.model.enums.ManagerStatus;
+import com.bdtd.card.service.admin.model.enums.MenuStatus;
 
 /**
  * 常量的生产工厂
@@ -270,7 +270,7 @@ public class ConstantFactory implements IConstantFactory {
      */
     @Override
     public String getStatusName(Integer status) {
-        return EnumManagerStatus.valueOf(status);
+        return ManagerStatus.valueOf(status);
     }
 
     /**
@@ -278,7 +278,7 @@ public class ConstantFactory implements IConstantFactory {
      */
     @Override
     public String getMenuStatusName(Integer status) {
-        return EnumMenuStatus.valueOf(status);
+        return MenuStatus.valueOf(status);
     }
 
     /**

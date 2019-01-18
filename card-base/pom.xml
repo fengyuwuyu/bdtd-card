@@ -8,7 +8,9 @@
   <artifactId>card-base</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>card-base-common</module>
-  	<module>card-base-common-web</module>
+  	<module>card-common</module>
+  	<module>card-common-web</module>
+  	<module>card-service-base</module>
+  	<module>card-rpc-base</module>
   </modules>
 </project>

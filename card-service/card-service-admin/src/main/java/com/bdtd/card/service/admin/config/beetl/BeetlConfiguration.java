@@ -2,8 +2,8 @@ package com.bdtd.card.service.admin.config.beetl;
 
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 
-import com.bdtd.card.base.common.web.util.KaptchaUtil;
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.web.util.KaptchaUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.service.admin.config.shiro.ShiroExt;
 
 /**

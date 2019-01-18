@@ -3,9 +3,9 @@ package com.bdtd.card.service.admin.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bdtd.card.base.common.model.MenuNode;
-import com.bdtd.card.base.common.util.SpringContextHolder;
-import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.model.MenuNode;
+import com.bdtd.card.common.util.SpringContextHolder;
+import com.bdtd.card.common.web.properties.BdtdProperties;
 import com.bdtd.card.service.admin.consts.Const;
 
 /**

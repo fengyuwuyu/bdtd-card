@@ -5,7 +5,7 @@ import java.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.dao.LoginLogMapper;
 import com.bdtd.card.data.admin.dao.OperationLogMapper;
 import com.bdtd.card.data.admin.model.LoginLog;

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.bdtd.card.base.common.model.MenuNode;
-import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.common.model.MenuNode;
+import com.bdtd.card.common.model.ZTreeNode;
 import com.bdtd.card.data.admin.dao.MenuMapper;
 import com.bdtd.card.data.admin.model.Menu;
 import com.bdtd.card.service.admin.service.IMenuService;

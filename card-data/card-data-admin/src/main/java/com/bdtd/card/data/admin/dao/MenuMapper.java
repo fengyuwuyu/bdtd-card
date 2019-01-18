@@ -6,8 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bdtd.card.base.common.model.MenuNode;
-import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.common.model.MenuNode;
+import com.bdtd.card.common.model.ZTreeNode;
 import com.bdtd.card.data.admin.model.Menu;
 
 /**

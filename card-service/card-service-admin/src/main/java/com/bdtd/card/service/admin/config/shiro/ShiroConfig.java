@@ -26,7 +26,7 @@ import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.web.properties.BdtdProperties;
 import com.bdtd.card.service.admin.filter.BdtdUserFilter;
 
 /**

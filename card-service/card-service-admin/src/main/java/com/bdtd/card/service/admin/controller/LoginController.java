@@ -12,11 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bdtd.card.base.common.model.MenuNode;
-import com.bdtd.card.base.common.web.base.BaseController;
-import com.bdtd.card.base.common.web.util.IpUtil;
-import com.bdtd.card.base.common.web.util.KaptchaUtil;
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.model.MenuNode;
+import com.bdtd.card.common.util.IpUtil;
+import com.bdtd.card.common.web.base.BaseController;
+import com.bdtd.card.common.web.util.KaptchaUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
 import com.bdtd.card.service.admin.config.shiro.ShiroUser;

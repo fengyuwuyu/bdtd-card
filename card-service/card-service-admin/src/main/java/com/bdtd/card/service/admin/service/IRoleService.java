@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.common.model.ZTreeNode;
 import com.bdtd.card.data.admin.model.Role;
 
 /**

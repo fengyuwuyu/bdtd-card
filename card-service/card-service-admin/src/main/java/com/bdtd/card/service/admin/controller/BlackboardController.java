@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bdtd.card.base.common.web.base.BaseController;
+import com.bdtd.card.common.web.base.BaseController;
 
 /**
  * 总览信息

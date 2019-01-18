@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.bdtd.card.base.common.model.ZTreeNode;
+import com.bdtd.card.common.model.ZTreeNode;
 import com.bdtd.card.data.admin.dao.DeptMapper;
 import com.bdtd.card.data.admin.model.Dept;
 import com.bdtd.card.service.admin.service.IDeptService;

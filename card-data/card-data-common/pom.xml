@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
         	<groupId>com.bdtd</groupId>
-        	<artifactId>card-base-common</artifactId>
+        	<artifactId>card-common</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
   </dependencies>

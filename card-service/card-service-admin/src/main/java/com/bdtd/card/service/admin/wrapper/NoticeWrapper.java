@@ -2,7 +2,7 @@ package com.bdtd.card.service.admin.wrapper;
 
 import java.util.Map;
 
-import com.bdtd.card.base.common.web.wrapper.BaseControllerWarpper;
+import com.bdtd.card.common.web.wrapper.BaseControllerWarpper;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
 
 /**

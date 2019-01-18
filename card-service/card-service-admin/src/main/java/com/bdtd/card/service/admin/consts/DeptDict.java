@@ -1,6 +1,6 @@
 package com.bdtd.card.service.admin.consts;
 
-import com.bdtd.card.base.common.web.dict.AbstractDictMap;
+import com.bdtd.card.common.web.dict.AbstractDictMap;
 
 /**
  * 部门的映射

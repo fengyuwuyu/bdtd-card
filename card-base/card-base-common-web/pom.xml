@@ -5,7 +5,7 @@
     <artifactId>card-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>card-base-common-web</artifactId>
+  <artifactId>card-common-web</artifactId>
   
   <dependencies>
 		<dependency>
@@ -57,7 +57,7 @@
 
 		<dependency>
 			<groupId>com.bdtd</groupId>
-			<artifactId>card-base-common</artifactId>
+			<artifactId>card-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

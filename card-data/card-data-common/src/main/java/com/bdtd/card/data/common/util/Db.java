@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bdtd.card.base.common.util.SpringContextHolder;
+import com.bdtd.card.common.util.SpringContextHolder;
 
 /**
  * <p>

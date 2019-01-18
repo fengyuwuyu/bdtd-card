@@ -2,8 +2,8 @@ package com.bdtd.card.service.admin.consts.factory;
 
 import java.lang.reflect.Method;
 
-import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.BizException;
+import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.model.BizException;
 
 /**
  * 字典字段的包装器(从ConstantFactory中获取包装值)

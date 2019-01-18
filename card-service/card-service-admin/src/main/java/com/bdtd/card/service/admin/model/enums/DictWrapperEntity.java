@@ -1,7 +1,7 @@
 package com.bdtd.card.service.admin.model.enums;
 
-import com.bdtd.card.base.common.util.StringUtil;
-import com.bdtd.card.base.common.web.annotation.DictEntity;
+import com.bdtd.card.common.util.StringUtil;
+import com.bdtd.card.common.web.annotation.DictEntity;
 
 public class DictWrapperEntity {
 

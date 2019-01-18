@@ -16,7 +16,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.service.admin.config.shiro.factory.IShiro;
 import com.bdtd.card.service.admin.config.shiro.factory.ShiroFactroy;

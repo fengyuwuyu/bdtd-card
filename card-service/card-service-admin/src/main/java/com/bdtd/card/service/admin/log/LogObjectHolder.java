@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.bdtd.card.base.common.util.SpringContextHolder;
+import com.bdtd.card.common.util.SpringContextHolder;
 
 /**
  * 被修改的bean临时存放的地方

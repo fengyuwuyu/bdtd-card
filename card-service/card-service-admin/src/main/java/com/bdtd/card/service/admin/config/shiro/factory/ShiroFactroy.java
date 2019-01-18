@@ -13,8 +13,8 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bdtd.card.base.common.util.Convert;
-import com.bdtd.card.base.common.util.SpringContextHolder;
+import com.bdtd.card.common.util.Convert;
+import com.bdtd.card.common.util.SpringContextHolder;
 import com.bdtd.card.data.admin.dao.MenuMapper;
 import com.bdtd.card.data.admin.dao.UserMapper;
 import com.bdtd.card.data.admin.model.User;

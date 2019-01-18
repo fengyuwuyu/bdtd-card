@@ -15,7 +15,7 @@
  */
 package com.bdtd.card.service.admin.config.shiro.check;
 
-import com.bdtd.card.base.common.util.SpringContextHolder;
+import com.bdtd.card.common.util.SpringContextHolder;
 
 /**
  * 权限检查管理器(入口)

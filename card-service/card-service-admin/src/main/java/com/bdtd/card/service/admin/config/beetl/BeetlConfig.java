@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bdtd.card.base.common.web.properties.BeetlProperties;
+import com.bdtd.card.common.web.properties.BeetlProperties;
 
 /**
  * web 配置类

@@ -19,7 +19,7 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
-import com.bdtd.card.base.common.util.CollectionKit;
+import com.bdtd.card.common.util.CollectionKit;
 import com.bdtd.card.data.admin.datascope.DataScope;
 
 /**

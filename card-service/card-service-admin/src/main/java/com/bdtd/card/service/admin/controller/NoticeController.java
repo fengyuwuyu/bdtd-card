@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bdtd.card.base.common.base.exception.BdtdException;
-import com.bdtd.card.base.common.base.model.BizException;
-import com.bdtd.card.base.common.web.annotation.BussinessLog;
-import com.bdtd.card.base.common.web.base.BaseController;
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.model.BizException;
+import com.bdtd.card.common.web.annotation.BussinessLog;
+import com.bdtd.card.common.web.base.BaseController;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.Notice;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
 import com.bdtd.card.service.admin.consts.NoticeMap;

@@ -24,7 +24,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.service.admin.consts.Const;
 import com.bdtd.card.service.admin.consts.factory.ConstantFactory;
 

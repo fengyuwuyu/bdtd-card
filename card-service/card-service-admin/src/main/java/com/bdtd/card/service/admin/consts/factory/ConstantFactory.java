@@ -9,10 +9,10 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.bdtd.card.base.common.util.Convert;
-import com.bdtd.card.base.common.util.SpringContextHolder;
-import com.bdtd.card.base.common.util.StrKit;
-import com.bdtd.card.base.common.web.util.ToolUtil;
+import com.bdtd.card.common.util.Convert;
+import com.bdtd.card.common.util.SpringContextHolder;
+import com.bdtd.card.common.util.StrKit;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.dao.DeptMapper;
 import com.bdtd.card.data.admin.dao.DictMapper;
 import com.bdtd.card.data.admin.dao.MenuMapper;

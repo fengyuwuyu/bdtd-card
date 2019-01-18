@@ -21,9 +21,9 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bdtd.card.base.common.util.CollectionKit;
-import com.bdtd.card.base.common.util.SpringContextHolder;
-import com.bdtd.card.base.common.web.util.HttpKit;
+import com.bdtd.card.common.util.CollectionKit;
+import com.bdtd.card.common.util.SpringContextHolder;
+import com.bdtd.card.common.web.util.HttpKit;
 import com.bdtd.card.service.admin.config.shiro.ShiroKit;
 import com.bdtd.card.service.admin.config.shiro.ShiroUser;
 import com.bdtd.card.service.admin.listener.ConfigListener;

@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bdtd.card.base.common.util.FileUtil;
-import com.bdtd.card.base.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.util.FileUtil;
+import com.bdtd.card.common.web.properties.BdtdProperties;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 

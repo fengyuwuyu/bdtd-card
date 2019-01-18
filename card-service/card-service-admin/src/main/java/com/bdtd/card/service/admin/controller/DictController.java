@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.bdtd.card.base.common.base.model.BdtdError;
-import com.bdtd.card.base.common.web.base.BaseController;
-import com.bdtd.card.base.common.web.base.Tip;
+import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.common.web.base.BaseController;
+import com.bdtd.card.common.web.base.Tip;
 import com.bdtd.card.data.admin.model.Dict;
 import com.bdtd.card.service.admin.cache.DictCacheFactory;
 import com.bdtd.card.service.admin.service.IDictService;

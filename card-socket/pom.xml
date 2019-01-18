@@ -13,6 +13,7 @@
 		<module>card-socket-server</module>
 		<module>card-socket-client</module>
 		<module>card-socket-base</module>
+		<module>card-socket-api</module>
 	</modules>
 
 	<dependencies>

@@ -43,5 +43,16 @@
 		</dependency>
 		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>javax.servlet-api</artifactId> 
 			<scope>provided</scope> </dependency> -->
+		<dependency>
+			<groupId>com.bdtd</groupId>
+			<artifactId>card-generator-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.bdtd</groupId>
+					<artifactId>card-common</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 </project>

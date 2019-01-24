@@ -1,6 +1,6 @@
 package com.bdtd.card.socket.server.handler;
 
-import com.bdtd.card.base.service.marshalling.MarshallingCodeFactory;
+import com.bdtd.card.socket.base.marshalling.MarshallingCodeFactory;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;

@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>card-generator-dao</module>
-  	<module>card-generator-business</module>
-  	<module>card-generator-app</module>
+  	<module>card-generator-web</module>
+  	<module>card-generator-service</module>
   </modules>
 </project>

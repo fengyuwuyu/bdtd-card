@@ -12,7 +12,7 @@ public class BasePromiseListeners {
 	private int progressiveSize; // the number of progressive listeners
 
 	@SuppressWarnings("unchecked")
-	BasePromiseListeners(GenericFutureListener<? extends Future<?>> first,
+	public BasePromiseListeners(GenericFutureListener<? extends Future<?>> first,
 			GenericFutureListener<? extends Future<?>> second) {
 		listeners = new GenericFutureListener[2];
 		listeners[0] = first;

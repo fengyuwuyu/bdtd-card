@@ -43,7 +43,7 @@
         sys_relation where roleid = #{roleId}
     </select>
 
-    <select id="menuTreeList" resultType="com.bdtd.card.base.common.model.ZTreeNode">
+    <select id="menuTreeList" resultType="com.bdtd.card.common.model.ZTreeNode">
         SELECT
         m1.id AS id,
         (
@@ -71,7 +71,7 @@
         m1.num
     </select>
 
-    <select id="menuTreeListByMenuIds" resultType="com.bdtd.card.base.common.model.ZTreeNode">
+    <select id="menuTreeListByMenuIds" resultType="com.bdtd.card.common.model.ZTreeNode">
         SELECT
         m1.id AS id,
         (
@@ -133,7 +133,7 @@
         where rel.roleid = #{roleId}
     </select>
 
-    <select id="getMenusByRoleIds" resultType="com.bdtd.card.base.common.model.MenuNode">
+    <select id="getMenusByRoleIds" resultType="com.bdtd.card.common.model.MenuNode">
         SELECT
         m1.id AS id,
         m1.icon AS icon,

@@ -14,7 +14,7 @@
         <result column="version" property="version"/>
     </resultMap>
 
-    <select id="tree" resultType="com.bdtd.card.base.common.model.ZTreeNode">
+    <select id="tree" resultType="com.bdtd.card.common.model.ZTreeNode">
 		select id,pid as pId,simplename as name,
 		(
 		CASE

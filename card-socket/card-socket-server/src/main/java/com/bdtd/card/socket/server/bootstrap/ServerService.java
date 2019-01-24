@@ -2,7 +2,7 @@ package com.bdtd.card.socket.server.bootstrap;
 
 import java.net.InetSocketAddress;
 
-import com.bdtd.card.base.service.client.service.IService;
+import com.bdtd.card.socket.base.client.service.IService;
 import com.bdtd.card.socket.server.handler.ServerInitializerHandler;
 
 import io.netty.bootstrap.ServerBootstrap;

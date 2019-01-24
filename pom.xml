@@ -26,6 +26,7 @@
 	<dom4j.version>2.1.1</dom4j.version>
 	<prototbuf-java.version>3.6.1</prototbuf-java.version>
 	<jboss-marshalling.version>2.0.6.Final</jboss-marshalling.version>
+	<velocity.version>1.7</velocity.version>
   </properties>
 
 	<dependencies>

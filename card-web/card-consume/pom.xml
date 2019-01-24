@@ -5,5 +5,5 @@
     <artifactId>card-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>card-service-consume</artifactId>
+  <artifactId>card-consume</artifactId>
 </project>

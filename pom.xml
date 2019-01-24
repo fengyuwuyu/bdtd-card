@@ -92,7 +92,7 @@
 	</build>
 	<modules>
 		<module>card-data</module>
-		<module>card-service</module>
+		<module>card-web</module>
 		<module>card-common</module>
 		<module>card-common-web</module>
 		<module>card-generator</module>

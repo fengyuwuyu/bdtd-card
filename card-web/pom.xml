@@ -29,6 +29,5 @@
 	<modules>
 		<module>card-consume</module>
 		<module>card-admin</module>
-		<module>card-base</module>
 	</modules>
 </project>

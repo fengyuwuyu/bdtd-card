@@ -11,14 +11,14 @@ var Code = {
 /**
  * 选择table的事件
  */
-Code.selectTable = function (tableName) {
+Code.selectTable = function (tableName, tableComment) {
 
-    SelectList.clearSelect("templateList");
-    Code.switchs = {};
+//    SelectList.clearSelect("templateList");
+//    Code.switchs = {};
 
     if (SelectList.singelSelect("tableList", "tableName", tableName) == true) {
         Code.tableName = tableName;
-        Code.setTableName(tableName);
+        Code.setTableName(tableName, tableComment);
     } else {
         Code.tableName = "";
     }
@@ -59,10 +59,11 @@ Code.generate = function () {
 /**
  * 设置表名称
  */
-Code.setTableName = function (tableName) {
+Code.setTableName = function (tableName, tableComment) {
     var preSize = $("#ignoreTabelPrefix").val().length;
     $("#tableName").val(tableName);
     $("#className").val(Feng.underLineToCamel(tableName.substring(preSize)));
+    $('#bizName').val(tableComment);
 };
 
 /**

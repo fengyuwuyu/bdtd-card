@@ -93,8 +93,6 @@
 	<modules>
 		<module>card-data</module>
 		<module>card-web</module>
-		<module>card-common</module>
-		<module>card-common-web</module>
 		<module>card-generator</module>
 		<module>card-base</module>
 		<module>card-socket</module>

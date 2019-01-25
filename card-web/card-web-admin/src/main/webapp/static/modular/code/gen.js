@@ -46,10 +46,20 @@ Code.generate = function () {
 //    this.set('projectPath').set('author').set('projectPackage').set('corePackage').set('ignoreTabelPrefix').set('bizName').set('moduleName').set('parentMenuName');
     var baseAjax = Feng.baseAjax("/code/generate", "生成代码");
 
+    var selected = false;
     for (var item in Code.switchs) {
-        Code.submitData[item] = Code.switchs[item];
+    	data[item] = Code.switchs[item];
+    	if (Code.switchs[item]) {
+    		selected = true
+    	}
+    }
+    
+    if (!selected) {
+    	Feng.info("请至少选择一个要生成的模板！");
+    	return;
     }
 
+    console.log(data)
     baseAjax.setData(data);
     baseAjax.start();
 };
@@ -58,11 +68,12 @@ Code.generate = function () {
  * 设置表名称
  */
 Code.setTableName = function (tableName, tableComment) {
-    var preSize = $("#ignoreTabelPrefix").val().length;
+	var prefix = tableName.split('_')[0] + '_';
+    $('#ignoreTabelPrefix').val(prefix);
+    var preSize = prefix.length;
     $("#tableName").val(tableName);
     $("#className").val(Feng.underLineToCamel(tableName.substring(preSize)));
     $('#bizName').val(tableComment);
-    $('#ignoreTabelPrefix').val(tableName.split('_')[0] + '_');
 };
 
 /**

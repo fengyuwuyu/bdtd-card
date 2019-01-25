@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bdtd.card.common.CoreFlag;
 import com.bdtd.card.common.util.StringUtil;
 import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.generator.web.model.GenQo;
@@ -45,7 +44,7 @@ public class DefaultTemplateFactory {
         genQo.setProjectPath(ToolUtil.getWebRootPath(null));
         genQo.setAuthor("lilei");
         initPackageConfig(genQo);
-        genQo.setCorePackage(CoreFlag.class.getPackage().getName());
+        genQo.setCorePackage("com.bdtd.card.common.web.base");
         genQo.setIgnoreTabelPrefix("bdtd_");
         genQo.setModuleName("treatment");
         genQo.setDataProjectPath(genQo.getProjectPath().replace("web", "data"));

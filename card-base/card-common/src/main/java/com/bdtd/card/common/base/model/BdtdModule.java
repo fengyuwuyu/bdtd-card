@@ -9,6 +9,7 @@ public enum BdtdModule {
 	SYSTEM(1001, "系统模块"),
 	NETWORK(1002, "通信模块"),
 	LOGIN(1003, "登录模块"),
+	GENERATOR(1004, "登录模块"),
 	
 	
 	UNDEFINE(-1, "未定义的模块"), 

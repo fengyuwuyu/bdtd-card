@@ -359,22 +359,8 @@ public class FileUtil {
     }
     
     public static void main(String[] args) throws IOException {
-		try (
-				FileInputStream in = new FileInputStream(new File("C:\\Users\\Administrator\\Desktop\\sqlserver\\a.txt")); 
-				InputStreamReader inReader = new InputStreamReader(in); 
-				BufferedReader reader = new BufferedReader(inReader);
-			) {
-			Set<String> set = new HashSet<>();
-			reader.lines().forEach((line) -> {
-				if (set.contains(line)) {
-					System.out.println(line);
-				} else {
-					set.add(line);
-				}
-    		});
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(checkExist("/D:/workspace/eclipse/bdtd/card/project/bdtd-card/card-web/card-web-admin"));
+		System.out.println(checkExist("/D:/workspace/eclipse/bdtd/card/project/bdtd-card/card-data/card-data-admin"));
 	}
     
     public static List<File> scanPath(String path, FilenameFilter filter) {
@@ -417,4 +403,14 @@ public class FileUtil {
         stream.close();
         return data;
     }
+
+	public static boolean checkExist(String fileName) {
+		if (StringUtil.isNullEmpty(fileName)) {
+			return false;
+		}
+		
+		File file = new File(fileName);
+		return file.exists();
+	}
+	
 }

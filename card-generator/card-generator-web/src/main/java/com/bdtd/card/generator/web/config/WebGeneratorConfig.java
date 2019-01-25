@@ -36,14 +36,14 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         /**
          * 全局配置
          */
-        globalConfig.setOutputDir(genQo.getProjectPath() + File.separator + "src" + File.separator + "main" + File.separator + "java");
+        globalConfig.setOutputDir(genQo.getDataProjectPath() + File.separator + "src" + File.separator + "main" + File.separator + "java");
         globalConfig.setFileOverride(true);
         globalConfig.setEnableCache(false);
         globalConfig.setBaseResultMap(true);
         globalConfig.setBaseColumnList(true);
         globalConfig.setOpen(false);
         globalConfig.setAuthor(genQo.getAuthor());
-        contextConfig.setProPackage(genQo.getProjectPackage());
+        contextConfig.setProPackage(genQo.getDataPackage());
         contextConfig.setCoreBasePackage(genQo.getCorePackage());
 
         /**
@@ -55,9 +55,9 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         strategyConfig.setInclude(new String[]{genQo.getTableName()});
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         packageConfig.setParent(null);
-        packageConfig.setEntity(genQo.getProjectPackage() + ".modular.system.model");
-        packageConfig.setMapper(genQo.getProjectPackage() + ".modular.system.dao");
-        packageConfig.setXml(genQo.getProjectPackage() + ".modular.system.dao.mapping");
+        packageConfig.setEntity(genQo.getDataPackage() + ".model");
+        packageConfig.setMapper(genQo.getDataPackage() + ".dao");
+        packageConfig.setXml(genQo.getDataPackage() + ".dao.mapping");
 
         /**
          * 业务代码配置

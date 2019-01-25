@@ -9,6 +9,11 @@ public enum BdtdError {
 	DELETE_DICT_CASCADE_ERROR(1, "改字典存在下级字典，请先清空子字典后再执行此操作", BdtdModule.SYSTEM), 
 	
 	
+	// ==========================================代码生成模块==========================================
+	FILE_NOT_EXIST(1, "项目目录不存在", BdtdModule.GENERATOR), 
+	
+	
+	
 	NO_ERROR(0, "成功", BdtdModule.COMMON), 
 	UNKNOWN_ERROR(-1, "未知错误", BdtdModule.COMMON),
 	COMMAND_NOT_FOUND(-2, "未知的Command", BdtdModule.COMMON),

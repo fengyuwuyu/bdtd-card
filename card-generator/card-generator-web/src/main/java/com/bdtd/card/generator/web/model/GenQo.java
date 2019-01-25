@@ -27,6 +27,8 @@ public class GenQo {
      * 项目地址
      */
     private String projectPath;
+    private String dataProjectPath;
+    private String dataPackage;
 
     /**
      * 作者
@@ -112,8 +114,10 @@ public class GenQo {
      * 生成实体的开关
      */
     private Boolean entitySwitch = false;
+    
+    
 
-    /**
+	/**
      * 生成sql的开关
      */
     private Boolean sqlSwitch = false;
@@ -142,7 +146,23 @@ public class GenQo {
         this.url = url;
     }
 
-    public String getProjectPath() {
+    public String getDataProjectPath() {
+		return dataProjectPath;
+	}
+
+	public void setDataProjectPath(String dataProjectPath) {
+		this.dataProjectPath = dataProjectPath;
+	}
+
+	public String getDataPackage() {
+		return dataPackage;
+	}
+
+	public void setDataPackage(String dataPackage) {
+		this.dataPackage = dataPackage;
+	}
+
+	public String getProjectPath() {
         return projectPath;
     }
 
@@ -293,5 +313,18 @@ public class GenQo {
 
     public void setParentMenuName(String parentMenuName) {
         this.parentMenuName = parentMenuName;
-    }
+	}
+
+	@Override
+	public String toString() {
+		return "GenQo [userName=" + userName + ", password=" + password + ", url=" + url + ", projectPath="
+				+ projectPath + ", dataPath=" + dataProjectPath + ", dataPackage=" + dataPackage + ", author=" + author
+				+ ", projectPackage=" + projectPackage + ", corePackage=" + corePackage + ", tableName=" + tableName
+				+ ", ignoreTabelPrefix=" + ignoreTabelPrefix + ", bizName=" + bizName + ", moduleName=" + moduleName
+				+ ", parentMenuName=" + parentMenuName + ", controllerSwitch=" + controllerSwitch + ", indexPageSwitch="
+				+ indexPageSwitch + ", addPageSwitch=" + addPageSwitch + ", editPageSwitch=" + editPageSwitch
+				+ ", jsSwitch=" + jsSwitch + ", infoJsSwitch=" + infoJsSwitch + ", daoSwitch=" + daoSwitch
+				+ ", serviceSwitch=" + serviceSwitch + ", entitySwitch=" + entitySwitch + ", sqlSwitch=" + sqlSwitch
+				+ "]";
+	}
 }

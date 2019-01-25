@@ -89,4 +89,9 @@ public class SimpleTemplateEngine extends GunsTemplateEngine {
         System.out.println(comments.toString());
         System.out.println(fieldNames.toString());
     }
+    
+    public static void main(String[] args) {
+		String s = "D:/workspace/eclipse/bdtd/card/project/bdtd-card/card-web/card-web-admin";
+		System.out.println(s.replace("web", "data"));
+	}
 }

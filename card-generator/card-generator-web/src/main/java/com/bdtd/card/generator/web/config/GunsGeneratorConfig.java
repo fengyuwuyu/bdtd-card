@@ -43,7 +43,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
 
     protected void contextConfig() {
         contextConfig.setProPackage("com.stylefeng.guns.admin");
-        contextConfig.setCoreBasePackage("com.stylefeng.guns.core");
+        contextConfig.setCoreBasePackage("com.bdtd.card.common");
         contextConfig.setBizChName("字典管理");
         contextConfig.setBizEnName("sysDict");
         contextConfig.setModuleName("treatment");

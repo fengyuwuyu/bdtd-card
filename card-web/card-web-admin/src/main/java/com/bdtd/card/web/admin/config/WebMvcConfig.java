@@ -1,4 +1,4 @@
-package com.bdtd.card.common.web.config;
+package com.bdtd.card.web.admin.config;
 
 import java.util.Arrays;
 import java.util.Properties;

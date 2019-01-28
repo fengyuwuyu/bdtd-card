@@ -19,7 +19,7 @@ public class ControllerConfig {
 
     public void init() {
         ArrayList<String> imports = new ArrayList<>();
-        imports.add(contextConfig.getCoreWebBasePackage() + ".base.controller.BaseController");
+        imports.add(contextConfig.getCoreWebBasePackage() + ".base.BaseController");
         imports.add("org.springframework.stereotype.Controller");
         imports.add("org.springframework.web.bind.annotation.RequestMapping");
         imports.add("org.springframework.web.bind.annotation.ResponseBody");
@@ -28,11 +28,10 @@ public class ControllerConfig {
         imports.add("org.springframework.beans.factory.annotation.Autowired");
         imports.add("org.springframework.web.bind.annotation.RequestParam");
         imports.add(contextConfig.getModelPackageName() + "." + contextConfig.getEntityName());
-        imports.add(contextConfig.getProPackage() + ".modular." + contextConfig.getModuleName() + ".service" + ".I" + contextConfig.getEntityName() + "Service");
+        imports.add(contextConfig.getDaoPackage() + ".service" + ".I" + contextConfig.getEntityName() + "Service");
         this.imports = imports;
-        this.packageName = contextConfig.getProPackage() + ".modular." + contextConfig.getModuleName() + ".controller";
-        this.controllerPathTemplate = "\\src\\main\\java\\"+contextConfig.getProPackage().replaceAll("\\.","\\\\")
-        + contextConfig.getModuleName() + "\\controller\\{}Controller.java";
+        this.packageName = contextConfig.getProPackage() + ".controller";
+        this.controllerPathTemplate = "\\src\\main\\java\\"+contextConfig.getProPackage().replaceAll("\\.","\\\\") + "\\controller\\{}Controller.java";
     }
 
     public String getPackageName() {

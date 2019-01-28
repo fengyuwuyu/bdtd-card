@@ -21,3 +21,4 @@ target/
 /velocity.log.1
 *.gz
 *.tmp
+/card-web/card-web-admin/velocity.log.1

@@ -45,6 +45,9 @@ import org.beetl.core.Configuration;
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;
 import org.beetl.core.resource.StringTemplateResourceLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.generator.config.po.TableField;
@@ -53,6 +56,7 @@ import com.bdtd.card.common.util.DateUtil;
 import com.bdtd.card.common.util.JsonUtil;
 import com.bdtd.card.common.util.MapUtil;
 import com.bdtd.card.common.util.StrKit;
+import com.bdtd.card.common.util.StringUtil;
 import com.bdtd.card.common.web.util.model.TableFieldToString;
 
 /**
@@ -60,11 +64,14 @@ import com.bdtd.card.common.web.util.model.TableFieldToString;
  */
 @Component
 public class ToolUtil {
+	
+	private static final Logger log = LoggerFactory.getLogger(ToolUtil.class);
 
 	private static DataSource ds;
 
 	private static Map<String, Map<String, Boolean>> nullableMap = new HashMap<>();
 
+	@Autowired
 	public void setDs(DataSource ds) {
 		ToolUtil.ds = ds;
 	}
@@ -78,7 +85,7 @@ public class ToolUtil {
 			cfg = Configuration.defaultConfiguration();
 			gt = new GroupTemplate(resourceLoader, cfg);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.info(e.getMessage());
 		}
 	}
 
@@ -93,6 +100,22 @@ public class ToolUtil {
 	// static Template selectTemplate = gt.getTemplate("<#select
 	// id=\"${propertyName}\" name=\"${comment}\" ${underline} ${dataOptions}
 	// itemList=\"${unitDictList}\"></#select>");
+	
+	public static boolean hasProperty(Object obj, String propertyName) {
+		if (obj == null || StringUtil.isNullEmpty(propertyName)) {
+			return false;
+		}
+		
+		try {
+			if (obj.getClass().getDeclaredField(propertyName) != null) {
+				return true;
+			}
+		} catch (NoSuchFieldException | SecurityException e) {
+			log.info(e.getMessage());
+			return false;
+		}
+		return false;
+	}
 
 	/**
 	 * @param tableName
@@ -234,8 +257,8 @@ public class ToolUtil {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				rs.close();
-				ps.close();
+//				rs.close();
+//				ps.close();
 			}
 
 		}

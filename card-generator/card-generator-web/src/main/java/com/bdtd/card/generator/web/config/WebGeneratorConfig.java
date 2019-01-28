@@ -43,7 +43,8 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         globalConfig.setBaseColumnList(true);
         globalConfig.setOpen(false);
         globalConfig.setAuthor(genQo.getAuthor());
-        contextConfig.setProPackage(genQo.getDataPackage());
+        contextConfig.setProPackage(genQo.getProjectPackage());
+        contextConfig.setDaoPackage(genQo.getDataPackage());
         contextConfig.setCoreBasePackage(genQo.getCorePackage());
 
         /**
@@ -65,7 +66,6 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         contextConfig.setBizChName(genQo.getBizName());
         contextConfig.setModuleName(genQo.getModuleName());
         contextConfig.setProjectPath(genQo.getProjectPath());//写自己项目的绝对路径
-        contextConfig.setDaoPackage(genQo.getDataPackage());
         if(ToolUtil.isEmpty(genQo.getIgnoreTabelPrefix())){
             String entityName = StrKit.toCamelCase(genQo.getTableName());
             contextConfig.setEntityName(StrKit.firstCharToUpperCase(entityName));

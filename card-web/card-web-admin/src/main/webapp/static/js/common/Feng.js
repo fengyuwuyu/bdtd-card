@@ -466,7 +466,7 @@ var Feng = {
 			var value = config[attr];
 			if (attr == 'userType') {
 				result[attr] = value;
-			} else if (!Feng.isNull(value)) {
+			} else if (value) {
 				if (value instanceof Array) {
 					value = value.join(",");
 				}

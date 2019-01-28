@@ -3,150 +3,157 @@ package com.bdtd.card.generator.web.model;
 /**
  * 代码生成的查询参数
  *
- * @author 
+ * @author
  * @date 2017-11-30-下午2:05
  */
 public class GenQo {
 
-    /**
-     * 数据库账号
-     */
-    private String userName;
-
-    /**
-     * 数据库密码
-     */
-    private String password;
-
-    /**
-     * 数据库url
-     */
-    private String url;
-
-    /**
-     * 项目地址
-     */
-    private String projectPath;
-    private String dataProjectPath;
-    private String dataPackage;
-
-    /**
-     * 作者
-     */
-    private String author;
-
-    /**
-     * 项目的包
-     */
-    private String projectPackage;
-
-    /**
-     * 核心模块的包
-     */
-    private String corePackage;
-
-    /**
-     * 表名称
-     */
-    private String tableName;
-
-    /**
-     * 忽略的表前缀
-     */
-    private String ignoreTabelPrefix;
-
-    /**
-     * 业务名称
-     */
-    private String bizName;
-
-    /**
-     * 模块名
-     */
-    private String moduleName;
-    
-    /**
-     * 父级菜单名称
-     */
-    private String parentMenuName;
-
-    /**
-     * 是否生成控制器代码开关
-     */
-    private Boolean controllerSwitch = false;
-
-    /**
-     * 主页
-     */
-    private Boolean indexPageSwitch = false;
-
-    /**
-     * 添加页面
-     */
-    private Boolean addPageSwitch = false;
-
-    /**
-     * 编辑页面
-     */
-    private Boolean editPageSwitch = false;
-
-    /**
-     * 主页的js
-     */
-    private Boolean jsSwitch = false;
-
-    /**
-     * 详情页面js
-     */
-    private Boolean infoJsSwitch = false;
-
-    /**
-     * dao的开关
-     */
-    private Boolean daoSwitch = false;
-
-    /**
-     * service
-     */
-    private Boolean serviceSwitch = false;
-
-    /**
-     * 生成实体的开关
-     */
-    private Boolean entitySwitch = false;
-    
-    
+	/**
+	 * 数据库账号
+	 */
+	private String userName;
 
 	/**
-     * 生成sql的开关
-     */
-    private Boolean sqlSwitch = false;
+	 * 数据库密码
+	 */
+	private String password;
 
-    public String getUserName() {
-        return userName;
-    }
+	/**
+	 * 数据库url
+	 */
+	private String url;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	/**
+	 * 项目地址
+	 */
+	private String projectPath;
+	private String dataProjectPath;
+	private String dataPackage;
+	private Integer type;
 
-    public String getPassword() {
-        return password;
-    }
+	/**
+	 * 作者
+	 */
+	private String author;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	/**
+	 * 项目的包
+	 */
+	private String projectPackage;
 
-    public String getUrl() {
-        return url;
-    }
+	/**
+	 * 核心模块的包
+	 */
+	private String corePackage;
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	/**
+	 * 表名称
+	 */
+	private String tableName;
 
-    public String getDataProjectPath() {
+	/**
+	 * 忽略的表前缀
+	 */
+	private String ignoreTabelPrefix;
+
+	/**
+	 * 业务名称
+	 */
+	private String bizName;
+
+	/**
+	 * 模块名
+	 */
+	private String moduleName;
+
+	/**
+	 * 父级菜单名称
+	 */
+	private String parentMenuName;
+
+	/**
+	 * 是否生成控制器代码开关
+	 */
+	private Boolean controllerSwitch = false;
+
+	/**
+	 * 主页
+	 */
+	private Boolean indexPageSwitch = false;
+
+	/**
+	 * 添加页面
+	 */
+	private Boolean addPageSwitch = false;
+
+	/**
+	 * 编辑页面
+	 */
+	private Boolean editPageSwitch = false;
+
+	/**
+	 * 主页的js
+	 */
+	private Boolean jsSwitch = false;
+
+	/**
+	 * 详情页面js
+	 */
+	private Boolean infoJsSwitch = false;
+
+	/**
+	 * dao的开关
+	 */
+	private Boolean daoSwitch = false;
+
+	/**
+	 * service
+	 */
+	private Boolean serviceSwitch = false;
+
+	/**
+	 * 生成实体的开关
+	 */
+	private Boolean entitySwitch = false;
+
+	/**
+	 * 生成sql的开关
+	 */
+	private Boolean sqlSwitch = false;
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getDataProjectPath() {
 		return dataProjectPath;
 	}
 
@@ -163,168 +170,168 @@ public class GenQo {
 	}
 
 	public String getProjectPath() {
-        return projectPath;
-    }
+		return projectPath;
+	}
 
-    public void setProjectPath(String projectPath) {
-        this.projectPath = projectPath;
-    }
+	public void setProjectPath(String projectPath) {
+		this.projectPath = projectPath;
+	}
 
-    public String getAuthor() {
-        return author;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public String getCorePackage() {
-        return corePackage;
-    }
+	public String getCorePackage() {
+		return corePackage;
+	}
 
-    public void setCorePackage(String corePackage) {
-        this.corePackage = corePackage;
-    }
+	public void setCorePackage(String corePackage) {
+		this.corePackage = corePackage;
+	}
 
-    public String getProjectPackage() {
+	public String getProjectPackage() {
 
-        return projectPackage;
-    }
+		return projectPackage;
+	}
 
-    public void setProjectPackage(String projectPackage) {
-        this.projectPackage = projectPackage;
-    }
+	public void setProjectPackage(String projectPackage) {
+		this.projectPackage = projectPackage;
+	}
 
-    public String getTableName() {
-        return tableName;
-    }
+	public String getTableName() {
+		return tableName;
+	}
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
 
-    public String getIgnoreTabelPrefix() {
-        return ignoreTabelPrefix;
-    }
+	public String getIgnoreTabelPrefix() {
+		return ignoreTabelPrefix;
+	}
 
-    public void setIgnoreTabelPrefix(String ignoreTabelPrefix) {
-        this.ignoreTabelPrefix = ignoreTabelPrefix;
-    }
+	public void setIgnoreTabelPrefix(String ignoreTabelPrefix) {
+		this.ignoreTabelPrefix = ignoreTabelPrefix;
+	}
 
-    public String getBizName() {
-        return bizName;
-    }
+	public String getBizName() {
+		return bizName;
+	}
 
-    public void setBizName(String bizName) {
-        this.bizName = bizName;
-    }
+	public void setBizName(String bizName) {
+		this.bizName = bizName;
+	}
 
-    public String getModuleName() {
-        return moduleName;
-    }
+	public String getModuleName() {
+		return moduleName;
+	}
 
-    public void setModuleName(String moduleName) {
-        this.moduleName = moduleName;
-    }
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
 
-    public Boolean getControllerSwitch() {
-        return controllerSwitch;
-    }
+	public Boolean getControllerSwitch() {
+		return controllerSwitch;
+	}
 
-    public void setControllerSwitch(Boolean controllerSwitch) {
-        this.controllerSwitch = controllerSwitch;
-    }
+	public void setControllerSwitch(Boolean controllerSwitch) {
+		this.controllerSwitch = controllerSwitch;
+	}
 
-    public Boolean getIndexPageSwitch() {
-        return indexPageSwitch;
-    }
+	public Boolean getIndexPageSwitch() {
+		return indexPageSwitch;
+	}
 
-    public void setIndexPageSwitch(Boolean indexPageSwitch) {
-        this.indexPageSwitch = indexPageSwitch;
-    }
+	public void setIndexPageSwitch(Boolean indexPageSwitch) {
+		this.indexPageSwitch = indexPageSwitch;
+	}
 
-    public Boolean getAddPageSwitch() {
-        return addPageSwitch;
-    }
+	public Boolean getAddPageSwitch() {
+		return addPageSwitch;
+	}
 
-    public void setAddPageSwitch(Boolean addPageSwitch) {
-        this.addPageSwitch = addPageSwitch;
-    }
+	public void setAddPageSwitch(Boolean addPageSwitch) {
+		this.addPageSwitch = addPageSwitch;
+	}
 
-    public Boolean getEditPageSwitch() {
-        return editPageSwitch;
-    }
+	public Boolean getEditPageSwitch() {
+		return editPageSwitch;
+	}
 
-    public void setEditPageSwitch(Boolean editPageSwitch) {
-        this.editPageSwitch = editPageSwitch;
-    }
+	public void setEditPageSwitch(Boolean editPageSwitch) {
+		this.editPageSwitch = editPageSwitch;
+	}
 
-    public Boolean getJsSwitch() {
-        return jsSwitch;
-    }
+	public Boolean getJsSwitch() {
+		return jsSwitch;
+	}
 
-    public void setJsSwitch(Boolean jsSwitch) {
-        this.jsSwitch = jsSwitch;
-    }
+	public void setJsSwitch(Boolean jsSwitch) {
+		this.jsSwitch = jsSwitch;
+	}
 
-    public Boolean getInfoJsSwitch() {
-        return infoJsSwitch;
-    }
+	public Boolean getInfoJsSwitch() {
+		return infoJsSwitch;
+	}
 
-    public void setInfoJsSwitch(Boolean infoJsSwitch) {
-        this.infoJsSwitch = infoJsSwitch;
-    }
+	public void setInfoJsSwitch(Boolean infoJsSwitch) {
+		this.infoJsSwitch = infoJsSwitch;
+	}
 
-    public Boolean getDaoSwitch() {
-        return daoSwitch;
-    }
+	public Boolean getDaoSwitch() {
+		return daoSwitch;
+	}
 
-    public void setDaoSwitch(Boolean daoSwitch) {
-        this.daoSwitch = daoSwitch;
-    }
+	public void setDaoSwitch(Boolean daoSwitch) {
+		this.daoSwitch = daoSwitch;
+	}
 
-    public Boolean getServiceSwitch() {
-        return serviceSwitch;
-    }
+	public Boolean getServiceSwitch() {
+		return serviceSwitch;
+	}
 
-    public void setServiceSwitch(Boolean serviceSwitch) {
-        this.serviceSwitch = serviceSwitch;
-    }
+	public void setServiceSwitch(Boolean serviceSwitch) {
+		this.serviceSwitch = serviceSwitch;
+	}
 
-    public Boolean getEntitySwitch() {
-        return entitySwitch;
-    }
+	public Boolean getEntitySwitch() {
+		return entitySwitch;
+	}
 
-    public void setEntitySwitch(Boolean entitySwitch) {
-        this.entitySwitch = entitySwitch;
-    }
+	public void setEntitySwitch(Boolean entitySwitch) {
+		this.entitySwitch = entitySwitch;
+	}
 
-    public Boolean getSqlSwitch() {
-        return sqlSwitch;
-    }
+	public Boolean getSqlSwitch() {
+		return sqlSwitch;
+	}
 
-    public void setSqlSwitch(Boolean sqlSwitch) {
-        this.sqlSwitch = sqlSwitch;
-    }
+	public void setSqlSwitch(Boolean sqlSwitch) {
+		this.sqlSwitch = sqlSwitch;
+	}
 
-    public String getParentMenuName() {
-        return parentMenuName;
-    }
+	public String getParentMenuName() {
+		return parentMenuName;
+	}
 
-    public void setParentMenuName(String parentMenuName) {
-        this.parentMenuName = parentMenuName;
+	public void setParentMenuName(String parentMenuName) {
+		this.parentMenuName = parentMenuName;
 	}
 
 	@Override
 	public String toString() {
 		return "GenQo [userName=" + userName + ", password=" + password + ", url=" + url + ", projectPath="
-				+ projectPath + ", dataPath=" + dataProjectPath + ", dataPackage=" + dataPackage + ", author=" + author
-				+ ", projectPackage=" + projectPackage + ", corePackage=" + corePackage + ", tableName=" + tableName
-				+ ", ignoreTabelPrefix=" + ignoreTabelPrefix + ", bizName=" + bizName + ", moduleName=" + moduleName
-				+ ", parentMenuName=" + parentMenuName + ", controllerSwitch=" + controllerSwitch + ", indexPageSwitch="
-				+ indexPageSwitch + ", addPageSwitch=" + addPageSwitch + ", editPageSwitch=" + editPageSwitch
-				+ ", jsSwitch=" + jsSwitch + ", infoJsSwitch=" + infoJsSwitch + ", daoSwitch=" + daoSwitch
-				+ ", serviceSwitch=" + serviceSwitch + ", entitySwitch=" + entitySwitch + ", sqlSwitch=" + sqlSwitch
-				+ "]";
+				+ projectPath + ", dataProjectPath=" + dataProjectPath + ", dataPackage=" + dataPackage + ", type="
+				+ type + ", author=" + author + ", projectPackage=" + projectPackage + ", corePackage=" + corePackage
+				+ ", tableName=" + tableName + ", ignoreTabelPrefix=" + ignoreTabelPrefix + ", bizName=" + bizName
+				+ ", moduleName=" + moduleName + ", parentMenuName=" + parentMenuName + ", controllerSwitch="
+				+ controllerSwitch + ", indexPageSwitch=" + indexPageSwitch + ", addPageSwitch=" + addPageSwitch
+				+ ", editPageSwitch=" + editPageSwitch + ", jsSwitch=" + jsSwitch + ", infoJsSwitch=" + infoJsSwitch
+				+ ", daoSwitch=" + daoSwitch + ", serviceSwitch=" + serviceSwitch + ", entitySwitch=" + entitySwitch
+				+ ", sqlSwitch=" + sqlSwitch + "]";
 	}
 }

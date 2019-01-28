@@ -5,11 +5,11 @@ import java.util.Map;
 <% for(import in controller.imports!){ %>
 import ${import};
 <% } %>
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.stylefeng.guns.core.consts.Consts;
-import com.stylefeng.guns.core.util.MapUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.bdtd.card.common.consts.Consts;
+import com.bdtd.card.common.util.MapUtil;
 
 /**
  * ${context.bizChName}控制器
@@ -49,7 +49,6 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     public String ${context.bizEnName}Update(@PathVariable Integer ${context.bizEnName}Id, Model model) {
         ${context.entityName} ${context.bizEnName} = ${context.bizEnName}Service.selectById(${context.bizEnName}Id);
         model.addAttribute("item",${context.bizEnName});
-        LogObjectHolder.me().set(${context.bizEnName});
         return PREFIX + "${context.bizEnName}_edit.html";
     }
 
@@ -59,7 +58,7 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition, Integer offset, Integer limit) {
-    	Wrapper<${context.entityName}> wrapper = new EntityWrapper<>();
+    	Wrapper<${context.entityName}> wrapper = new QueryWrapper<>();
     	Page<Map<String, Object>> page = ${context.bizEnName}Service.selectMapsPage(new Page<>(offset, limit, Consts.DEFAULT_SORT_FIELD, Consts.DEFAULT_SORT_ORDER_IS_ASC), wrapper);
 		return MapUtil.createSuccessMap("rows", page.getRecords(), "total", page.getTotal());
     }

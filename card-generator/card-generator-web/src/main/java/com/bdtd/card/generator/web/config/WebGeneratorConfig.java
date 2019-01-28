@@ -57,7 +57,7 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         packageConfig.setParent(null);
         packageConfig.setEntity(genQo.getDataPackage() + ".model");
         packageConfig.setMapper(genQo.getDataPackage() + ".dao");
-        packageConfig.setXml(genQo.getDataPackage() + ".dao.mapping");
+        packageConfig.setXml(genQo.getDataPackage() + ".dao.mapper");
 
         /**
          * 业务代码配置
@@ -65,6 +65,7 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         contextConfig.setBizChName(genQo.getBizName());
         contextConfig.setModuleName(genQo.getModuleName());
         contextConfig.setProjectPath(genQo.getProjectPath());//写自己项目的绝对路径
+        contextConfig.setDaoPackage(genQo.getDataPackage());
         if(ToolUtil.isEmpty(genQo.getIgnoreTabelPrefix())){
             String entityName = StrKit.toCamelCase(genQo.getTableName());
             contextConfig.setEntityName(StrKit.firstCharToUpperCase(entityName));

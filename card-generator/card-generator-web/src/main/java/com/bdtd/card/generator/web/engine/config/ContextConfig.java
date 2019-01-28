@@ -18,10 +18,12 @@ public class ContextConfig {
     private String bizEnBigName;//业务英文名称(大写)
     private String moduleName = "system";  //模块名称
 
-    private String proPackage = "com.bdtd.card.service.admin";
-    private String coreBasePackage = "com.bdtd.card.core";
-    private String modelPackageName = "com.stylefeng.guns.modular.system.model";        //model的包名
-    private String modelMapperPackageName = "com.stylefeng.guns.modular.system.dao";    //model的dao
+    private String proPackage;
+    private String daoPackage;
+    private String coreBasePackage = "com.bdtd.card.common";
+    private String coreWebBasePackage = "com.bdtd.card.common.web";
+    private String modelPackageName;        //model的包名
+    private String modelMapperPackageName;    //model的dao
     private String entityName;              //实体的名称
 
     private Boolean controllerSwitch = true;    //是否生成控制器代码开关
@@ -39,8 +41,8 @@ public class ContextConfig {
         if (entityName == null) {
             entityName = bizEnBigName;
         }
-        modelPackageName = proPackage + "." + "modular.system.model";
-        modelMapperPackageName = proPackage + "." + "modular.system.dao";
+        modelPackageName = daoPackage + ".model";
+        modelMapperPackageName = daoPackage + ".dao";
     }
 
     public String getBizEnBigName() {
@@ -59,7 +61,15 @@ public class ContextConfig {
         this.bizChName = bizChName;
     }
 
-    public String getBizEnName() {
+    public String getCoreWebBasePackage() {
+		return coreWebBasePackage;
+	}
+
+	public void setCoreWebBasePackage(String coreWebBasePackage) {
+		this.coreWebBasePackage = coreWebBasePackage;
+	}
+
+	public String getBizEnName() {
         return bizEnName;
     }
 
@@ -210,5 +220,27 @@ public class ContextConfig {
 
     public void setCoreBasePackage(String coreBasePackage) {
         this.coreBasePackage = coreBasePackage;
-    }
+	}
+
+	public String getDaoPackage() {
+		return daoPackage;
+	}
+
+	public void setDaoPackage(String daoPackage) {
+		this.daoPackage = daoPackage;
+	}
+
+	@Override
+	public String toString() {
+		return "ContextConfig [templatePrefixPath=" + templatePrefixPath + ", projectPath=" + projectPath
+				+ ", bizChName=" + bizChName + ", bizEnName=" + bizEnName + ", bizEnBigName=" + bizEnBigName
+				+ ", moduleName=" + moduleName + ", proPackage=" + proPackage + ", daoPackage=" + daoPackage
+				+ ", coreBasePackage=" + coreBasePackage + ", coreWebBasePackage=" + coreWebBasePackage
+				+ ", modelPackageName=" + modelPackageName + ", modelMapperPackageName=" + modelMapperPackageName
+				+ ", entityName=" + entityName + ", controllerSwitch=" + controllerSwitch + ", indexPageSwitch="
+				+ indexPageSwitch + ", addPageSwitch=" + addPageSwitch + ", editPageSwitch=" + editPageSwitch
+				+ ", jsSwitch=" + jsSwitch + ", infoJsSwitch=" + infoJsSwitch + ", daoSwitch=" + daoSwitch
+				+ ", serviceSwitch=" + serviceSwitch + ", entitySwitch=" + entitySwitch + ", sqlSwitch=" + sqlSwitch
+				+ "]";
+	}
 }

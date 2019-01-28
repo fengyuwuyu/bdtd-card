@@ -77,6 +77,5 @@ logging:
   level.root: info
   level.com.bdtd.card: info
 #  level.com.bdtd.card.data.admin.dao: debug
-#  level.com.stylefeng.guns.core.aop.FileLogAop: debug
   path: logs/
   file: card.log

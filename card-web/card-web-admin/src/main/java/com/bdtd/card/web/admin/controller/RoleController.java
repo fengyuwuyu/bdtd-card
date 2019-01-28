@@ -29,7 +29,6 @@ import com.bdtd.card.data.admin.model.User;
 import com.bdtd.card.web.admin.consts.Const;
 import com.bdtd.card.web.admin.consts.RoleDict;
 import com.bdtd.card.web.admin.consts.factory.ConstantFactory;
-import com.bdtd.card.web.admin.log.LogObjectHolder;
 import com.bdtd.card.web.admin.model.enums.RoleType;
 import com.bdtd.card.web.admin.service.IRoleService;
 import com.bdtd.card.web.admin.service.IUserService;
@@ -83,7 +82,6 @@ public class RoleController extends BaseController {
         model.addAttribute(role);
         model.addAttribute("pName", ConstantFactory.me().getSingleRoleName(role.getPid()));
         model.addAttribute("roleTypeItemList", RoleType.select());
-        LogObjectHolder.me().set(role);
         return PREFIX + "/role_edit.html";
     }
 
@@ -168,9 +166,6 @@ public class RoleController extends BaseController {
         if (roleId.equals(Const.ADMIN_ROLE_ID)) {
             throw new BdtdException(BizException.CANT_DELETE_ADMIN);
         }
-
-        //缓存被删除的角色名称
-        LogObjectHolder.me().set(ConstantFactory.me().getSingleRoleName(roleId));
 
         this.roleService.delRoleById(roleId);
         return SUCCESS_TIP;

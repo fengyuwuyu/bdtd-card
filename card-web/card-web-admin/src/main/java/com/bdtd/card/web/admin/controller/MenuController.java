@@ -29,7 +29,6 @@ import com.bdtd.card.data.admin.model.Menu;
 import com.bdtd.card.web.admin.consts.Const;
 import com.bdtd.card.web.admin.consts.MenuDict;
 import com.bdtd.card.web.admin.consts.factory.ConstantFactory;
-import com.bdtd.card.web.admin.log.LogObjectHolder;
 import com.bdtd.card.web.admin.model.enums.MenuStatus;
 import com.bdtd.card.web.admin.service.IMenuService;
 import com.bdtd.card.web.admin.wrapper.MenuWarpper;
@@ -93,7 +92,6 @@ public class MenuController extends BaseController {
         Map<String, Object> menuMap = BeanKit.beanToMap(menu);
         menuMap.put("pcodeName", ConstantFactory.me().getMenuNameByCode(temp.getCode()));
         model.addAttribute("menu", menuMap);
-        LogObjectHolder.me().set(menu);
         model.addAttribute("menuItemList", OriginMask.select());
         return PREFIX + "menu_edit.html";
     }
@@ -164,9 +162,6 @@ public class MenuController extends BaseController {
         if (ToolUtil.isEmpty(menuId)) {
             throw new BdtdException(BizException.REQUEST_NULL);
         }
-
-        //缓存菜单的名称
-        LogObjectHolder.me().set(ConstantFactory.me().getMenuName(menuId));
 
         this.menuService.delMenuContainSubMenus(menuId);
         return SUCCESS_TIP;

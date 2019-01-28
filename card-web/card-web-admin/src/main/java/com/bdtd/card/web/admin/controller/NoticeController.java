@@ -20,8 +20,6 @@ import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.model.Notice;
 import com.bdtd.card.web.admin.config.shiro.ShiroKit;
 import com.bdtd.card.web.admin.consts.NoticeMap;
-import com.bdtd.card.web.admin.consts.factory.ConstantFactory;
-import com.bdtd.card.web.admin.log.LogObjectHolder;
 import com.bdtd.card.web.admin.service.INoticeService;
 import com.bdtd.card.web.admin.wrapper.NoticeWrapper;
 
@@ -63,7 +61,6 @@ public class NoticeController extends BaseController {
     public String noticeUpdate(@PathVariable Integer noticeId, Model model) {
         Notice notice = this.noticeService.getById(noticeId);
         model.addAttribute("notice",notice);
-        LogObjectHolder.me().set(notice);
         return PREFIX + "notice_edit.html";
     }
 
@@ -112,8 +109,6 @@ public class NoticeController extends BaseController {
     public Object delete(@RequestParam Integer noticeId) {
 
         //缓存通知名称
-        LogObjectHolder.me().set(ConstantFactory.me().getNoticeTitle(noticeId));
-
         this.noticeService.removeById(noticeId);
 
         return SUCCESS_TIP;

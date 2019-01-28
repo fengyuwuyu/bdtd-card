@@ -39,7 +39,6 @@ import com.bdtd.card.web.admin.consts.Const;
 import com.bdtd.card.web.admin.consts.UserDict;
 import com.bdtd.card.web.admin.consts.factory.ConstantFactory;
 import com.bdtd.card.web.admin.factory.UserFactory;
-import com.bdtd.card.web.admin.log.LogObjectHolder;
 import com.bdtd.card.web.admin.model.UserDto;
 import com.bdtd.card.web.admin.model.enums.Gender;
 import com.bdtd.card.web.admin.model.enums.ManagerStatus;
@@ -113,7 +112,6 @@ public class UserMgrController extends BaseController {
         model.addAttribute(user);
         model.addAttribute("roleName", ConstantFactory.me().getRoleName(user.getRoleid()));
         model.addAttribute("userTypeItemList", RoleType.select());
-        LogObjectHolder.me().set(user);
         model.addAttribute("sexItemList", Gender.select());
         return PREFIX + "user_edit.html";
     }
@@ -132,7 +130,6 @@ public class UserMgrController extends BaseController {
         model.addAttribute(user);
         model.addAttribute("roleName", ConstantFactory.me().getRoleName(user.getRoleid()));
         model.addAttribute("userTypeItemList", RoleType.select());
-        LogObjectHolder.me().set(user);
         return PREFIX + "user_view.html";
     }
     

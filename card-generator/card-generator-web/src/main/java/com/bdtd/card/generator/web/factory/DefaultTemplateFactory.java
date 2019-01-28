@@ -46,7 +46,7 @@ public class DefaultTemplateFactory {
         initPackageConfig(genQo);
         genQo.setCorePackage("com.bdtd.card.common.web.base");
         genQo.setIgnoreTabelPrefix("bdtd_");
-        genQo.setModuleName("treatment");
+        genQo.setModuleName("system");
         genQo.setDataProjectPath(genQo.getProjectPath().replace("web", "data"));
         genQo.setDataPackage(genQo.getProjectPackage().replace("web", "data"));
 //        genQo.setParentMenuName("系统管理");

@@ -48,8 +48,8 @@ public abstract class AbstractGeneratorConfig {
     public void init() {
         config();
 
-        packageConfig.setService(contextConfig.getProPackage() + ".service");
-        packageConfig.setServiceImpl(contextConfig.getProPackage() + ".service.impl");
+        packageConfig.setService(contextConfig.getDaoPackage() + ".service");
+        packageConfig.setServiceImpl(contextConfig.getDaoPackage() + ".service.impl");
 
         //controller没用掉,生成之后会自动删掉
         packageConfig.setController("TTT");

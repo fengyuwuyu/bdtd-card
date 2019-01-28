@@ -46,7 +46,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
         contextConfig.setCoreBasePackage("com.bdtd.card.common");
         contextConfig.setBizChName("字典管理");
         contextConfig.setBizEnName("sysDict");
-        contextConfig.setModuleName("treatment");
+        contextConfig.setModuleName("system");
         contextConfig.setProjectPath("D:\\ideaSpace\\guns\\guns-admin");//写自己项目的绝对路径
         contextConfig.setEntityName("SysDict");
         sqlConfig.setParentMenuName(null);//这里写已有菜单的名称,当做父节点

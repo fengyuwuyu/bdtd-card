@@ -102,6 +102,7 @@ public class ToolUtil {
 	// itemList=\"${unitDictList}\"></#select>");
 	
 	public static boolean hasProperty(Object obj, String propertyName) {
+		log.info(String.format("obj = %s, propertyName = %s", obj, propertyName));
 		if (obj == null || StringUtil.isNullEmpty(propertyName)) {
 			return false;
 		}
@@ -191,6 +192,7 @@ public class ToolUtil {
 	}
 
 	private static String getDataOptions(TableFieldToString field) {
+		log.info(field.getColumnType().toString());
 		String dataOptions = "";
 		boolean nullable = field.isNullable();
 		int length = field.getLength();
@@ -211,7 +213,11 @@ public class ToolUtil {
 			} else {
 				dataOptions = "required:true, validType:'length[" + startLen + ", " + length + "]'";
 			}
-		} else if ("DATE".equals(field.getColumnType().toString())) {
+		} else if ("LOCAL_DATE".equals(field.getColumnType().toString()) || "LOCAL_DATE_TIME".equals(field.getColumnType().toString())) {
+			if (!nullable) {
+				dataOptions = "required:true";
+			}
+		} else if ("BIG_DECIMAL".equals(field.getColumnType().toString())) {
 			if (!nullable) {
 				dataOptions = "required:true";
 			}
@@ -220,14 +226,12 @@ public class ToolUtil {
 	}
 
 	private static Template getTemplate(TableFieldToString field) {
-		if ("DATE".equals(field.getColumnType().toString())) {
-			if ("date".equals(field.getType())) {
-				return dateTemplate;
-			} else if ("datetime".equals(field.getType())) {
-				return datetimeTemplate;
-			} else if ("time".equals(field.getType())) {
-				return timeTemplate;
-			}
+		if ("LOCAL_DATE".equals(field.getColumnType().toString())) {
+			return dateTemplate;
+		} else if ("LOCAL_DATE_TIME".equals(field.getColumnType().toString())) {
+			return datetimeTemplate;
+		} else if ("LOCAL_TIME".equals(field.getColumnType().toString())) {
+			return timeTemplate;
 		}
 		return inputTemplate;
 	}

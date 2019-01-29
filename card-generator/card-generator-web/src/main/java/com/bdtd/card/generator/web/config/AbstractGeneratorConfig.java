@@ -8,7 +8,9 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
 import com.bdtd.card.common.util.FileUtil;
 import com.bdtd.card.generator.web.engine.SimpleTemplateEngine;
 import com.bdtd.card.generator.web.engine.base.GunsTemplateEngine;
@@ -88,6 +90,11 @@ public abstract class AbstractGeneratorConfig {
         autoGenerator.setDataSource(dataSourceConfig);
         autoGenerator.setStrategy(strategyConfig);
         autoGenerator.setPackageInfo(packageConfig);
+        autoGenerator.setTemplateEngine(new BeetlTemplateEngine());
+        
+        TemplateConfig templateConfig = new TemplateConfig()
+        	    .setEntity("templates/entity.java");
+        autoGenerator.setTemplate(templateConfig);
         autoGenerator.execute();
         destory();
 

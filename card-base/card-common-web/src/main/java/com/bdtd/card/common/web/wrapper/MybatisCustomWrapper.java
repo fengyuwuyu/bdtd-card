@@ -1,9 +1,9 @@
 package com.bdtd.card.common.web.wrapper;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.EmptyWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
-public class MybatisCustomWrapper<T> extends EmptyWrapper<T> {
+public class MybatisCustomWrapper<T> extends QueryWrapper<T> {
 
     /**
      * 

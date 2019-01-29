@@ -1,39 +1,47 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.bdtd</groupId>
-  <artifactId>card</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <properties>
-  	<app.version>0.0.1-SNAPSHOT</app.version>
-	<spring-boot.version>2.0.7.RELEASE</spring-boot.version>
-	<java.version>1.8</java.version>
-	<druid.version>1.1.12</druid.version>
-	<commons-io.version>2.6</commons-io.version>
-	<fastjson.version>1.2.54</fastjson.version>
-	<poi.version>3.16</poi.version>
-	<beetl.version>2.9.7</beetl.version>
-	<mybatis-plus-boot-starter.version>3.0.6</mybatis-plus-boot-starter.version>
-	<shiro.version>1.4.0</shiro.version>
-	<ehcache.version>3.6.3</ehcache.version>
-	<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
-	<p6spy.version>3.8.0</p6spy.version>
-	<disruptor.version>3.3.11</disruptor.version>
-	<slf4j.version>1.7.25</slf4j.version>
-	<kaptcha.version>2.3.2</kaptcha.version>
-	<log4j.version>1.2.17</log4j.version>
-	<dom4j.version>2.1.1</dom4j.version>
-	<prototbuf-java.version>3.6.1</prototbuf-java.version>
-	<jboss-marshalling.version>2.0.6.Final</jboss-marshalling.version>
-	<velocity.version>1.7</velocity.version>
-  </properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bdtd</groupId>
+	<artifactId>card</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<app.version>0.0.1-SNAPSHOT</app.version>
+		<spring-boot.version>2.0.7.RELEASE</spring-boot.version>
+		<java.version>1.8</java.version>
+		<druid.version>1.1.12</druid.version>
+		<commons-io.version>2.6</commons-io.version>
+		<fastjson.version>1.2.54</fastjson.version>
+		<poi.version>3.16</poi.version>
+		<beetl.version>2.9.7</beetl.version>
+		<mybatis-plus-boot-starter.version>3.0.7.1</mybatis-plus-boot-starter.version>
+		<shiro.version>1.4.0</shiro.version>
+		<ehcache.version>3.6.3</ehcache.version>
+		<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+		<p6spy.version>3.8.0</p6spy.version>
+		<disruptor.version>3.3.11</disruptor.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<kaptcha.version>2.3.2</kaptcha.version>
+		<log4j.version>1.2.17</log4j.version>
+		<dom4j.version>2.1.1</dom4j.version>
+		<prototbuf-java.version>3.6.1</prototbuf-java.version>
+		<jboss-marshalling.version>2.0.6.Final</jboss-marshalling.version>
+		<velocity.version>1.7</velocity.version>
+	</properties>
 
 	<dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>${mybatis-plus-boot-starter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -49,10 +57,10 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

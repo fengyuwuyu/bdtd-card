@@ -46,7 +46,7 @@ public class DefaultTemplateFactory {
         initPackageConfig(genQo);
         genQo.setCorePackage("com.bdtd.card.common.web.base");
         genQo.setIgnoreTabelPrefix("bdtd_");
-        genQo.setModuleName("system");
+        genQo.setModuleName("stock");
         genQo.setDataProjectPath(genQo.getProjectPath().replace("web", "data"));
         genQo.setDataPackage(genQo.getProjectPackage().replace("web", "data"));
 //        genQo.setParentMenuName("系统管理");
@@ -62,7 +62,12 @@ public class DefaultTemplateFactory {
     
     private static void initPackageConfig(GenQo genQo) {
     	if (genQo != null && !StringUtil.isNullEmpty(genQo.getProjectPath())) {
-    		genQo.setProjectPackage(String.format("%s.%s", "com.bdtd", genQo.getProjectPath().substring(genQo.getProjectPath().lastIndexOf("/") + 1).replace("-", ".")));
+    		String path = genQo.getProjectPath().substring(genQo.getProjectPath().lastIndexOf("/") + 1).replace("-", ".");
+    		String prefix = "com.bdtd";
+    		if (!path.startsWith("card-")) {
+    			prefix = "com.bdtd.card";
+    		}
+    		genQo.setProjectPackage(String.format("%s.%s", prefix, path));
     		genQo.setDataPackage(genQo.getProjectPackage().replace("web", "data"));
     	}
     }

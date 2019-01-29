@@ -55,6 +55,8 @@ public class WebGeneratorConfig extends AbstractGeneratorConfig {
         }
         strategyConfig.setInclude(new String[]{genQo.getTableName()});
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
+        strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
+        
         packageConfig.setParent(null);
         packageConfig.setEntity(genQo.getDataPackage() + ".model");
         packageConfig.setMapper(genQo.getDataPackage() + ".dao");

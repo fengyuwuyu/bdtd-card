@@ -171,7 +171,11 @@ public class TableFieldToString {
 	    int beginIndex = type.indexOf("(");
 	    int endIndex = type.indexOf(")");
 		if (type != null && beginIndex != -1 && endIndex != -1) {
-            this.length = Integer.valueOf(this.type.substring(beginIndex + 1, endIndex));
+            try {
+            	this.length = Integer.valueOf(this.type.substring(beginIndex + 1, endIndex));
+			} catch (Exception e) {
+				return 0;
+			}
             return this.length;
 		}
 		return 0;

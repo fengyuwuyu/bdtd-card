@@ -1,6 +1,6 @@
 package ${controller.packageName};
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Map;
 <% for(import in controller.imports!){ %>
 import ${import};
@@ -59,8 +59,8 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     @ResponseBody
     public Object list(String condition, Integer offset, Integer limit) {
     	QueryWrapper<${context.entityName}> wrapper = new QueryWrapper<>();
-        <% if (tool.hasProperty(context.bizEnName, "updateDate")) {%>
-        	wrapper.orderByDesc(Consts.DEFAULT_SORT_FIELD);
+        <% if (tool.hasProperty(table.fields, "updateDate")) {%>
+    	wrapper.orderByDesc(Consts.DEFAULT_SORT_FIELD);
         <% } %>
     	IPage<Map<String, Object>> page = ${context.bizEnName}Service.pageMaps(new Page<>(offset, limit), wrapper);
 		return MapUtil.createSuccessMap("rows", page.getRecords(), "total", page.getTotal());
@@ -72,14 +72,14 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object add(${context.entityName} ${context.bizEnName}) {
-    	<% if (tool.hasProperty(context.bizEnName, "createDate") || tool.hasProperty(context.bizEnName, "updateDate")) {%>
-        	Date createDate = new Date();
+    	<% if (tool.hasProperty(table.fields, "createDate") || tool.hasProperty(table.fields, "updateDate")) {%>
+    	LocalDateTime createDate = LocalDateTime.now();
         <% } %>
-        <% if (tool.hasProperty(context.bizEnName, "createDate")) {%>
-        	${context.bizEnName}.setCreateDate(createDate);
+        <% if (tool.hasProperty(table.fields, "createDate")) {%>
+    	${context.bizEnName}.setCreateDate(createDate);
         <% } %>
-        <% if (tool.hasProperty(context.bizEnName, "updateDate")) {%>
-        	${context.bizEnName}.setUpdateDate(createDate);
+        <% if (tool.hasProperty(table.fields, "updateDate")) {%>
+    	${context.bizEnName}.setUpdateDate(createDate);
         <% } %>
         ${context.bizEnName}Service.save(${context.bizEnName});
         return SUCCESS_TIP;
@@ -101,8 +101,9 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     @RequestMapping(value = "/update")
     @ResponseBody
     public Object update(${context.entityName} ${context.bizEnName}) {
-        <% if (tool.hasProperty(context.bizEnName, "updateDate")) {%>
-        	${context.bizEnName}.setUpdateDate(createDate);
+        <% if (tool.hasProperty(table.fields, "updateDate")) {%>
+    	LocalDateTime createDate = LocalDateTime.now();
+    	${context.bizEnName}.setUpdateDate(createDate);
         <% } %>
         ${context.bizEnName}Service.updateById(${context.bizEnName});
         return SUCCESS_TIP;

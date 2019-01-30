@@ -102,16 +102,14 @@ public class ToolUtil {
 	// itemList=\"${unitDictList}\"></#select>");
 	
 	public static boolean hasProperty(Object obj, String propertyName) {
-		log.info(String.format("obj = %s, propertyName = %s", obj, propertyName));
-		if (obj == null || StringUtil.isNullEmpty(propertyName)) {
-			return false;
-		}
-		
 		try {
-			if (obj.getClass().getDeclaredField(propertyName) != null) {
-				return true;
+			List<TableField> fields = (List<TableField>) obj;
+			for (TableField tableField : fields) {
+				if (propertyName.equals(tableField.getPropertyName())) {
+					return true;
+				}
 			}
-		} catch (NoSuchFieldException | SecurityException e) {
+		} catch (Exception e) {
 			log.info(e.getMessage());
 			return false;
 		}

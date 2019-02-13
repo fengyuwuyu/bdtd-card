@@ -20,7 +20,8 @@ public class HttpUtils {
      *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
      * @return URL 所代表远程资源的响应结果
      */
-    public static String sendGet(String url, String param) {
+    public static String sendGet(String url, String param, String charset) {
+    	charset = StringUtil.isNullEmpty(charset) ? "UTF-8" : charset;
         String result = "";
         BufferedReader in = null;
         String urlNameString = null ;
@@ -38,11 +39,12 @@ public class HttpUtils {
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            connection.setRequestProperty("Content-Type", String.format("text/xml; charset=%s", charset));
             // 建立实际的连接
             connection.connect();
             // 定义 BufferedReader输入流来读取URL的响应
             in = new BufferedReader(new InputStreamReader(
-                    connection.getInputStream()));
+                    connection.getInputStream(), charset));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;

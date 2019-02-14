@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bdtd.card.common.consts.Consts;
 import com.bdtd.card.common.util.MapUtil;
+import com.bdtd.card.web.admin.log.LogObjectHolder;
 
 /**
  * ${context.bizChName}控制器
@@ -106,6 +107,7 @@ public class ${context.bizEnBigName}Controller extends BaseController {
     	${context.bizEnName}.setUpdateDate(createDate);
         <% } %>
         ${context.bizEnName}Service.updateById(${context.bizEnName});
+        LogObjectHolder.me().set(${context.bizEnName});
         return SUCCESS_TIP;
     }
 

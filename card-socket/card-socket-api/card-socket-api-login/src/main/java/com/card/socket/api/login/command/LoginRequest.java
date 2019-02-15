@@ -12,5 +12,5 @@ public class LoginRequest extends AbstractCommand {
 	private int nodeId;
 	private String passwd;
 	private String token;
-	private LoginType loginType; 
+	private LoginType loginType;
 }

@@ -21,8 +21,8 @@ public interface ICommand {
 	void setHead(PacketHead innerPacketHead);
 	void newHead();
 	void setClientRequest(AbstractCommand abstractCommand);
-	void setArrivedTimestamp(long currentTimeMillis);
-	long getArrivedTimestamp();
+	void setTimestamp(long currentTimeMillis);
+	long getTimestamp();
 	void setClientRequest(ICommand request);
 	ICommand getClientRequest();
 }

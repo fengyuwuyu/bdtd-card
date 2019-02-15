@@ -10,7 +10,7 @@ public abstract class AbstractCommand implements ICommand {
 	private PacketHead innerPacketHead;
 	private Class<? extends ICommand> couple;
 	private ICommand clientRequest;
-	private long arrivedTimestampMS;
+	private long timestamp;
 
 	public AbstractCommand() {
 		Command command = this.getClass().getAnnotation(Command.class);
@@ -45,7 +45,7 @@ public abstract class AbstractCommand implements ICommand {
 				res.setClientRequest(this);
 			}
 
-			res.setArrivedTimestamp(System.currentTimeMillis());
+			res.setTimestamp(System.currentTimeMillis());
 
 			return res;
 		} catch (Exception e) {
@@ -72,14 +72,12 @@ public abstract class AbstractCommand implements ICommand {
 		return BdtdModule.getModule(this.innerPacketHead.getModuleId());
 	}
 
-	@Override
-	public void setArrivedTimestamp(long timestampMS) {
-		arrivedTimestampMS = timestampMS;
+	public long getTimestamp() {
+		return timestamp;
 	}
 
-	@Override
-	public long getArrivedTimestamp() {
-		return arrivedTimestampMS;
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	@Override
@@ -118,15 +116,13 @@ public abstract class AbstractCommand implements ICommand {
 	@Override
 	public void newHead() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setClientRequest(AbstractCommand abstractCommand) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
 
 }

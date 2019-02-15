@@ -1,4 +1,4 @@
-package com.bdtd.card.socket.base.client.service;
+package com.bdtd.card.socket.base.service;
 
 import java.net.InetSocketAddress;
 

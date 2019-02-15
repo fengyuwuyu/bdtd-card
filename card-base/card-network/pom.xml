@@ -2,16 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.bdtd</groupId>
-    <artifactId>card</artifactId>
+    <artifactId>card-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>card-base</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>card-common</module>
-  	<module>card-common-web</module>
-  	<module>card-service-base</module>
-  	<module>card-rpc-base</module>
-  	<module>card-network</module>
-  </modules>
+  <artifactId>card-network</artifactId>
 </project>

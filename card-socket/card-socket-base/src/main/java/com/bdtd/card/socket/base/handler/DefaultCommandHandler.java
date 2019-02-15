@@ -14,7 +14,7 @@ public class DefaultCommandHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		ICommand command = (ICommand) msg;
-		command.setArrivedTimestamp(System.currentTimeMillis());
+		command.setTimestamp(System.currentTimeMillis());
 		System.out.println("receive message is " + command);
 	}
 

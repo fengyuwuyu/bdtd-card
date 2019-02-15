@@ -15,6 +15,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.bdtd.card.common.web.convert.String2DateConverter;
 import com.bdtd.card.common.web.convert.String2IntegerArrayConverter;
+import com.bdtd.card.common.web.convert.String2LocalDateConverter;
+import com.bdtd.card.common.web.convert.String2LocalDateTimeConverter;
+import com.bdtd.card.common.web.convert.String2LocalTimeConverter;
 import com.bdtd.card.common.web.convert.String2LongArrayConverter;
 import com.bdtd.card.common.web.convert.String2StringArrayConverter;
 import com.bdtd.card.common.web.filter.XssFilter;
@@ -34,6 +37,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry.addConverter(new String2LongArrayConverter());
 		registry.addConverter(new String2IntegerArrayConverter());
 		registry.addConverter(new String2StringArrayConverter());
+		registry.addConverter(new String2LocalDateConverter());
+		registry.addConverter(new String2LocalDateTimeConverter());
+		registry.addConverter(new String2LocalTimeConverter());
 	}
 	
     /**

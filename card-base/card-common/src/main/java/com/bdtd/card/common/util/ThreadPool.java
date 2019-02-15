@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,9 +19,10 @@ public class ThreadPool {
 	private static ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() / 2);
 	private static ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors() / 2);
 	
-	public static void execute(Runnable task, long delay, TimeUnit unit){
+	@SuppressWarnings("rawtypes")
+	public static ScheduledFuture execute(Runnable task, long delay, TimeUnit unit){
 		unit = unit == null ? TimeUnit.MILLISECONDS : unit;
-		scheduledExecutorService.schedule(task, delay, unit);
+		return scheduledExecutorService.schedule(task, delay, unit);
 	}
 	
 	public static void execute(Runnable task, long initialDelay, long delay, TimeUnit unit){

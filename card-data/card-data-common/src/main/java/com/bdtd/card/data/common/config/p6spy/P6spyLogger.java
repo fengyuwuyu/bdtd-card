@@ -20,6 +20,9 @@
  */
 package com.bdtd.card.data.common.config.p6spy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.p6spy.engine.logging.Category;
 import com.p6spy.engine.spy.appender.FormattedLogger;
@@ -37,6 +40,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class P6spyLogger extends FormattedLogger {
+	
+	private Logger log = LoggerFactory.getLogger(getClass());
 
     @Override
     public void logException(Exception e) {

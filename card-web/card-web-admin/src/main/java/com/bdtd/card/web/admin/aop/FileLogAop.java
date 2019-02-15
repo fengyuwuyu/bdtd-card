@@ -1,0 +1,78 @@
+package com.bdtd.card.web.admin.aop;
+
+import java.lang.reflect.Method;
+import java.util.Arrays;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.bdtd.card.web.admin.config.shiro.ShiroKit;
+import com.bdtd.card.web.admin.config.shiro.ShiroUser;
+
+/**
+ * 日志记录
+ *
+ * @author 
+ * @date 2016年12月6日 下午8:48:30
+ */
+@Aspect
+@Component
+public class FileLogAop {
+
+    private Logger log = LoggerFactory.getLogger(this.getClass());
+
+    @Pointcut("execution(public Object com..*.*Controller.*(..))")
+    public void cutService() {
+    }
+
+    @Around("cutService()")
+    public Object recordSysLog(ProceedingJoinPoint point) throws Throwable {
+
+        //先执行业务
+        Object result = point.proceed();
+
+        try {
+            handle(point);
+        } catch (Exception e) {
+            log.error("日志记录出错!", e);
+        }
+
+        return result;
+    }
+
+    private void handle(ProceedingJoinPoint point) throws Exception {
+
+        //获取拦截的方法名
+        Signature sig = point.getSignature();
+        MethodSignature msig = null;
+        if (!(sig instanceof MethodSignature)) {
+            throw new IllegalArgumentException("该注解只能用于方法");
+        }
+        msig = (MethodSignature) sig;
+        Object target = point.getTarget();
+        Method currentMethod = target.getClass().getMethod(msig.getName(), msig.getParameterTypes());
+        String methodName = currentMethod.getName();
+
+        //如果当前用户未登录，不做日志
+        ShiroUser user = ShiroKit.getUser();
+        if (null == user) {
+            return;
+        }
+
+        //获取拦截方法的参数
+        String simpleClassName = point.getTarget().getClass().getSimpleName();
+        Object[] params = point.getArgs();
+        String userName = user.getName();
+        String userNo = user.getUserNo();
+        String depName = user.getDeptName();
+        log.debug(String.format("class [%s] method [%s] was called, params = %s, userName = [%s], userNo = [%s], userDepname = [%s]", simpleClassName, methodName, Arrays.asList(params), userName, userNo, depName));
+    }
+    
+}

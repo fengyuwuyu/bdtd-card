@@ -26,7 +26,7 @@ public class WeatherUtil implements Runnable {
     public void getWeatherJson() {
         // https://www.sojson.com/open/api/weather/json.shtml?city=北京
         String api = "https://www.sojson.com/open/api/weather/json.shtml?city=北京";
-        String result = HttpUtils.sendGet(api, null);
+        String result = HttpUtils.sendGet(api, null, null);
 
         try {
             weatherEntity = JsonUtil.strToJson(result, WeatherEntity.class);

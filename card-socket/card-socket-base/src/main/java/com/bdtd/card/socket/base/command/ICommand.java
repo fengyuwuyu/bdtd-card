@@ -1,7 +1,7 @@
-package com.bdtd.card.base.service.command;
+package com.bdtd.card.socket.base.command;
 
-import com.bdtd.card.base.service.model.CommandCategory;
-import com.bdtd.card.base.service.msg.PacketHead;
+import com.bdtd.card.socket.base.model.CommandCategory;
+import com.bdtd.card.socket.base.msg.PacketHead;
 
 public interface ICommand {
 
@@ -20,9 +20,6 @@ public interface ICommand {
 	PacketHead getHead();
 	void setHead(PacketHead innerPacketHead);
 	void newHead();
-	void setClientRequest(AbstractCommand abstractCommand);
 	void setTimestamp(long currentTimeMillis);
 	long getTimestamp();
-	void setClientRequest(ICommand request);
-	ICommand getClientRequest();
 }

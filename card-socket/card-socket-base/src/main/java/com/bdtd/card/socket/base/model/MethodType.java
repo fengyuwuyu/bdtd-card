@@ -1,4 +1,4 @@
-package com.bdtd.card.base.service.model;
+package com.bdtd.card.socket.base.model;
 
 import java.util.HashMap;
 import java.util.Map;

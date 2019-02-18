@@ -1,14 +1,14 @@
-package com.bdtd.card.base.service.callback;
+package com.bdtd.card.socket.base.callback;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.bdtd.card.base.service.command.ICommand;
-import com.bdtd.card.base.service.context.IContext;
-import com.bdtd.card.base.service.exception.DuplicatedOperateException;
-import com.bdtd.card.base.service.invoke.AbstractInvoke;
-import com.bdtd.card.base.service.model.CommandCategory;
-import com.bdtd.card.base.service.msg.PacketHead;
 import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.socket.base.command.ICommand;
+import com.bdtd.card.socket.base.context.INetContext;
+import com.bdtd.card.socket.base.exception.DuplicatedOperateException;
+import com.bdtd.card.socket.base.invoke.AbstractInvoke;
+import com.bdtd.card.socket.base.model.CommandCategory;
+import com.bdtd.card.socket.base.msg.PacketHead;
 
 public class DefaultCallback implements ICallback {
 	
@@ -17,13 +17,13 @@ public class DefaultCallback implements ICallback {
 	public static int SUCCESS = 2;
 	
 	private ICommand command;
-	private IContext remoteInvokerCtx;
+	private INetContext remoteInvokerCtx;
 	private BdtdError error;
 	protected AbstractInvoke invoker;
 	protected Class<? extends ICommand> responseClass;
 	protected AtomicInteger haveResult = new AtomicInteger(0);
 	
-	public DefaultCallback(ICommand command, IContext ctx, 
+	public DefaultCallback(ICommand command, INetContext ctx, 
 			AbstractInvoke invoker,  Class<? extends ICommand> responseClass) {
 		this.command = command;
 		this.remoteInvokerCtx = ctx;
@@ -38,7 +38,7 @@ public class DefaultCallback implements ICallback {
 	}
 
 	@Override
-	public IContext getRemoteInvoker() {
+	public INetContext getRemoteInvoker() {
 		return remoteInvokerCtx;
 	}
 

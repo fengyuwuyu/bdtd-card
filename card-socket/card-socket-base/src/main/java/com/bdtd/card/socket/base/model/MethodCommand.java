@@ -1,8 +1,8 @@
-package com.bdtd.card.base.service.model;
+package com.bdtd.card.socket.base.model;
 
 import java.lang.reflect.Method;
 
-import com.bdtd.card.base.service.command.ICommand;
+import com.bdtd.card.socket.base.command.ICommand;
 
 public class MethodCommand {
 

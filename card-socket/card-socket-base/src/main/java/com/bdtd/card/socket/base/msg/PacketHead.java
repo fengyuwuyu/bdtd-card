@@ -2,7 +2,7 @@ package com.bdtd.card.socket.base.msg;
 
 import java.net.InetAddress;
 
-import com.bdtd.card.base.service.msg.IPacketHead;
+import com.bdtd.card.common.util.IpUtil;
 import com.bdtd.card.socket.base.model.CommandCategory;
 
 final public class PacketHead implements IPacketHead {
@@ -10,19 +10,21 @@ final public class PacketHead implements IPacketHead {
 	private int moduleId;
 	private int commandId;
 	private int sequenceId;
-	private long timeStamp;
+	private long timestamp;
 	private int toNodeId;
 	private int fromNodeId;
 	private long userId;
-	private int ip; //该int既是ip又是version
+	private int ip; 
 	
 	public PacketHead() {
 		super();
 	}
+	
+	
 
-	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, int sequenceId,
-			long timeStamp, int toNodeId, int fromNodeId, long userId, int ip) {
+	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, long timestamp) {
 		super();
+		
 		if (commandCategory == null) {
 			throw new IllegalArgumentException("commandCategory is required");
 		}
@@ -30,20 +32,73 @@ final public class PacketHead implements IPacketHead {
 		this.commandCategory = commandCategory;
 		this.moduleId = moduleId;
 		this.commandId = commandId;
-		this.sequenceId = sequenceId;
-		this.timeStamp = timeStamp;
-		this.toNodeId = toNodeId;
-		this.fromNodeId = fromNodeId;
-		this.userId = userId;
-		this.ip = ip;
+		this.timestamp = timestamp;
 	}
 
 	public int getToNodeId() {
 		return toNodeId;
 	}
 
+	@Override
+	public IPacketHead setToNodeId(int toNodeId) {
+		this.toNodeId = toNodeId;
+		return this;
+	}
+
 	public long getUserId() {
 		return userId;
+	}
+
+	@Override
+	public IPacketHead setUserId(long userId) {
+		this.userId = userId;
+		return this;
+	}
+
+	public int getFromNodeId() {
+		return fromNodeId;
+	}
+
+	@Override
+	public IPacketHead setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+		return this;
+	}
+
+	@Override
+	public IPacketHead setFromNodeId(int fromNodeId) {
+		this.fromNodeId = fromNodeId;
+		return this;
+	}
+
+	public CommandCategory getCommandCategory() {
+		return commandCategory;
+	}
+
+	public int getModuleId() {
+		return this.moduleId;
+	}
+
+	public int getCommandId() {
+		return commandId;
+	}
+
+	public int getSequenceId() {
+		return this.sequenceId;
+	}
+	
+	public IPacketHead setSequenceId(int sequenceId) {
+		this.sequenceId = sequenceId;
+		return this;
+	}
+
+	public long getTimestamp() {
+		return this.timestamp;
+	}
+	
+	public IPacketHead setIp(int ip) {
+		this.ip = ip;
+		return this;
 	}
 
 	public int getIp() {
@@ -79,26 +134,6 @@ final public class PacketHead implements IPacketHead {
 			this.userId = 0;
 		}
 	}
-
-	public int getFromNodeId() {
-		return fromNodeId;
-	}
-
-	public int getModuleId() {
-		return this.moduleId;
-	}
-
-	public int getCommandId() {
-		return commandId;
-	}
-
-	public int getSequenceId() {
-		return this.sequenceId;
-	}
-
-	public long getTimeStamp() {
-		return this.timeStamp;
-	}
 	
 	public PacketHead copy() {
 		PacketHead newOne = new PacketHead();
@@ -106,12 +141,34 @@ final public class PacketHead implements IPacketHead {
 		newOne.moduleId = this.moduleId;
 		newOne.commandId = this.commandId;
 		newOne.sequenceId = this.sequenceId;
-		newOne.timeStamp = this.timeStamp;
+		newOne.timestamp = this.timestamp;
 		newOne.toNodeId = this.toNodeId;
 		newOne.fromNodeId = this.fromNodeId;
 		newOne.userId = this.userId;
 		newOne.ip = this.ip;
 		return newOne;
+	}
+
+	@Override
+	public IPacketHead newCouple() {
+		CommandCategory commandCategory = null;
+		if (this.commandCategory == CommandCategory.REQUEST) {
+			commandCategory = CommandCategory.RESPONSE;
+		} else if (this.commandCategory == CommandCategory.RESPONSE) {
+			commandCategory = CommandCategory.REQUEST;
+		}
+		
+		PacketHead couple = new PacketHead();
+		couple.commandCategory = commandCategory;
+		couple.moduleId = this.moduleId;
+		couple.commandId = this.commandId;
+		couple.sequenceId = this.sequenceId;
+		couple.timestamp = this.timestamp;
+		couple.toNodeId = this.fromNodeId;
+		couple.fromNodeId = this.toNodeId;
+		couple.userId = this.userId;
+		couple.ip = IpUtil.getLocalAddressInt();
+		return couple;
 	}
 
 	@Override
@@ -129,7 +186,7 @@ final public class PacketHead implements IPacketHead {
 		builder.append(", userId=");
 		builder.append(userId);
 		builder.append(", timestamp=");
-		builder.append(timeStamp);
+		builder.append(timestamp);
 		builder.append(", tonid=");
 		builder.append(toNodeId);
 		builder.append(", fromnid=");
@@ -137,54 +194,6 @@ final public class PacketHead implements IPacketHead {
 		builder.append(", error=");
 		builder.append("]");
 		return builder.toString();
-	}
-
-	@Override
-	public IPacketHead setUserId(long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IPacketHead setFromNodeId(int fromNodeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IPacketHead setToNodeId(int toNodeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IPacketHead setTimestamp(long timeStamp) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public com.bdtd.card.base.service.model.CommandCategory getCommandCategory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IPacketHead setSequenceId(int sequenceId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IPacketHead newCouple() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public long getTimestamp() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

@@ -1,18 +1,31 @@
-package com.bdtd.card.base.service.command;
+package com.bdtd.card.socket.base.command;
 
-import com.bdtd.card.base.service.annotation.Command;
-import com.bdtd.card.base.service.model.CommandCategory;
-import com.bdtd.card.base.service.msg.PacketHead;
 import com.bdtd.card.common.base.model.BdtdModule;
 import com.bdtd.card.common.log.LOG;
+import com.bdtd.card.socket.base.annotation.Command;
+import com.bdtd.card.socket.base.model.CommandCategory;
+import com.bdtd.card.socket.base.msg.PacketHead;
 
-public abstract class AbstractCommand implements ICommand {
+public abstract class AbstractCommand<T> implements ICommand {
 	private PacketHead innerPacketHead;
 	private Class<? extends ICommand> couple;
-	private ICommand clientRequest;
 	private long timestamp;
+	private T data;
 
 	public AbstractCommand() {
+		initCommand();
+	}
+	
+	
+	
+	public AbstractCommand(T data) {
+		this.data = data;
+		this.initCommand();
+	}
+
+
+
+	private void initCommand() {
 		Command command = this.getClass().getAnnotation(Command.class);
 		if (command != null) {
 			int moduleId = command.module().getModuleId();
@@ -38,9 +51,6 @@ public abstract class AbstractCommand implements ICommand {
 			coupleHead.setFromNodeId(thisHead.getToNodeId());
 			coupleHead.setUserId(thisHead.getUserId());
 			coupleHead.setIp(thisHead.getIp());
-			if (thisHead.getCommandCategory() == CommandCategory.REQUEST) {
-				res.setClientRequest(this);
-			}
 
 			res.setTimestamp(System.currentTimeMillis());
 
@@ -54,6 +64,14 @@ public abstract class AbstractCommand implements ICommand {
 
 	public Class<? extends ICommand> getCouple() {
 		return couple;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
 	}
 
 	@Override
@@ -75,16 +93,6 @@ public abstract class AbstractCommand implements ICommand {
 
 	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
-	}
-
-	@Override
-	public void setClientRequest(ICommand request) {
-		clientRequest = request;
-	}
-
-	@Override
-	public ICommand getClientRequest() {
-		return clientRequest;
 	}
 
 	@Override
@@ -110,11 +118,6 @@ public abstract class AbstractCommand implements ICommand {
 	@Override
 	public void newHead() {
 		
-	}
-
-	@Override
-	public void setClientRequest(AbstractCommand abstractCommand) {
-		this.clientRequest = abstractCommand;
 	}
 
 }

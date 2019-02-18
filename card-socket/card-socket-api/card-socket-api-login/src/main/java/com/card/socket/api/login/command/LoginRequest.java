@@ -1,16 +1,12 @@
 package com.card.socket.api.login.command;
 
-import com.bdtd.card.base.service.annotation.Command;
-import com.bdtd.card.base.service.command.AbstractCommand;
-import com.bdtd.card.base.service.model.CommandCategory;
 import com.bdtd.card.common.base.model.BdtdModule;
-import com.card.socket.api.login.model.LoginType;
+import com.bdtd.card.socket.base.annotation.Command;
+import com.bdtd.card.socket.base.command.AbstractCommand;
+import com.bdtd.card.socket.base.model.CommandCategory;
 
 @Command(category=CommandCategory.REQUEST, commandId=1001, module=BdtdModule.LOGIN, couple=LoginResponse.class)
-public class LoginRequest extends AbstractCommand {
+public class LoginRequest extends AbstractCommand<Integer> {
 
-	private int nodeId;
-	private String passwd;
-	private String token;
-	private LoginType loginType;
+	
 }

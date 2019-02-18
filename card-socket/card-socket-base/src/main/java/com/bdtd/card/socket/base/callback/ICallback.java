@@ -1,15 +1,15 @@
-package com.bdtd.card.base.service.callback;
+package com.bdtd.card.socket.base.callback;
 
-import com.bdtd.card.base.service.command.ICommand;
-import com.bdtd.card.base.service.context.IContext;
-import com.bdtd.card.base.service.exception.DuplicatedOperateException;
-import com.bdtd.card.base.service.model.CommandCategory;
-import com.bdtd.card.base.service.msg.PacketHead;
 import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.socket.base.command.ICommand;
+import com.bdtd.card.socket.base.context.INetContext;
+import com.bdtd.card.socket.base.exception.DuplicatedOperateException;
+import com.bdtd.card.socket.base.model.CommandCategory;
+import com.bdtd.card.socket.base.msg.PacketHead;
 
 public interface ICallback {
 	PacketHead getHeader();
-	IContext getRemoteInvoker();
+	INetContext getRemoteInvoker();
 	CommandCategory getCategory();
 	ICommand getCommand();
 	boolean isFail();

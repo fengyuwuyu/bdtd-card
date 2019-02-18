@@ -1,4 +1,4 @@
-package com.bdtd.card.base.service.exception;
+package com.bdtd.card.socket.base.exception;
 
 import com.bdtd.card.common.base.model.BdtdError;
 

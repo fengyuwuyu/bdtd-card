@@ -1,24 +1,26 @@
-package com.bdtd.card.base.service.invoke;
+package com.bdtd.card.socket.base.invoke;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bdtd.card.base.service.annotation.Command;
-import com.bdtd.card.base.service.annotation.InvokeClass;
-import com.bdtd.card.base.service.annotation.InvokeMethod;
-import com.bdtd.card.base.service.callback.DefaultCallback;
-import com.bdtd.card.base.service.command.ICommand;
-import com.bdtd.card.base.service.context.IContext;
-import com.bdtd.card.base.service.model.InvokeMetadata;
-import com.bdtd.card.base.service.model.MethodCommand;
-import com.bdtd.card.base.service.model.MethodType;
 import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.socket.base.annotation.Command;
+import com.bdtd.card.socket.base.annotation.InvokeClass;
+import com.bdtd.card.socket.base.annotation.InvokeMethod;
+import com.bdtd.card.socket.base.callback.AsyncCallback;
+import com.bdtd.card.socket.base.callback.DefaultCallback;
+import com.bdtd.card.socket.base.command.AbstractCommand;
+import com.bdtd.card.socket.base.command.ICommand;
+import com.bdtd.card.socket.base.context.INetContext;
+import com.bdtd.card.socket.base.model.InvokeMetadata;
+import com.bdtd.card.socket.base.model.MethodCommand;
+import com.bdtd.card.socket.base.model.MethodType;
 
 public abstract class AbstractInvoke implements IInvoke {
 
 	private InvokeMetadata invokeMetadata;
-	private IContext context;
+	private INetContext context;
 
 	public AbstractInvoke() {
 		this.initMetadata();
@@ -68,8 +70,16 @@ public abstract class AbstractInvoke implements IInvoke {
 	}
 
 	@Override
-	public void invoke(ICommand command) {
-		this.context.write(command);
+	public void invoke(Class<? extends AbstractCommand<Object>> clazz, AsyncCallback<Object> callback, Object data) {
+		AbstractCommand<Object> request;
+		try {
+			request = clazz.newInstance();
+			request.setData(data);
+			this.context.write(request);
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO
+			e.printStackTrace();
+		}
 	}
 
 	public void sendFail(DefaultCallback defaultCallback, Class<? extends ICommand> responseClass, BdtdError error) {

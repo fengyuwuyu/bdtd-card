@@ -2,7 +2,7 @@ package com.bdtd.card.socket.server.bootstrap;
 
 import java.net.InetSocketAddress;
 
-import com.bdtd.card.socket.base.service.IService;
+import com.bdtd.card.socket.base.service.INetService;
 import com.bdtd.card.socket.server.handler.ServerInitializerHandler;
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -17,7 +17,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.ImmediateEventExecutor;
 
-public class ServerService implements IService {
+public class ServerService implements INetService {
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
 	private final EventLoopGroup group = new NioEventLoopGroup();
 	private final EventLoop eventExecutor = group.next();

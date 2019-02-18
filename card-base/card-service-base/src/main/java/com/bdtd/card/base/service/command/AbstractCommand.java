@@ -21,9 +21,6 @@ public abstract class AbstractCommand implements ICommand {
 			innerPacketHead = new PacketHead(commandCategory, moduleId, commandId, System.currentTimeMillis());
 
 			couple = command.couple();
-			if (couple == ICommand.class) {
-				couple = null;
-			}
 		} else {
 			throw new RuntimeException(this.getClass() + "未添加@Command注解，无法初始化命令参数");
 		}
@@ -36,7 +33,7 @@ public abstract class AbstractCommand implements ICommand {
 			PacketHead coupleHead = res.getHead();
 			PacketHead thisHead = getHead();
 			coupleHead.setSequenceId(thisHead.getSequenceId());
-			coupleHead.setTimeStamp(thisHead.getTimeStamp());
+			coupleHead.setTimestamp(System.currentTimeMillis());
 			coupleHead.setToNodeId(thisHead.getFromNodeId());
 			coupleHead.setFromNodeId(thisHead.getToNodeId());
 			coupleHead.setUserId(thisHead.getUserId());
@@ -97,32 +94,27 @@ public abstract class AbstractCommand implements ICommand {
 
 	@Override
 	public int getModuleId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.innerPacketHead.getModuleId();
 	}
 
 	@Override
 	public int getCommandId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.innerPacketHead.getCommandId();
 	}
 
 	@Override
 	public CommandCategory getCommandCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.innerPacketHead.getCommandCategory();
 	}
 
 	@Override
 	public void newHead() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setClientRequest(AbstractCommand abstractCommand) {
-		// TODO Auto-generated method stub
-
+		this.clientRequest = abstractCommand;
 	}
 
 }

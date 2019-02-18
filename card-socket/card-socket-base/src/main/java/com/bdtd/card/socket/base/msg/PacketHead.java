@@ -158,7 +158,7 @@ final public class PacketHead implements IPacketHead {
 	}
 
 	@Override
-	public IPacketHead setTimeStamp(long timeStamp) {
+	public IPacketHead setTimestamp(long timeStamp) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -179,6 +179,12 @@ final public class PacketHead implements IPacketHead {
 	public IPacketHead newCouple() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public long getTimestamp() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

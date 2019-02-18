@@ -6,7 +6,7 @@ import com.bdtd.card.socket.base.future.BdtdPromise;
 
 import io.netty.util.concurrent.EventExecutor;
 
-public interface IService {
+public interface INetService {
 
 	default void init(InetSocketAddress address, BdtdPromise promise) {};
 	

@@ -22,9 +22,9 @@ public interface IPacketHead {
 	
 	int getIp();
 	
-	long getTimeStamp();
+	long getTimestamp();
 	
-	IPacketHead setTimeStamp(long timeStamp);
+	IPacketHead setTimestamp(long timeStamp);
 	
 	CommandCategory getCommandCategory();
 	

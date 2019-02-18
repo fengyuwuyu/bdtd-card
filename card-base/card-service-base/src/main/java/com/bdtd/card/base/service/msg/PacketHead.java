@@ -10,7 +10,7 @@ final public class PacketHead implements IPacketHead {
 	private int moduleId;
 	private int commandId;
 	private int sequenceId;
-	private long timeStamp;
+	private long timestamp;
 	private int toNodeId;
 	private int fromNodeId;
 	private long userId;
@@ -22,7 +22,7 @@ final public class PacketHead implements IPacketHead {
 	
 	
 
-	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, long timeStamp) {
+	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, long timestamp) {
 		super();
 		
 		if (commandCategory == null) {
@@ -32,7 +32,7 @@ final public class PacketHead implements IPacketHead {
 		this.commandCategory = commandCategory;
 		this.moduleId = moduleId;
 		this.commandId = commandId;
-		this.timeStamp = timeStamp;
+		this.timestamp = timestamp;
 	}
 
 	public int getToNodeId() {
@@ -60,8 +60,8 @@ final public class PacketHead implements IPacketHead {
 	}
 
 	@Override
-	public IPacketHead setTimeStamp(long timeStamp) {
-		this.timeStamp = timeStamp;
+	public IPacketHead setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 		return this;
 	}
 
@@ -92,8 +92,8 @@ final public class PacketHead implements IPacketHead {
 		return this;
 	}
 
-	public long getTimeStamp() {
-		return this.timeStamp;
+	public long getTimestamp() {
+		return this.timestamp;
 	}
 	
 	public IPacketHead setIp(int ip) {
@@ -141,7 +141,7 @@ final public class PacketHead implements IPacketHead {
 		newOne.moduleId = this.moduleId;
 		newOne.commandId = this.commandId;
 		newOne.sequenceId = this.sequenceId;
-		newOne.timeStamp = this.timeStamp;
+		newOne.timestamp = this.timestamp;
 		newOne.toNodeId = this.toNodeId;
 		newOne.fromNodeId = this.fromNodeId;
 		newOne.userId = this.userId;
@@ -163,7 +163,7 @@ final public class PacketHead implements IPacketHead {
 		couple.moduleId = this.moduleId;
 		couple.commandId = this.commandId;
 		couple.sequenceId = this.sequenceId;
-		couple.timeStamp = this.timeStamp;
+		couple.timestamp = this.timestamp;
 		couple.toNodeId = this.fromNodeId;
 		couple.fromNodeId = this.toNodeId;
 		couple.userId = this.userId;
@@ -186,7 +186,7 @@ final public class PacketHead implements IPacketHead {
 		builder.append(", userId=");
 		builder.append(userId);
 		builder.append(", timestamp=");
-		builder.append(timeStamp);
+		builder.append(timestamp);
 		builder.append(", tonid=");
 		builder.append(toNodeId);
 		builder.append(", fromnid=");

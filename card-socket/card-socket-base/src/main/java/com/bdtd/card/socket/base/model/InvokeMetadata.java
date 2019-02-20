@@ -9,6 +9,7 @@ public class InvokeMetadata {
 	private Class<? extends IInvoke> invokerClass;
 	private List<MethodCommand> methodCommandList;
 	private BdtdModule module;
+	private String name;
 	private Class<? extends IInvoke> couple;
 	public Class<? extends IInvoke> getInvokerClass() {
 		return invokerClass;
@@ -33,6 +34,14 @@ public class InvokeMetadata {
 	}
 	public void setCouple(Class<? extends IInvoke> couple) {
 		this.couple = couple;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

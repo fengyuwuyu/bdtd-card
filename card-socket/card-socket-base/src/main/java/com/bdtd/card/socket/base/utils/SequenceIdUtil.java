@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SequenceIdUtil {
 	
 	private static final ConcurrentHashMap<Long, AtomicInteger> COUNTER_MAP = new ConcurrentHashMap<>();
-
+	
 	public static int generatorId(int moduleId, int commandId) {
 		Long key = getKey(moduleId, commandId);
 		return COUNTER_MAP.getOrDefault(key, new AtomicInteger(1)).get();

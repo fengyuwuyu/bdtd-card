@@ -14,25 +14,37 @@ final public class PacketHead implements IPacketHead {
 	private int toNodeId;
 	private int fromNodeId;
 	private long userId;
-	private int ip; 
-	
+	private int ip;
+
 	public PacketHead() {
 		super();
 	}
-	
-	
 
 	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, long timestamp) {
 		super();
-		
+
 		if (commandCategory == null) {
 			throw new IllegalArgumentException("commandCategory is required");
 		}
-		
+
 		this.commandCategory = commandCategory;
 		this.moduleId = moduleId;
 		this.commandId = commandId;
 		this.timestamp = timestamp;
+	}
+
+	public PacketHead(CommandCategory commandCategory, int moduleId, int commandId, int sequenceId, long timestamp,
+			int toNodeId, int fromNodeId, long userId, int ip) {
+		super();
+		this.commandCategory = commandCategory;
+		this.moduleId = moduleId;
+		this.commandId = commandId;
+		this.sequenceId = sequenceId;
+		this.timestamp = timestamp;
+		this.toNodeId = toNodeId;
+		this.fromNodeId = fromNodeId;
+		this.userId = userId;
+		this.ip = ip;
 	}
 
 	public int getToNodeId() {
@@ -75,6 +87,14 @@ final public class PacketHead implements IPacketHead {
 		return commandCategory;
 	}
 
+	public void setCommandCategory(CommandCategory commandCategory) {
+		this.commandCategory = commandCategory;
+	}
+
+	public void setModuleId(int moduleId) {
+		this.moduleId = moduleId;
+	}
+
 	public int getModuleId() {
 		return this.moduleId;
 	}
@@ -83,10 +103,14 @@ final public class PacketHead implements IPacketHead {
 		return commandId;
 	}
 
+	public void setCommandId(int commandId) {
+		this.commandId = commandId;
+	}
+
 	public int getSequenceId() {
 		return this.sequenceId;
 	}
-	
+
 	public IPacketHead setSequenceId(int sequenceId) {
 		this.sequenceId = sequenceId;
 		return this;
@@ -95,7 +119,7 @@ final public class PacketHead implements IPacketHead {
 	public long getTimestamp() {
 		return this.timestamp;
 	}
-	
+
 	public IPacketHead setIp(int ip) {
 		this.ip = ip;
 		return this;
@@ -104,37 +128,32 @@ final public class PacketHead implements IPacketHead {
 	public int getIp() {
 		return this.ip;
 	}
-	
+
 	public String getUserIpAddress() {
 		byte[] bytes = new byte[4];
-		bytes[0] = (byte)((ip >>> 24) & 0xff);
-		bytes[1] = (byte)((ip >>> 16) & 0xff);
-		bytes[2] = (byte)((ip >>> 8) & 0xff);
-		bytes[3] = (byte)(ip & 0xff);
+		bytes[0] = (byte) ((ip >>> 24) & 0xff);
+		bytes[1] = (byte) ((ip >>> 16) & 0xff);
+		bytes[2] = (byte) ((ip >>> 8) & 0xff);
+		bytes[3] = (byte) (ip & 0xff);
 		try {
 			InetAddress address = InetAddress.getByAddress(bytes);
 			return address.getHostAddress();
-		}
-		catch(Throwable e) {
+		} catch (Throwable e) {
 			return "0.0.0.0";
 		}
 	}
-	
+
 	public void setIpAddress(InetAddress address) {
 		try {
 			byte[] mybtes = address.getAddress();
-			final long pumpeIPAddress =
-			      ((mybtes [0] & 0xFFl) << (3*8)) + 
-			      ((mybtes [1] & 0xFFl) << (2*8)) +
-			      ((mybtes [2] & 0xFFl) << (1*8)) +
-			      (mybtes [3] &  0xFFl);
-			this.userId = (int)(pumpeIPAddress & 0xffffffffL);
-		}
-		catch(Throwable e) {
+			final long pumpeIPAddress = ((mybtes[0] & 0xFFl) << (3 * 8)) + ((mybtes[1] & 0xFFl) << (2 * 8))
+					+ ((mybtes[2] & 0xFFl) << (1 * 8)) + (mybtes[3] & 0xFFl);
+			this.userId = (int) (pumpeIPAddress & 0xffffffffL);
+		} catch (Throwable e) {
 			this.userId = 0;
 		}
 	}
-	
+
 	public PacketHead copy() {
 		PacketHead newOne = new PacketHead();
 		newOne.commandCategory = this.commandCategory;
@@ -157,7 +176,7 @@ final public class PacketHead implements IPacketHead {
 		} else if (this.commandCategory == CommandCategory.RESPONSE) {
 			commandCategory = CommandCategory.REQUEST;
 		}
-		
+
 		PacketHead couple = new PacketHead();
 		couple.commandCategory = commandCategory;
 		couple.moduleId = this.moduleId;

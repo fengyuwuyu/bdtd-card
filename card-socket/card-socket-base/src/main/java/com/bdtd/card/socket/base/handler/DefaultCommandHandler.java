@@ -1,6 +1,9 @@
 package com.bdtd.card.socket.base.handler;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.bdtd.card.socket.base.command.ICommand;
 
 import io.netty.buffer.Unpooled;
@@ -10,13 +13,12 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 
 public class DefaultCommandHandler extends ChannelInboundHandlerAdapter {
 	
-	
+	private Logger log = LoggerFactory.getLogger(getClass());
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		ICommand command = (ICommand) msg;
-		command.setTimestamp(System.currentTimeMillis());
-		System.out.println("receive message is " + command);
+		log.info("receive message is " + command);
 	}
 
 	@Override
@@ -26,38 +28,34 @@ public class DefaultCommandHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		cause.printStackTrace();
+		log.error("catch channel exception", cause);
 		ctx.close();
 	}
 
 	@Override
 	public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-		System.out.println(ctx.name() + " is removed");
+		log.info(ctx.name() + " is removed");
 		ctx.close();
 	}
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelActive");
-		System.out.println(ctx.channel().id());
+		log.info("channelActive");
 	}
 
 	@Override
 	public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelRegistered");
-		System.out.println(ctx.channel().id());
+		log.info("channelRegistered");
 	}
 
 	@Override
 	public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelUnregistered");
-		System.out.println(ctx.channel().id());
+		log.info("channelUnregistered");
 	}
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelInactive");
-		System.out.println(ctx.channel().id());
+		log.info("channelInactive");
 	}
 	
 	

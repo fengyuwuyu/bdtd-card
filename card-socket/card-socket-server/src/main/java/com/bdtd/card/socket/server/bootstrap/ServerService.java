@@ -2,7 +2,7 @@ package com.bdtd.card.socket.server.bootstrap;
 
 import java.net.InetSocketAddress;
 
-import com.bdtd.card.socket.base.service.INetService;
+import com.bdtd.card.socket.base.service.AbstractNetService;
 import com.bdtd.card.socket.server.handler.ServerInitializerHandler;
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -17,7 +17,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.ImmediateEventExecutor;
 
-public class ServerService implements INetService {
+public class ServerService extends AbstractNetService {
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
 	private final EventLoopGroup group = new NioEventLoopGroup();
 	private final EventLoop eventExecutor = group.next();
@@ -56,7 +56,12 @@ public class ServerService implements INetService {
 	}
 
 	@Override
-	public void start() {
+	public EventExecutor getEventExecutor() {
+		return this.eventExecutor;
+	}
+
+	@Override
+	public void startNetty() {
 		ChannelFuture future = bootstrap.bind(address);
 		future.syncUninterruptibly();
 		channel = future.channel();
@@ -69,8 +74,4 @@ public class ServerService implements INetService {
 		future.channel().closeFuture().syncUninterruptibly();
 	}
 
-	@Override
-	public EventExecutor getEventExecutor() {
-		return this.eventExecutor;
-	}
 }

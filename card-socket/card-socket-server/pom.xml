@@ -20,10 +20,5 @@
 			<artifactId>card-socket-base</artifactId>
 			<version>${app.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.bdtd</groupId>
-			<artifactId>card-service-base</artifactId>
-			<version>${app.version}</version>
-		</dependency>
 	</dependencies>
 </project>

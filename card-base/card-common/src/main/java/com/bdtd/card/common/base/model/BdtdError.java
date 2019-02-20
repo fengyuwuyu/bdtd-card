@@ -6,12 +6,15 @@ import java.util.Map;
 public enum BdtdError {
 
 	//system
-	DELETE_DICT_CASCADE_ERROR(1, "改字典存在下级字典，请先清空子字典后再执行此操作", BdtdModule.SYSTEM), 
+	DELETE_DICT_CASCADE_ERROR(1001, "改字典存在下级字典，请先清空子字典后再执行此操作", BdtdModule.SYSTEM), 
 	
 	
 	// ==========================================代码生成模块==========================================
-	FILE_NOT_EXIST(1, "项目目录不存在", BdtdModule.GENERATOR), 
+	FILE_NOT_EXIST(1001, "项目目录不存在", BdtdModule.GENERATOR), 
 	
+	// ==========================================网络模块==========================================
+	DUPLICATE_COMMAND_KEY(1001, "重复的command key", BdtdModule.NETWORK),
+	INVOKE_COMMAND_KEY(1002, "发送command失败", BdtdModule.NETWORK),
 	
 	
 	NO_ERROR(0, "成功", BdtdModule.COMMON), 

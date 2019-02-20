@@ -2,36 +2,41 @@ package com.bdtd.card.socket.base.command;
 
 import com.bdtd.card.common.base.model.BdtdModule;
 import com.bdtd.card.common.log.LOG;
+import com.bdtd.card.common.util.IpUtil;
 import com.bdtd.card.socket.base.annotation.Command;
+import com.bdtd.card.socket.base.consts.NetConsts;
 import com.bdtd.card.socket.base.model.CommandCategory;
 import com.bdtd.card.socket.base.msg.PacketHead;
+import com.bdtd.card.socket.base.utils.SequenceIdUtil;
+import com.bdtd.card.socket.base.utils.UserUtil;
 
 public abstract class AbstractCommand<T> implements ICommand {
 	private PacketHead innerPacketHead;
 	private Class<? extends ICommand> couple;
-	private long timestamp;
 	private T data;
+	private int nodeId;
 
 	public AbstractCommand() {
 		initCommand();
 	}
-	
-	
-	
+
 	public AbstractCommand(T data) {
 		this.data = data;
 		this.initCommand();
 	}
 
-
-
 	private void initCommand() {
 		Command command = this.getClass().getAnnotation(Command.class);
 		if (command != null) {
+			Long userId = UserUtil.getUserId();
 			int moduleId = command.module().getModuleId();
 			int commandId = command.commandId();
 			CommandCategory commandCategory = command.category();
-			innerPacketHead = new PacketHead(commandCategory, moduleId, commandId, System.currentTimeMillis());
+			long timestamp = System.currentTimeMillis();
+			int sequenceId = SequenceIdUtil.generatorId(moduleId, commandId);
+			int toNodeId = NetConsts.DEFAULT_SERVER_NODE_ID;
+			innerPacketHead = new PacketHead(commandCategory, moduleId, commandId, sequenceId, timestamp, toNodeId ,
+					this.nodeId, userId , IpUtil.getLocalAddressInt());
 
 			couple = command.couple();
 		} else {
@@ -50,9 +55,10 @@ public abstract class AbstractCommand<T> implements ICommand {
 			coupleHead.setToNodeId(thisHead.getFromNodeId());
 			coupleHead.setFromNodeId(thisHead.getToNodeId());
 			coupleHead.setUserId(thisHead.getUserId());
-			coupleHead.setIp(thisHead.getIp());
-
-			res.setTimestamp(System.currentTimeMillis());
+			coupleHead.setIp(IpUtil.getLocalAddressInt());
+			coupleHead.setModuleId(thisHead.getModuleId());
+			coupleHead.setCommandId(thisHead.getCommandId());
+			coupleHead.setCommandCategory(thisHead.getCommandCategory());
 
 			return res;
 		} catch (Exception e) {
@@ -87,17 +93,27 @@ public abstract class AbstractCommand<T> implements ICommand {
 		return BdtdModule.getModule(this.innerPacketHead.getModuleId());
 	}
 
-	public long getTimestamp() {
-		return timestamp;
+	public int getNodeId() {
+		return nodeId;
 	}
 
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
+	public void setNodeId(int nodeId) {
+		this.nodeId = nodeId;
 	}
 
 	@Override
 	public boolean isRequest() {
 		return this.getHead().getCommandCategory() == CommandCategory.REQUEST;
+	}
+
+	@Override
+	public boolean isResponse() {
+		return this.getHead().getCommandCategory() == CommandCategory.RESPONSE;
+	}
+
+	@Override
+	public boolean isPublish() {
+		return this.getHead().getCommandCategory() == CommandCategory.PUBLISH;
 	}
 
 	@Override
@@ -117,7 +133,12 @@ public abstract class AbstractCommand<T> implements ICommand {
 
 	@Override
 	public void newHead() {
-		
+
+	}
+
+	@Override
+	public int getSequenceId() {
+		return this.innerPacketHead.getSequenceId();
 	}
 
 }

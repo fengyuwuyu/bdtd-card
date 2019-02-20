@@ -1,9 +1,5 @@
 package com.bdtd.card.socket.base.msg;
 
-import com.bdtd.card.base.service.msg.IPacket;
-import com.bdtd.card.base.service.msg.IPacketHead;
-import com.bdtd.card.base.service.msg.PacketHead;
-
 public class InnerPacketMsg<T> implements IPacket<T> {
 
 	// 内包消息头

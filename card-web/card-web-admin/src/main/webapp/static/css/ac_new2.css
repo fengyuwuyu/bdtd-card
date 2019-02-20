@@ -1,0 +1,90 @@
+#smart_pop {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #1E9FFF;
+    z-index: 9999;
+    border-top: 0;
+    position: absolute;
+    background-color: #62bcff;
+    left: 0 !important;
+    top: 36px !important;
+}
+#smart_arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 12px;
+    padding: 0 12px 0 0;
+    top: 1px !important;
+    z-index: 999999;
+    left: inherit !important;
+    right: 10px;
+    display: none;
+}
+#smart_arrow .hide {
+    position: absolute;
+    padding: 0 12px 0 0;
+    width: 12px;
+    background: url(/theme/default/images/ac/smart01.gif) no-repeat center;
+}
+#smart_arrow .show {
+    position: absolute;
+    padding: 0 12px 0 0;
+    width: 12px;
+    background: url(/theme/default/images/ac/smart02.gif) no-repeat center;
+}
+#smart_pop div {
+    padding:5px;
+    overflow: hidden;
+}
+#smart_pop div:hover {
+    background-color: #1E9FFF;
+}
+
+#smart_pop div.left1 {
+    width: 200px;
+    padding: 5px 0 5px 5px;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#ffffff;
+    font-size:14px;
+    cursor:pointer;
+}
+#smart_pop div.left1 span.pic {
+    width: 12px;
+    padding-left: 10px;
+    background: url(/theme/default/images/ac/xinghao.gif) 3px 1px no-repeat;
+}
+#smart_pop div.left1 span.pic2 {
+    width: 12px;
+    padding-left: 10px;
+    background: url(/theme/default/images/ac/qianjin.gif) 3px 1px no-repeat;
+}
+#smart_pop div.right1 {
+    height: 17px;
+    padding: 5px 3px 0 0;
+    line-height: 14px;
+    text-align: right;
+    float: right;
+    color: #666;
+    display:none;
+}
+#smart_pop div.font_blue {
+    color: #0066ff;
+}
+#smart_pop div.close {
+    color: #666;
+    line-height: 30px;
+    background: #f4f6f9;
+    height: 30px;
+    text-align: right;
+    padding: 0px 5px;
+    cursor: pointer;
+    border-top:1px solid #e2e6ec;
+    display:none;
+}
+.kw {
+    PADDING-LEFT: 2px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; WIDTH: 200px; PADDING-TOP: 2px; HEIGHT: 18px;border:1px solid #ccc;
+}

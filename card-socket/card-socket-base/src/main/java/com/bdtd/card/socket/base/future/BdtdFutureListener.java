@@ -1,9 +1,8 @@
 package com.bdtd.card.socket.base.future;
 
-import com.bdtd.card.base.service.future.BdtdFuture;
-
+import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
-public interface BdtdFutureListener extends GenericFutureListener<BdtdFuture> {
+public interface BdtdFutureListener<T extends Future<T>> extends GenericFutureListener<Future<T>> {
 
 }

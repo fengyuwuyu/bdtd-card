@@ -11,20 +11,23 @@ import com.bdtd.card.socket.base.model.CommandCategory;
 import com.bdtd.card.socket.base.msg.PacketHead;
 
 public class DefaultCallback implements ICallback {
-	
+
 	public static int UNSET = 0;
 	public static int FAIL = 1;
 	public static int SUCCESS = 2;
-	
+
 	private ICommand command;
 	private INetContext remoteInvokerCtx;
 	private BdtdError error;
 	protected AbstractInvoke invoker;
 	protected Class<? extends ICommand> responseClass;
 	protected AtomicInteger haveResult = new AtomicInteger(0);
-	
-	public DefaultCallback(ICommand command, INetContext ctx, 
-			AbstractInvoke invoker,  Class<? extends ICommand> responseClass) {
+
+	public DefaultCallback() {
+	}
+
+	public DefaultCallback(ICommand command, INetContext ctx, AbstractInvoke invoker,
+			Class<? extends ICommand> responseClass) {
 		this.command = command;
 		this.remoteInvokerCtx = ctx;
 		this.invoker = invoker;
@@ -54,27 +57,26 @@ public class DefaultCallback implements ICallback {
 
 	@Override
 	public void setFailure(BdtdError error) throws DuplicatedOperateException {
-		if(haveResult.compareAndSet(UNSET, FAIL)) {
+		if (haveResult.compareAndSet(UNSET, FAIL)) {
 			this.error = error;
-			if(isRequest()) {
-				invoker.sendFail(this, responseClass, error);
+			if (isRequest()) {
+//				invoker.sendFail(this, responseClass, error);
 			}
-		}
-		else {
+		} else {
 			throw new DuplicatedOperateException();
 		}
 	}
-	
+
 	protected boolean updateSuccessState() {
 		return haveResult.compareAndSet(UNSET, SUCCESS);
 	}
 
 	@Override
 	public boolean tryFailure(BdtdError error) {
-		if(haveResult.compareAndSet(UNSET, FAIL)) {
+		if (haveResult.compareAndSet(UNSET, FAIL)) {
 			this.error = error;
-			if(isRequest()) {
-				invoker.sendFail(this, responseClass, error);
+			if (isRequest()) {
+//				invoker.sendFail(this, responseClass, error);
 			}
 			return true;
 		}
@@ -85,7 +87,7 @@ public class DefaultCallback implements ICallback {
 	public CommandCategory getCategory() {
 		return getHeader().getCommandCategory();
 	}
-	
+
 	@Override
 	public boolean isResponse() {
 		return getHeader().getCommandCategory() == CommandCategory.RESPONSE;

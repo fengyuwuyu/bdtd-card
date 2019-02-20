@@ -20,11 +20,5 @@
 			<artifactId>jboss-marshalling</artifactId>
 			<version>${jboss-marshalling.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.bdtd</groupId>
-			<artifactId>card-service-base</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 </project>

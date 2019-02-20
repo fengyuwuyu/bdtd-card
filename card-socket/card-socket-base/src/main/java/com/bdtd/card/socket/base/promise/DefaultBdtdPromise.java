@@ -1,16 +1,19 @@
-package com.bdtd.card.socket.base.future;
+package com.bdtd.card.socket.base.promise;
 
 import java.util.concurrent.TimeUnit;
-
-import com.bdtd.card.base.service.future.BasePromise;
-import com.bdtd.card.base.service.future.BdtdPromise;
 
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
-public class DefaultBdtdPromise extends BasePromise<Object> implements BdtdPromise {
+public class DefaultBdtdPromise<T> extends BasePromise<T> implements BdtdPromise<T> {
 	
+	
+	
+	public DefaultBdtdPromise() {
+		super();
+	}
+
 	public DefaultBdtdPromise(EventExecutor executor) {
 		super(executor);
 	}
@@ -26,13 +29,13 @@ public class DefaultBdtdPromise extends BasePromise<Object> implements BdtdPromi
 	}
 
 	@Override
-	public BdtdPromise setSuccess(Object result) {
+	public BdtdPromise<T> setSuccess(T result) {
         super.setSuccess(result);
         return this;
 	}
 
 	@Override
-	public BdtdPromise setSuccess() {
+	public BdtdPromise<T> setSuccess() {
 		return setSuccess(null);
 	}
 
@@ -42,57 +45,57 @@ public class DefaultBdtdPromise extends BasePromise<Object> implements BdtdPromi
 	}
 
 	@Override
-	public BdtdPromise setFailure(Throwable cause) {
+	public BdtdPromise<T> setFailure(Throwable cause) {
         super.setFailure(cause);
         return this;
 	}
 
 	@Override
-	public BdtdPromise addListener(GenericFutureListener<? extends Future<? super Object>> listener) {
+	public BdtdPromise<T> addListener(GenericFutureListener<? extends Future<? super T>> listener) {
         super.addListener(listener);
         return this;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BdtdPromise addListeners(GenericFutureListener<? extends Future<? super Object>>... listeners) {
+	public BdtdPromise<T> addListeners(GenericFutureListener<? extends Future<? super T>>... listeners) {
         super.addListeners(listeners);
         return this;
 	}
 
 	@Override
-	public BdtdPromise removeListener(GenericFutureListener<? extends Future<? super Object>> listener) {
+	public BdtdPromise<T> removeListener(GenericFutureListener<? extends Future<? super T>> listener) {
         super.removeListener(listener);
         return this;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public BdtdPromise removeListeners(GenericFutureListener<? extends Future<? super Object>>... listeners) {
+	public BdtdPromise<T> removeListeners(GenericFutureListener<? extends Future<? super T>>... listeners) {
         super.removeListeners(listeners);
         return this;
 	}
 
 	@Override
-	public BdtdPromise sync() throws InterruptedException {
+	public BdtdPromise<T> sync() throws InterruptedException {
         super.sync();
         return this;
 	}
 
 	@Override
-	public BdtdPromise syncUninterruptibly() {
+	public BdtdPromise<T> syncUninterruptibly() {
         super.syncUninterruptibly();
         return this;
 	}
 
 	@Override
-	public BdtdPromise await() throws InterruptedException {
+	public BdtdPromise<T> await() throws InterruptedException {
         super.await();
         return this;
 	}
 
 	@Override
-	public BdtdPromise awaitUninterruptibly() {
+	public BdtdPromise<T> awaitUninterruptibly() {
         super.awaitUninterruptibly();
         return this;
 	}

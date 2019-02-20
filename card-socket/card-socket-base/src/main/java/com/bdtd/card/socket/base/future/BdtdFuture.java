@@ -7,31 +7,32 @@ import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
-public interface BdtdFuture extends Future<Object> {
+@SuppressWarnings("unchecked")
+public interface BdtdFuture<T> extends Future<T> {
 
     @Override
-    BdtdFuture addListener(GenericFutureListener<? extends Future<? super Object>> listener);
+    BdtdFuture<T> addListener(GenericFutureListener<? extends Future<? super T>> listener);
+
+	@Override
+    BdtdFuture<T> addListeners(GenericFutureListener<? extends Future<? super T>>... listeners);
 
     @Override
-    BdtdFuture addListeners(GenericFutureListener<? extends Future<? super Object>>... listeners);
+    BdtdFuture<T> removeListener(GenericFutureListener<? extends Future<? super T>> listener);
 
     @Override
-    BdtdFuture removeListener(GenericFutureListener<? extends Future<? super Object>> listener);
+    BdtdFuture<T> removeListeners(GenericFutureListener<? extends Future<? super T>>... listeners);
 
     @Override
-    BdtdFuture removeListeners(GenericFutureListener<? extends Future<? super Object>>... listeners);
+    BdtdFuture<T> sync() throws InterruptedException;
 
     @Override
-    BdtdFuture sync() throws InterruptedException;
+    BdtdFuture<T> syncUninterruptibly();
 
     @Override
-    BdtdFuture syncUninterruptibly();
+    BdtdFuture<T> await() throws InterruptedException;
 
     @Override
-    BdtdFuture await() throws InterruptedException;
-
-    @Override
-    BdtdFuture awaitUninterruptibly();
+    BdtdFuture<T> awaitUninterruptibly();
     
     EventExecutor executor();
 

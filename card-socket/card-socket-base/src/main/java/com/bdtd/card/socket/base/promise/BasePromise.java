@@ -1,4 +1,4 @@
-package com.bdtd.card.socket.base.future;
+package com.bdtd.card.socket.base.promise;
 
 import static io.netty.util.internal.ObjectUtil.checkNotNull;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -6,8 +6,6 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
-
-import com.bdtd.card.base.service.future.BasePromiseListeners;
 
 import io.netty.util.concurrent.AbstractFuture;
 import io.netty.util.concurrent.BlockingOperationException;

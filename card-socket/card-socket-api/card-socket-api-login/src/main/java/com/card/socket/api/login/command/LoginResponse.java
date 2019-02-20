@@ -8,5 +8,6 @@ import com.bdtd.card.socket.base.model.CommandCategory;
 @Command(category=CommandCategory.REQUEST, commandId=1001, module=BdtdModule.LOGIN, couple=LoginRequest.class)
 public class LoginResponse extends AbstractCommand<String> {
 
+	
 
 }

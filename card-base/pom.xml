@@ -10,7 +10,6 @@
   <modules>
   	<module>card-common</module>
   	<module>card-common-web</module>
-  	<module>card-service-base</module>
   	<module>card-rpc-base</module>
   	<module>card-network</module>
   </modules>

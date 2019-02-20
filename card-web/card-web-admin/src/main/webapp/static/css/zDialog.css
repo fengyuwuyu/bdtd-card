@@ -1,0 +1,83 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+._DialogBGDiv {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+}
+
+._DialogBGDiv ._DialogBGMask {
+    position: absolute;
+    background-color: #323232;
+    opacity: 0.6;
+    filter: alpha(opacity=0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.DialogDiv {
+    border: 1px solid #999;
+    box-shadow: 0 5px 15px #323232;
+    -webkit-box-shadow: 0 5px 15px #323232;
+    border-radius: 6px;
+    background-color: #fff;
+}
+.height{
+    height: 40px;
+}
+.DialogTable {
+    font-size: 12px;
+    line-height: 1.4;
+    border-collapse: collapse;
+}
+.width{
+    width:1px;
+}
+.bgcolor{
+    background-color: #fff;
+}
+.DialogTable-left, .DialogTable-right {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.DialogTable-center {
+    border-bottom: 1px solid #e5e5e5;
+    color: #323232;
+    font-size: 16px;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.DialogTable-center>span{
+    display:inline-block;
+    padding:8px 10px;
+}
+
+.DialogClose {
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+    right:0px;
+    padding:12px;
+    /*border-left: 1px solid #e5e5e5;*/
+}
+.DialogClose>span{
+    display:inline-block;
+    margin:0px;
+    padding:0px;
+    border:0px;
+    width:20px;
+    height:20px;
+    background:url(../dialog/images/close.png) no-repeat;
+}
+.DialogClose>span:hover{
+    background:url(../dialog/images/close_blue.png) no-repeat;
+}

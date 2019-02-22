@@ -10,24 +10,24 @@ import com.bdtd.card.socket.base.invoke.AbstractInvoke;
 import com.bdtd.card.socket.base.model.CommandCategory;
 import com.bdtd.card.socket.base.msg.PacketHead;
 
-public class DefaultCallback implements ICallback {
+public class DefaultCallback<T> implements ICallback<T> {
 
 	public static int UNSET = 0;
 	public static int FAIL = 1;
 	public static int SUCCESS = 2;
 
-	private ICommand command;
+	private ICommand<T> command;
 	private INetContext remoteInvokerCtx;
 	private BdtdError error;
 	protected AbstractInvoke invoker;
-	protected Class<? extends ICommand> responseClass;
+	protected Class<? extends ICommand<T>> responseClass;
 	protected AtomicInteger haveResult = new AtomicInteger(0);
 
 	public DefaultCallback() {
 	}
 
-	public DefaultCallback(ICommand command, INetContext ctx, AbstractInvoke invoker,
-			Class<? extends ICommand> responseClass) {
+	public DefaultCallback(ICommand<T> command, INetContext ctx, AbstractInvoke invoker,
+			Class<? extends ICommand<T>> responseClass) {
 		this.command = command;
 		this.remoteInvokerCtx = ctx;
 		this.invoker = invoker;
@@ -104,7 +104,7 @@ public class DefaultCallback implements ICallback {
 	}
 
 	@Override
-	public ICommand getCommand() {
+	public ICommand<T> getCommand() {
 		return this.command;
 	}
 

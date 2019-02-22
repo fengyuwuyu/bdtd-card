@@ -1,5 +1,6 @@
 package com.bdtd.card.socket.base.command;
 
+import com.bdtd.card.common.base.model.BdtdError;
 import com.bdtd.card.common.base.model.BdtdModule;
 import com.bdtd.card.common.log.LOG;
 import com.bdtd.card.common.util.IpUtil;
@@ -10,11 +11,13 @@ import com.bdtd.card.socket.base.msg.PacketHead;
 import com.bdtd.card.socket.base.utils.SequenceIdUtil;
 import com.bdtd.card.socket.base.utils.UserUtil;
 
-public abstract class AbstractCommand<T> implements ICommand {
+public abstract class AbstractCommand<T> implements ICommand<T> {
 	private PacketHead innerPacketHead;
+	@SuppressWarnings("rawtypes")
 	private Class<? extends ICommand> couple;
 	private T data;
 	private int nodeId;
+	private BdtdError error;
 
 	public AbstractCommand() {
 		initCommand();
@@ -44,10 +47,10 @@ public abstract class AbstractCommand<T> implements ICommand {
 		}
 	}
 
-	public ICommand newCouple() {
-		Class<? extends ICommand> couple = getCouple();
+	public ICommand<T> newCouple() {
+		Class<? extends ICommand<T>> couple = getCouple();
 		try {
-			ICommand res = couple.newInstance();
+			ICommand<T> res = couple.newInstance();
 			PacketHead coupleHead = res.getHead();
 			PacketHead thisHead = getHead();
 			coupleHead.setSequenceId(thisHead.getSequenceId());
@@ -68,8 +71,9 @@ public abstract class AbstractCommand<T> implements ICommand {
 		}
 	}
 
-	public Class<? extends ICommand> getCouple() {
-		return couple;
+	@SuppressWarnings("unchecked")
+	public Class<? extends ICommand<T>> getCouple() {
+		return (Class<? extends ICommand<T>>) couple;
 	}
 
 	public T getData() {
@@ -139,6 +143,16 @@ public abstract class AbstractCommand<T> implements ICommand {
 	@Override
 	public int getSequenceId() {
 		return this.innerPacketHead.getSequenceId();
+	}
+
+	@Override
+	public void setError(BdtdError error) {
+		this.error = error;
+	}
+
+	@Override
+	public BdtdError getError() {
+		return this.error;
 	}
 
 }

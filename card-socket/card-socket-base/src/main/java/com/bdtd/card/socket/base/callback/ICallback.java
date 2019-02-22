@@ -7,11 +7,11 @@ import com.bdtd.card.socket.base.exception.DuplicatedOperateException;
 import com.bdtd.card.socket.base.model.CommandCategory;
 import com.bdtd.card.socket.base.msg.PacketHead;
 
-public interface ICallback {
+public interface ICallback<T> {
 	PacketHead getHeader();
 	INetContext getRemoteInvoker();
 	CommandCategory getCategory();
-	ICommand getCommand();
+	ICommand<T> getCommand();
 	boolean isFail();
 	boolean isResponse();
 	boolean isRequest();

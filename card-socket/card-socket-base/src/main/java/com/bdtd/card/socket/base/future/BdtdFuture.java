@@ -2,6 +2,8 @@ package com.bdtd.card.socket.base.future;
 
 import java.util.concurrent.TimeUnit;
 
+import com.bdtd.card.common.base.model.BdtdError;
+
 import io.netty.channel.ChannelFuture;
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.Future;
@@ -51,4 +53,8 @@ public interface BdtdFuture<T> extends Future<T> {
      * </ul>
      */
     boolean isNull();
+    
+    void tryError(BdtdError error);
+    
+    BdtdError getError();
 }

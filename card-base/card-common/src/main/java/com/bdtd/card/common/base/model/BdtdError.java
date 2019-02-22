@@ -15,11 +15,18 @@ public enum BdtdError {
 	// ==========================================网络模块==========================================
 	DUPLICATE_COMMAND_KEY(1001, "重复的command key", BdtdModule.NETWORK),
 	INVOKE_COMMAND_KEY(1002, "发送command失败", BdtdModule.NETWORK),
+	COMMAND_CATEGORY_NOT_EXIST(1003, "不存在的CommandCategory", BdtdModule.NETWORK),
+	SERVER_MODULE_NOT_REGIST(1004, "服务模块未注册", BdtdModule.NETWORK),
+	INVOKE_METADATA_NOT_REGIST(1005, "服务模块未注册", BdtdModule.NETWORK),
+	METHOD_COMMAND_NOT_EXIST(1006, "不存在的MethodCommand", BdtdModule.NETWORK),
+
 	
-	
+
+	// ==========================================公共模块==========================================
 	NO_ERROR(0, "成功", BdtdModule.COMMON), 
 	UNKNOWN_ERROR(-1, "未知错误", BdtdModule.COMMON),
 	COMMAND_NOT_FOUND(-2, "未知的Command", BdtdModule.COMMON),
+	MODULE_NOT_EXIST(-3, "不存在的ModuleId", BdtdModule.COMMON),
 	
 	
 	;

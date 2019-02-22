@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 import com.bdtd.card.socket.base.command.ICommand;
 
+@SuppressWarnings("rawtypes")
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface InvokeMethod {

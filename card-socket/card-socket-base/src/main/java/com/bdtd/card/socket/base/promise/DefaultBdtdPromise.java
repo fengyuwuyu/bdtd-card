@@ -2,13 +2,15 @@ package com.bdtd.card.socket.base.promise;
 
 import java.util.concurrent.TimeUnit;
 
+import com.bdtd.card.common.base.model.BdtdError;
+
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
 public class DefaultBdtdPromise<T> extends BasePromise<T> implements BdtdPromise<T> {
 	
-	
+	private BdtdError error;
 	
 	public DefaultBdtdPromise() {
 		super();
@@ -98,6 +100,16 @@ public class DefaultBdtdPromise<T> extends BasePromise<T> implements BdtdPromise
 	public BdtdPromise<T> awaitUninterruptibly() {
         super.awaitUninterruptibly();
         return this;
+	}
+
+	@Override
+	public void tryError(BdtdError error) {
+		this.error = error;
+	}
+
+	@Override
+	public BdtdError getError() {
+		return this.error;
 	}
 	
 

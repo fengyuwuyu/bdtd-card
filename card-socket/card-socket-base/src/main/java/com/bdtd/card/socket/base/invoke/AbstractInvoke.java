@@ -7,19 +7,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bdtd.card.common.base.model.BdtdError;
 import com.bdtd.card.socket.base.annotation.Command;
 import com.bdtd.card.socket.base.annotation.InvokeClass;
 import com.bdtd.card.socket.base.annotation.InvokeMethod;
-import com.bdtd.card.socket.base.callback.AsyncCallback;
-import com.bdtd.card.socket.base.command.AbstractCommand;
 import com.bdtd.card.socket.base.command.ICommand;
 import com.bdtd.card.socket.base.context.INetContext;
 import com.bdtd.card.socket.base.model.InvokeMetadata;
 import com.bdtd.card.socket.base.model.MethodCommand;
 import com.bdtd.card.socket.base.model.MethodType;
 import com.bdtd.card.socket.base.service.INetService;
-import com.bdtd.card.socket.base.utils.SequenceIdUtil;
 
 public abstract class AbstractInvoke implements IInvoke {
 
@@ -50,6 +46,7 @@ public abstract class AbstractInvoke implements IInvoke {
 		this.invokeMetadata.setMethodCommandList(parseMethods(methods));
 	}
 
+	@SuppressWarnings("rawtypes")
 	private List<MethodCommand> parseMethods(Method[] methods) {
 		List<MethodCommand> methodCommandList = new ArrayList<>(methods.length);
 		for (Method method : methods) {

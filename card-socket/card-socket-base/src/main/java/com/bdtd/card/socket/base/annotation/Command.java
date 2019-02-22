@@ -15,5 +15,6 @@ public @interface Command {
 	public BdtdModule module();
 	public int commandId();
 	public CommandCategory category();
+	@SuppressWarnings("rawtypes")
 	public Class<? extends ICommand> couple() default ICommand.class;
 }

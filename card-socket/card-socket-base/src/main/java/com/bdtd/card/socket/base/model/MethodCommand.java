@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 import com.bdtd.card.socket.base.command.ICommand;
 
+@SuppressWarnings("rawtypes")
 public class MethodCommand {
 
 	private Method method;

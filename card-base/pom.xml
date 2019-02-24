@@ -11,6 +11,5 @@
   	<module>card-common</module>
   	<module>card-common-web</module>
   	<module>card-rpc-base</module>
-  	<module>card-network</module>
   </modules>
 </project>

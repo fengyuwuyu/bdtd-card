@@ -27,7 +27,6 @@
 		</dependency>
 	</dependencies> -->
 	<modules>
-		<module>card-web-consume</module>
 		<module>card-web-admin</module>
 	</modules>
 </project>

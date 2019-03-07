@@ -71,6 +71,9 @@ public class Contrast {
     public static String contrastObj(Class dictClass, String key, Object pojo1, Map<String, String> pojo2) throws IllegalAccessException, InstantiationException {
         AbstractDictMap dictMap = (AbstractDictMap) dictClass.newInstance();
         String str = parseMutiKey(dictMap, key, pojo2) + separator;
+        if (pojo1 == null) {
+        	return str;
+        }
         try {
             Class clazz = pojo1.getClass();
             Field[] fields = pojo1.getClass().getDeclaredFields();

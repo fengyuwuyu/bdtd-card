@@ -1,9 +1,12 @@
 package com.bdtd.card.generator.web.config;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
@@ -12,6 +15,7 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
 import com.bdtd.card.common.util.FileUtil;
+import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.generator.web.engine.SimpleTemplateEngine;
 import com.bdtd.card.generator.web.engine.base.GunsTemplateEngine;
 import com.bdtd.card.generator.web.engine.config.ContextConfig;
@@ -93,8 +97,25 @@ public abstract class AbstractGeneratorConfig {
         autoGenerator.setTemplateEngine(new BeetlTemplateEngine());
         
         TemplateConfig templateConfig = new TemplateConfig()
-        	    .setEntity("templates/entity.java");
+        	    .setEntity("templates/entity.java").setXml("templates/mapper.xml");
         autoGenerator.setTemplate(templateConfig);
+        
+        InjectionConfig injectionConfig = new InjectionConfig() {
+            //自定义属性注入:abc
+            //在.ftl(或者是.vm)模板中，通过${cfg.abc}获取属性
+            @Override
+            public void initMap() {
+                Map<String, Object> map = new HashMap<>();
+                map.put("mapperFields", ToolUtil.getColumns(this.getConfig().getTableInfoList().get(0).getFields()));
+                map.put("mapperPrefixFields", ToolUtil.getPrefixColumns(this.getConfig().getTableInfoList().get(0).getFields()));
+                map.put("insertAllItems", ToolUtil.getInsertAllItems(this.getConfig().getTableInfoList().get(0).getFields()));
+                map.put("constructFields", ToolUtil.getConstractFields(this.getConfig().getTableInfoList().get(0).getFields()));
+                map.put("toString", ToolUtil.getToString(contextConfig.getEntityName(), this.getConfig().getTableInfoList().get(0).getFields()));
+                this.setMap(map);
+            }
+        };
+        //配置自定义属性注入
+        autoGenerator.setCfg(injectionConfig);
         autoGenerator.execute();
         destory();
 

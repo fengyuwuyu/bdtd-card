@@ -5,6 +5,12 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -134,6 +140,28 @@ public class DateUtil {
         return formatDate(date, "yyyyMMdd");
     }
 
+    public static Long localDate2Long(LocalDate localDate) {
+		return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+	}
+	
+	public static Long localDateTime2Long(LocalDateTime localDateTime) {
+		return localDateTime.toInstant(ZoneOffset.ofHours(8)).toEpochMilli();
+	}
+	
+	public static Long localTime2Long(LocalTime localTime) {
+		return localTime.toSecondOfDay() * 1000L;
+	}
+	
+	public static LocalDateTime long2LocalDateTime(long timestamp) {
+		Instant instant = Instant.ofEpochMilli(timestamp);
+	    ZoneId zone = ZoneId.systemDefault();
+	    return LocalDateTime.ofInstant(instant, zone);
+	}
+	
+	public static LocalTime long2LocalTime(long timestamp) {
+		return LocalTime.ofSecondOfDay(timestamp / 1000);
+	}
+    
     /**
      * 获取java.sql.Time类
      *
@@ -443,6 +471,10 @@ public class DateUtil {
 		calendar.setTime(date);
 		calendar.add(Calendar.DAY_OF_MONTH, amount);
 		return calendar.getTime();
+	}
+
+	public static LocalDate long2LocalDate(long timestamp) {
+		return new Date(timestamp).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
     
     /**

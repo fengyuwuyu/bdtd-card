@@ -1,9 +1,8 @@
-package com.bdtd.card.socket.server.bootstrap;
+package com.bdtd.card.socket.base.service;
 
 import java.net.InetSocketAddress;
 
-import com.bdtd.card.socket.base.service.AbstractNetService;
-import com.bdtd.card.socket.server.handler.ServerInitializerHandler;
+import com.bdtd.card.socket.base.handler.ServerInitializerHandler;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -17,22 +16,12 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.concurrent.EventExecutor;
 import io.netty.util.concurrent.ImmediateEventExecutor;
 
-public class ServerService extends AbstractNetService {
+public abstract class AbstractServerNetService extends AbstractNetService {
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
 	private final EventLoopGroup group = new NioEventLoopGroup();
 	private final EventLoop eventExecutor = group.next();
 	private Channel channel;
 	private ServerBootstrap bootstrap;
-	private InetSocketAddress address;
-
-	private static ServerService instance = new ServerService();
-
-	private ServerService() {
-	}
-
-	public static ServerService getInstance() {
-		return instance;
-	}
 
 	@Override
 	public void close() {
@@ -43,16 +32,12 @@ public class ServerService extends AbstractNetService {
 		group.shutdownGracefully();
 	}
 
-	public static void main(String[] args) throws Exception {
-		final ServerService server = new ServerService();
-		server.init(new InetSocketAddress(9999));
-		server.start();
-	}
-
 	@Override
-	public void init(InetSocketAddress address) {
+	public void init(int nodeId, InetSocketAddress address) {
+		this.address = address;
+		this.nodeId = nodeId;
 		bootstrap = new ServerBootstrap();
-		bootstrap.group(group).channel(NioServerSocketChannel.class).childHandler(new ServerInitializerHandler(channelGroup));
+		bootstrap.group(group).channel(NioServerSocketChannel.class).childHandler(new ServerInitializerHandler(channelGroup, this));
 	}
 
 	@Override
@@ -65,13 +50,19 @@ public class ServerService extends AbstractNetService {
 		ChannelFuture future = bootstrap.bind(address);
 		future.syncUninterruptibly();
 		channel = future.channel();
+		AbstractServerNetService service = this;
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
-				ServerService.this.close();
+				service.close();
 			}
 		});
 		future.channel().closeFuture().syncUninterruptibly();
+	}
+
+	@Override
+	public int getNodeId() {
+		return this.nodeId;
 	}
 
 }

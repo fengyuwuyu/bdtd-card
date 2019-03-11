@@ -1,4 +1,4 @@
-package com.bdtd.card.socket.server.handler;
+package com.bdtd.card.socket.base.handler;
 
 import com.bdtd.card.socket.base.handler.DefaultCommandHandler;
 import com.bdtd.card.socket.base.marshalling.MarshallingCodeFactory;

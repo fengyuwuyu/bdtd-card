@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.bdtd.card.socket.base.command.ICommand;
+import com.bdtd.card.socket.base.service.INetService;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -14,7 +15,14 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public class DefaultCommandHandler extends ChannelInboundHandlerAdapter {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
+	private INetService netservice;
+	
+	public DefaultCommandHandler(INetService netservice) {
+		super();
+		this.netservice = netservice;
+	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		ICommand command = (ICommand) msg;

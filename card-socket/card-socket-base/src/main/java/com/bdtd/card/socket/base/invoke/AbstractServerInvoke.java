@@ -14,7 +14,7 @@ public abstract class AbstractServerInvoke extends AbstractInvoke {
 
 	@Override
 	public <T, R> void dealRequest(AbstractCommand<T> command, BdtdPromise<R> promise) {
-		ICommand response = command.newCouple();
+		ICommand<T> response = command.newCouple();
 		
 	}
 	

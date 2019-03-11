@@ -3,10 +3,11 @@ package com.bdtd.card.socket.base.service;
 import java.net.InetSocketAddress;
 
 import com.bdtd.card.socket.base.callback.AsyncCallback;
-import com.bdtd.card.socket.base.command.AbstractCommand;
+import com.bdtd.card.socket.base.command.ICommand;
 import com.bdtd.card.socket.base.invoke.IInvoke;
 import com.bdtd.card.socket.base.promise.BdtdPromise;
 
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.EventExecutor;
 
 public interface INetService {
@@ -17,7 +18,7 @@ public interface INetService {
 	
 	default <T> void close(BdtdPromise<T> promise) {};
 	
-	void init(InetSocketAddress address);
+	void init(int nodeId, InetSocketAddress address);
 	
 	void registerServer(IInvoke... servers);
 	
@@ -29,9 +30,13 @@ public interface INetService {
 	
 	EventExecutor getEventExecutor();
 	
-	<T, R> void cacheCallback(AbstractCommand<T> command, AsyncCallback<R> callback);
+	<T, R> void cacheCallback(ICommand<T> command, AsyncCallback<R> callback);
 	
-	<T, R> void dealResponse(AbstractCommand<T> command);
+	<R> void dealResponse(ICommand<R> command);
 	
 	void startNetty();
+	
+	int getNodeId();
+	
+	<T> void dealCommand(ChannelHandlerContext ctx, ICommand<T> command);
 }

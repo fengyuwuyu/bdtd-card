@@ -62,6 +62,7 @@ public class MenuController extends BaseController {
     @RequestMapping(value = "/menu_add")
     public String menuAdd(Model model) {
         model.addAttribute("menuItemList", OriginMask.select());
+        model.addAttribute("defaultValue", OriginMask.YES.getType());
         return PREFIX + "menu_add.html";
     }
 

@@ -2,6 +2,9 @@ package com.bdtd.card.common.util;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.Base64;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -26,6 +29,128 @@ public class StringUtil {
 	protected final static byte NUM_BYTES[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
 			0, 0, 0, 0 };
+	static final int BYTES_THRESHOLD = 50;
+
+	public static String bytesToString(byte[] data) {
+		if (data == null) {
+			return "null";
+		}
+
+		StringBuilder sb = new StringBuilder(70);
+		if (data.length > BYTES_THRESHOLD) {
+			return "bytes <len=" + data.length + ">";
+		} else {
+			return sb.append('b').append('"').append(Base64.getEncoder().encodeToString(data)).append('"').toString();
+		}
+	}
+
+	public static String bytesListToString(List<byte[]> data) {
+		Iterator<byte[]> it = data.iterator();
+		if (!it.hasNext())
+			return "[]";
+
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for (;;) {
+			byte[] e = it.next();
+			sb.append(bytesToString(e));
+			if (!it.hasNext())
+				return sb.append(']').toString();
+			sb.append(',').append(' ');
+		}
+	}
+
+	public static String stringToString(String str) {
+		if (str == null) {
+			return "null";
+		}
+
+		StringBuilder sb = new StringBuilder(str.length() + 2);
+		return sb.append('"').append(str).append('"').toString();
+	}
+
+	public static String stringListToString(List<String> str) {
+		Iterator<String> it = str.iterator();
+		if (!it.hasNext())
+			return "[]";
+
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for (;;) {
+			String e = it.next();
+			sb.append(stringToString(e));
+			if (!it.hasNext())
+				return sb.append(']').toString();
+			sb.append(',').append(' ');
+		}
+	}
+
+	public static Float stringToFloat(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Float.parseFloat(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	public static Double stringToDouble(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Double.parseDouble(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	public static Boolean stringToBool(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Boolean.parseBoolean(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	public static Integer stringToInt(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Integer.parseInt(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	public static Long stringToLong(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Long.parseLong(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	public static byte[] stringToBytes(String data) {
+		try {
+			if (data == null) {
+				return null;
+			}
+			return Base64.getDecoder().decode(data);
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
 
 	public static boolean isDecString(String string) {
 		if (isNullEmpty(string)) {

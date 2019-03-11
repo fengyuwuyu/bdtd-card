@@ -15,12 +15,14 @@ import lombok.experimental.Accessors;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 <% } %>
+
+import com.bdtd.card.common.util.StringUtil;
 /**
  * <p>
  * ${table.comment!}
  * </p>
  *
- * @author ${author}
+ * @author
  * @since ${date}
  */
 <% if(entityLombokModel){ %>
@@ -101,6 +103,22 @@ public class ${entity} extends Model<${entity}> {
 <% } %>
 <% /** -----------END 字段循环遍历----------- **/ %>
 
+<% /** -----------构造函数 begin----------- **/  %>
+	public ${entity} () {
+		super();
+	}
+	
+	public ${entity} (${cfg.constructFields}) {
+		super();
+	<% for(field in table.fields){ %>
+		<% if (field.keyFlag && field.keyIdentityFlag) {
+			continue;
+		} %>
+		this.${field.propertyName} = ${field.propertyName};
+	<% } %>
+	}
+<% /** -----------构造函数 end----------- **/  %>
+
 <% if(!entityLombokModel){ %>
     <% for(field in table.fields){ %>
         <%
@@ -148,15 +166,35 @@ public class ${entity} extends Model<${entity}> {
 <% if(!entityLombokModel){ %>
     @Override
     public String toString() {
-        return "${entity}{" +
-    <% for(field in table.fields){ %>
-       <% if(fieldLP.index==0){ %>
-        "${field.propertyName}=" + ${field.propertyName} +
-       <% }else{ %>
-        ", ${field.propertyName}=" + ${field.propertyName} +
-       <% } %>
-    <% } %>
-        "}";
+		StringBuilder sb = new StringBuilder("${entity} { ");	
+		<% 
+		for(var i = 0; i < table.fields.~size; i++) { 
+			var field = table.fields[i];	
+			if (i != table.fields.~size - 1) {
+				if (field.propertyType == "String") {
+		%>   
+			sb.append("${field.propertyName}: ").append(StringUtil.stringToString(${field.propertyName})).append(',').append(' ');
+			<% } else { %>
+			sb.append("${field.propertyName}: ").append(${field.propertyName}).append(',').append(' ');
+			<% }} else { %>
+				<% if (field.propertyType == "String") { %>   
+			sb.append("${field.propertyName}: ").append(StringUtil.stringToString(${field.propertyName}));
+			<% } else { %>
+			sb.append("${field.propertyName}: ").append(${field.propertyName});
+			<% }
+			} %>
+		<% } %>   
+		sb.append('}'); 
+        return sb.toString(); 
     }
 <% } %>
 }
+
+/*
+<% for(field in table.fields){ %>
+	<% if (field.keyFlag && field.keyIdentityFlag) {
+		continue;
+	} %>
+	${field.propertyType} ${field.propertyName} = null;
+<% } %>
+*/

@@ -66,11 +66,10 @@ import com.bdtd.card.common.web.util.model.TableFieldToString;
 public class ToolUtil {
 	
 	private static final Logger log = LoggerFactory.getLogger(ToolUtil.class);
-
 	private static DataSource ds;
 
 	private static Map<String, Map<String, Boolean>> nullableMap = new HashMap<>();
-
+	
 	@Autowired
 	public void setDs(DataSource ds) {
 		ToolUtil.ds = ds;
@@ -101,6 +100,46 @@ public class ToolUtil {
 	// id=\"${propertyName}\" name=\"${comment}\" ${underline} ${dataOptions}
 	// itemList=\"${unitDictList}\"></#select>");
 	
+	public static String getModuleName(String module) {
+		return module + "Service";
+	}
+
+	public static String getAttribute(String tableName, TableField field) throws SQLException {
+		String propertyName = field.getPropertyName();
+		
+		if (field.isKeyIdentityFlag() || "createDate".equals(propertyName) || "updateDate".equals(propertyName)) {
+			return "optional";
+		}
+		if (nullableMap.get(tableName) == null) {
+			nullableMap.put(tableName, new HashMap<>());
+			getTableFields(tableName, field);
+		}
+		TableFieldToString fieldToString = new TableFieldToString(field,
+				nullableMap.get(tableName).get(field.getName()));
+		if (fieldToString.isNullable()) {
+			return "optional";
+		}
+		return "required";
+	}
+	
+	public static String getLengthLimit(String tableName, TableField field) throws SQLException {
+	  if (field.getColumnType() != DbColumnType.STRING) {
+	    return "";
+	  }
+	  if (nullableMap.get(tableName) == null) {
+      nullableMap.put(tableName, new HashMap<>());
+      getTableFields(tableName, field);
+    }
+    TableFieldToString fieldToString = new TableFieldToString(field,
+        nullableMap.get(tableName).get(field.getName()));
+	  return "[ maxLength = " + fieldToString.getLength() + " ]";
+	}
+	
+	public static String firstLetterToLow(String str) {
+		return StringUtil.firstToLower(str);
+	}
+	
+	@SuppressWarnings("unchecked")
 	public static boolean hasProperty(Object obj, String propertyName) {
 		try {
 			List<TableField> fields = (List<TableField>) obj;
@@ -115,7 +154,72 @@ public class ToolUtil {
 		}
 		return false;
 	}
-
+	
+	public static String getIdType(List<TableField> fields) {
+		if (fields == null || fields.size() == 0) {
+			return "string";
+		}
+		
+		for (TableField field : fields) {
+			if (field.isKeyIdentityFlag()) {
+				if (field.getColumnType() == DbColumnType.INTEGER) {
+					return "int";
+				} 
+				return "long";
+			}
+		}
+		return "string";
+	}
+	
+	public static Object getConstractFields(List<TableField> fields) {
+		StringBuilder sb = new StringBuilder();
+		for (TableField field : fields) {
+			if (field.isKeyFlag() && field.isKeyIdentityFlag()) {
+				continue;
+			}
+			sb.append(field.getPropertyType());
+			sb.append(" ");
+			sb.append(field.getPropertyName());
+			sb.append(", ");
+		}
+		return sb.substring(0, sb.length() - 2);
+	}
+	
+	public static String getPrefixColumns(List<TableField> fields) {
+		if (fields == null || fields.size() == 0) {
+			return "";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for (TableField field : fields) {
+			sb.append("a.");
+			sb.append(field.getName());
+			if (field.getName().indexOf("_") != -1) {
+				sb.append(" ");
+				sb.append(field.getPropertyName());
+			}
+			sb.append(", ");
+		}
+		return sb.toString().substring(0, sb.length() - 2);
+	}
+	
+	public static String getColumns(List<TableField> fields) {
+		if (fields == null || fields.size() == 0) {
+			return "";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for (TableField field : fields) {
+			sb.append(field.getName());
+			if (field.getName().indexOf("_") != -1) {
+				sb.append(" ");
+				sb.append(field.getPropertyName());
+			}
+			sb.append(", ");
+		}
+		return sb.toString().substring(0, sb.length() - 2);
+	}
+	
 	/**
 	 * @param tableName
 	 *            表名
@@ -190,7 +294,6 @@ public class ToolUtil {
 	}
 
 	private static String getDataOptions(TableFieldToString field) {
-		log.info(field.getColumnType().toString());
 		String dataOptions = "";
 		boolean nullable = field.isNullable();
 		int length = field.getLength();
@@ -871,8 +974,6 @@ public class ToolUtil {
 		switch ((DbColumnType)field.getColumnType()) {
 		case STRING:
 			return "string";
-		case LONG:
-			return "long";
 		case INTEGER:
 			return "int";
 		case FLOAT:
@@ -881,15 +982,53 @@ public class ToolUtil {
 			return "double";
 		case CHARACTER:
 			return "char";
-		case DATE:
-			if ("datetime".equals(field.getType())) {
-				return "datetime";
-			}
-			return "date";
-		case TIME:
-			return "time";
+		case BIG_DECIMAL:
+			return "double";
+		case LOCAL_DATE:
+		case LOCAL_DATE_TIME:
+		case LOCAL_TIME:
+		case LONG:
+		case TIMESTAMP:
+			return "long";
 		default:
-			return "unknow";
+			return "string";
 		}
+	}
+
+	public static String getInsertAllItems(List<TableField> fields) {
+		if (fields == null || fields.size() == 0) {
+			return "";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		for (TableField field : fields) {
+			sb.append("#{item.");
+			sb.append(field.getPropertyName());
+			sb.append("}, ");
+		}
+		return sb.toString().substring(0, sb.length() - 2);
+	}
+	
+	public static String getToString(String entityName, List<TableField> fields) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("StringBuilder sb = new StringBuilder(\"" + entityName + " { \");");
+		for (int i = 0; i < fields.size(); i++) {
+			TableField field = fields.get(i);
+			if (i != fields.size() - 1) {
+				if (field.getPropertyType() == DbColumnType.STRING.getType()) {
+					sb.append("sb.append(\"" + field.getPropertyName() + ": \").append(StringUtil.stringToString(" + field.getPropertyName() + ")).append(',').append(' ');/r/n");
+				} else {
+					sb.append("sb.append(\"" + field.getPropertyName() + ": \").append(" + field.getPropertyName() + ").append(',').append(' ');/r/n");
+				}
+			} else {
+				if (field.getPropertyType() == DbColumnType.STRING.getType()) {
+					sb.append("sb.append(\"" + field.getPropertyName() + ": \").append(StringUtil.stringToString(" + field.getPropertyName() + "));/r/n");
+				} else {
+					sb.append("sb.append(\"" + field.getPropertyName() + ": \").append(" + field.getPropertyName() + ");/r/n");
+				}
+			}
+		}
+        sb.append("sb.append('}');");
+        return sb.toString();
 	}
 }

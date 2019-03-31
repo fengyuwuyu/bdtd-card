@@ -42,7 +42,11 @@ Code.selectTemplate = function (templateKey) {
 Code.generate = function () {
 //    Code.submitData = {};
 //    Code.submitData.tableName = Code.tableName;
-    var data = $('#generatorForm').serializeObject();
+	var form = $('#generatorForm');
+	if (!Feng.validateForm(form)) {
+		return;
+	}
+    var data = form.serializeObject();
 //    this.set('projectPath').set('author').set('projectPackage').set('corePackage').set('ignoreTabelPrefix').set('bizName').set('moduleName').set('parentMenuName');
     var baseAjax = Feng.baseAjax("/code/generate", "生成代码");
 
@@ -68,12 +72,15 @@ Code.generate = function () {
  * 设置表名称
  */
 Code.setTableName = function (tableName, tableComment) {
-	var prefix = tableName.split('_')[0] + '_';
-    $('#ignoreTabelPrefix').val(prefix);
-    var preSize = prefix.length;
     $("#tableName").val(tableName);
-    $("#className").val(Feng.underLineToCamel(tableName.substring(preSize)));
     $('#bizName').val(tableComment);
+    var prefix = $('#ignoreTabelPrefix').val();
+	if (prefix) {
+	    var preSize = prefix.length;
+	    $("#className").val(Feng.underLineToCamel(tableName.substring(preSize)));
+	} else {
+		$("#className").val(Feng.underLineToCamel(tableName));
+	}
 };
 
 /**

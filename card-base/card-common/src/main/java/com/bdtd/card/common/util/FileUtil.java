@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +25,7 @@ import java.util.Set;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -359,11 +361,28 @@ public class FileUtil {
     }
     
     public static void main(String[] args) throws IOException {
-		System.out.println(checkExist("/D:/workspace/eclipse/bdtd/card/project/bdtd-card/card-web/card-web-admin"));
-		System.out.println(checkExist("/D:/workspace/eclipse/bdtd/card/project/bdtd-card/card-data/card-data-admin"));
+    	addFileSuffix("F:\\迅雷下载", ".torrent");
 	}
     
-    public static List<File> scanPath(String path, FilenameFilter filter) {
+    public static void addFileSuffix(String path, String replaceSuffix) {
+    	List<File> files = scanPath(path, (dir, name) -> {
+    		if (name.indexOf(".") == -1) {
+    			return true;
+    		}
+    		return false;
+    	});
+    	files.forEach((item) -> {
+    		String newName = item.getAbsolutePath() + replaceSuffix;
+			FileUtil.renameTo(item, newName);
+    	});
+    }
+    
+    
+    public static void renameTo(File item, String newName) {
+		item.renameTo(new File(newName));
+	}
+
+	public static List<File> scanPath(String path, FilenameFilter filter) {
     	File file = new File(path);
     	if (!file.exists()) {
     		return Collections.emptyList();
@@ -411,6 +430,26 @@ public class FileUtil {
 		
 		File file = new File(fileName);
 		return file.exists();
+	}
+
+	public static void writeContent(String fileName, String content) {
+		File file = new File(fileName);
+		if (file.isDirectory()) {
+			return;
+		}
+		
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try (FileOutputStream out = new FileOutputStream(file)) {
+			IOUtils.write(content.getBytes(Charset.forName("UTF-8")), out);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

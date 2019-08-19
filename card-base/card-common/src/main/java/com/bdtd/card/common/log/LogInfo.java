@@ -4,24 +4,24 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bdtd.card.common.base.model.BdtdError;
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumError;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.log.protobuf.PBLog.PBKeyValuePair;
 import com.bdtd.card.common.log.protobuf.PBLog.PBLogInfo;
 import com.bdtd.card.common.util.StringUtil;
 
 public class LogInfo {
 	private Integer nodeId;
-	private BdtdModule module;
+	private EnumModule module;
 	private EnumLogType logType;
 	private LogLevel logLevel;
 	private String logMessage;
 	private String stackTrace;
-	private BdtdError error;
+	private EnumError error;
 	private Date timeStamp;
 	private String defaultFormattedMessage;
 
-	public LogInfo(String stackTrace, BdtdError err, BdtdModule module, EnumLogType logType, LogLevel logLevel,
+	public LogInfo(String stackTrace, EnumError err, EnumModule module, EnumLogType logType, LogLevel logLevel,
 			String logMessage, Date timeStamp) {
 		this.logType = logType;
 		this.logLevel = logLevel;
@@ -44,11 +44,11 @@ public class LogInfo {
 		return stackTrace;
 	}
 
-	public BdtdError getError() {
+	public EnumError getError() {
 		return error;
 	}
 
-	public BdtdModule getModule() {
+	public EnumModule getModule() {
 		return module;
 	}
 
@@ -103,8 +103,8 @@ public class LogInfo {
 				userDefinedObjects.put(keyValuePair.getKey(), keyValuePair.getValue());
 			}
 
-			LogInfo info2 = new LogInfo(info.getException(), BdtdError.getError(info.getErrorCode()),
-					BdtdModule.getModule(info.getModuleId()), EnumLogType.getLogType((short) info.getLogType()),
+			LogInfo info2 = new LogInfo(info.getException(), EnumError.getError(info.getErrorCode()),
+					EnumModule.getModule(info.getModuleId()), EnumLogType.getLogType((short) info.getLogType()),
 					LogLevel.getLogType(info.getLogLevel()), info.getLogMessage(), new Date(info.getTimeStamp()));
 
 			info2.setDefaultFormattedMessage(info.getDefaultFormattedMessage());

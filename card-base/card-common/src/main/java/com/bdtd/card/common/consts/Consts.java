@@ -12,9 +12,9 @@ public class Consts {
 	public static final String ENUM_SELECT_ID_FIELD_NAME = "id";
 	public static final String ENUM_SELECT_NAME_FIELD_NAME = "name";
 	
-	public static final String UPDATE_FILE = "d:/bdtd/upload";
-	public static final String UPDATE_EXPORT_FILE = "d:/bdtd/upload/export";
-	public static final String UPDATE_SWF_FILE = "d:/bdtd/upload/swf";
+	public static final String UPDATE_FILE = "d:/card/upload";
+	public static final String UPDATE_EXPORT_FILE = "d:/card/upload/export";
+	public static final String UPDATE_SWF_FILE = "d:/card/upload/swf";
 	
 	
 	

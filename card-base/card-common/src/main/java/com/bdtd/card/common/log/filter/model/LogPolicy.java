@@ -3,7 +3,7 @@ package com.bdtd.card.common.log.filter.model;
 import java.util.List;
 import java.util.Map;
 
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.log.EnumLogType;
 import com.bdtd.card.common.log.LogLevel;
 import com.bdtd.card.common.log.receiver.ILogReceiver;
@@ -17,7 +17,7 @@ public class LogPolicy {
 
 	private int priority;
 
-	public boolean matchModule(BdtdModule module) {
+	public boolean matchModule(EnumModule module) {
 		return moduleIds == null || moduleIds.size() == 0 || (moduleIds.contains((int) module.getModuleId()));
 	}
 

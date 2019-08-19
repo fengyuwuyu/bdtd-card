@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.bdtd.card.common.model.MenuNode;
 import com.bdtd.card.common.util.SpringContextHolder;
-import com.bdtd.card.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.web.properties.BaseProperties;
 import com.bdtd.card.web.admin.consts.Const;
 
 /**
@@ -16,7 +16,7 @@ public class ApiMenuFilter extends MenuNode {
     public static List<MenuNode> build(List<MenuNode> nodes) {
 
         //如果关闭了接口文档,则不显示接口文档菜单
-        BdtdProperties gunsProperties = SpringContextHolder.getBean(BdtdProperties.class);
+        BaseProperties gunsProperties = SpringContextHolder.getBean(BaseProperties.class);
         if (!gunsProperties.getSwaggerOpen()) {
             List<MenuNode> menuNodesCopy = new ArrayList<>();
             for (MenuNode menuNode : nodes) {

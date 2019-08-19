@@ -19,8 +19,8 @@ import org.apache.logging.log4j.core.LoggerContext;
 import org.slf4j.LoggerFactory;
 
 import com.bdtd.card.common.base.exception.AbstractNoticeException;
-import com.bdtd.card.common.base.model.BdtdError;
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumError;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.log.filter.LogFilter;
 import com.bdtd.card.common.log.filter.model.LogPolicy;
 import com.bdtd.card.common.log.internal.Log4j2ConfigBuilder;
@@ -89,7 +89,7 @@ public class LOG {
 			LoggerContext.getContext(false).reconfigure();
 			fakeLog4jConfig.delete();
 		} catch (Throwable e) {
-			LOG.fatal(BdtdModule.COMMON, e, "Failed to reconfigure log4j.");
+			LOG.fatal(EnumModule.COMMON, e, "Failed to reconfigure log4j.");
 		}
 	}
 
@@ -129,7 +129,7 @@ public class LOG {
 				staticLoggerBinderPathSet.add(path);
 			}
 		} catch (IOException e) {
-			LOG.warning(BdtdModule.COMMON, e, "Error getting resources from path %s", STATIC_LOGGER_BINDER_PATH);
+			LOG.warning(EnumModule.COMMON, e, "Error getting resources from path %s", STATIC_LOGGER_BINDER_PATH);
 		}
 		return staticLoggerBinderPathSet;
 	}
@@ -160,14 +160,14 @@ public class LOG {
 
 			Set<URL> slf4jBindings = getPossibleSLF4JStaticBindings();
 			if (slf4jBindings.size() != 1) {
-				LOG.error(BdtdModule.COMMON, null,
+				LOG.error(EnumModule.COMMON, null,
 						"more than one or no slf4j static bindings were found, third party logs may not be logged.");
 				for (URL url : slf4jBindings) {
-					LOG.error(BdtdModule.COMMON, null, "binding: [%s]", url);
+					LOG.error(EnumModule.COMMON, null, "binding: [%s]", url);
 				}
 			}
 		} catch (Throwable e) {
-			LOG.fatal(BdtdModule.COMMON, e, "Failed to initialize log system.");
+			LOG.fatal(EnumModule.COMMON, e, "Failed to initialize log system.");
 		}
 	}
 
@@ -213,120 +213,120 @@ public class LOG {
 				}
 
 			} catch (Throwable e) {
-				LOG.fatal(BdtdModule.COMMON, e, "Failed to reconfigure log system.");
+				LOG.fatal(EnumModule.COMMON, e, "Failed to reconfigure log system.");
 			}
 		}
 	}
 
-	public static void trace(BdtdModule module, String format, Object... objs) {
+	public static void trace(EnumModule module, String format, Object... objs) {
 		try {
 			trace(module, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void trace(BdtdModule module, EnumLogType logType, String format, Object... objs) {
+	public static void trace(EnumModule module, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, null, module, logType, LogLevel.TRACE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void trace(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void trace(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			trace(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void trace(BdtdModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void trace(EnumModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.TRACE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void trace(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void trace(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			trace(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void trace(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void trace(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.TRACE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdModule module, String format, Object... objs) {
+	public static void debug(EnumModule module, String format, Object... objs) {
 		try {
 			debug(module, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdModule module, EnumLogType logType, String format, Object... objs) {
+	public static void debug(EnumModule module, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, null, module, logType, LogLevel.DEBUG, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void debug(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			debug(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void debug(EnumModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.DEBUG, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void debug(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			debug(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void debug(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.DEBUG, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdError error, String format, Object... objs) {
+	public static void debug(EnumError error, String format, Object... objs) {
 		try {
 			debug(error, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void debug(BdtdError error, EnumLogType logType, String format, Object... objs) {
+	public static void debug(EnumError error, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, error, error.getModule(), logType, LogLevel.DEBUG, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -334,7 +334,7 @@ public class LOG {
 		try {
 			debug(exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -343,71 +343,71 @@ public class LOG {
 			dispatch(exception, exception.getErrorCode(), exception.getErrorCode().getModule(), logType, LogLevel.DEBUG,
 					format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdModule module, String format, Object... objs) {
+	public static void info(EnumModule module, String format, Object... objs) {
 		try {
 			info(module, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdModule module, EnumLogType logType, String format, Object... objs) {
+	public static void info(EnumModule module, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, null, module, logType, LogLevel.INFO, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void info(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			info(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void info(EnumModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.INFO, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void info(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			info(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void info(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.INFO, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdError error, String format, Object... objs) {
+	public static void info(EnumError error, String format, Object... objs) {
 		try {
 			info(error, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void info(BdtdError error, EnumLogType logType, String format, Object... objs) {
+	public static void info(EnumError error, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, error, error.getModule(), logType, LogLevel.INFO, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -415,7 +415,7 @@ public class LOG {
 		try {
 			info(exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -424,72 +424,72 @@ public class LOG {
 			dispatch(exception, exception.getErrorCode(), exception.getErrorCode().getModule(), logType, LogLevel.INFO,
 					format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdModule module, String format, Object... objs) {
+	public static void warning(EnumModule module, String format, Object... objs) {
 		try {
 			warning(module, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdModule module, EnumLogType logType, String format, Object... objs) {
+	public static void warning(EnumModule module, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, null, module, logType, LogLevel.WARN, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void warning(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			warning(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdModule module, Throwable exception, EnumLogType logType, String format,
+	public static void warning(EnumModule module, Throwable exception, EnumLogType logType, String format,
 			Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.WARN, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void warning(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			warning(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void warning(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.WARN, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdError error, String format, Object... objs) {
+	public static void warning(EnumError error, String format, Object... objs) {
 		try {
 			warning(error, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void warning(BdtdError error, EnumLogType logType, String format, Object... objs) {
+	public static void warning(EnumError error, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, error, error.getModule(), logType, LogLevel.WARN, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -497,7 +497,7 @@ public class LOG {
 		try {
 			warning(exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -506,55 +506,55 @@ public class LOG {
 			dispatch(exception, exception.getErrorCode(), exception.getErrorCode().getModule(), logType, LogLevel.WARN,
 					format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void error(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			error(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void error(EnumModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.ERROR, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void error(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			error(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void error(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.ERROR, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdError error, String format, Object... objs) {
+	public static void error(EnumError error, String format, Object... objs) {
 		try {
 			error(error, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void error(BdtdError error, EnumLogType logType, String format, Object... objs) {
+	public static void error(EnumError error, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, error, error.getModule(), logType, LogLevel.ERROR, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -562,7 +562,7 @@ public class LOG {
 		try {
 			error(exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -571,55 +571,55 @@ public class LOG {
 			dispatch(exception, exception.getErrorCode(), exception.getErrorCode().getModule(), logType, LogLevel.ERROR,
 					format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdModule module, Throwable exception, String format, Object... objs) {
+	public static void fatal(EnumModule module, Throwable exception, String format, Object... objs) {
 		try {
 			fatal(module, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void fatal(EnumModule module, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, null, module, logType, LogLevel.FATAL, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdError error, Throwable exception, String format, Object... objs) {
+	public static void fatal(EnumError error, Throwable exception, String format, Object... objs) {
 		try {
 			fatal(error, exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
+	public static void fatal(EnumError error, Throwable exception, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(exception, error, error.getModule(), logType, LogLevel.FATAL, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdError error, String format, Object... objs) {
+	public static void fatal(EnumError error, String format, Object... objs) {
 		try {
 			fatal(error, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	public static void fatal(BdtdError error, EnumLogType logType, String format, Object... objs) {
+	public static void fatal(EnumError error, EnumLogType logType, String format, Object... objs) {
 		try {
 			dispatch(null, error, error.getModule(), logType, LogLevel.FATAL, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -627,7 +627,7 @@ public class LOG {
 		try {
 			fatal(exception, DEFAULT_LOG_TYPE, format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
@@ -636,16 +636,16 @@ public class LOG {
 			dispatch(exception, exception.getErrorCode(), exception.getErrorCode().getModule(), logType, LogLevel.FATAL,
 					format, objs);
 		} catch (Throwable e) {
-			warning(BdtdModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
+			warning(EnumModule.UNDEFINE, e, EnumLogType.LOG_INTERAL, "Failed to send log.");
 		}
 	}
 
-	private static void dispatch(Throwable exception, BdtdError error, BdtdModule module, EnumLogType logType,
+	private static void dispatch(Throwable exception, EnumError error, EnumModule module, EnumLogType logType,
 			LogLevel logLevel, String format, Object... objs) {
 
 		try {
 			if (module == null) {
-				throw new IllegalArgumentException("EnumBdtdModule should not be null.");
+				throw new IllegalArgumentException("EnumModule should not be null.");
 			}
 
 			if (logType == null) {
@@ -670,7 +670,7 @@ public class LOG {
 					receiver.receive(logInfo);
 				} catch (Throwable e) {
 					if (logType != EnumLogType.LOG_INTERAL) {
-						LOG.warning(BdtdModule.COMMON, e, EnumLogType.LOG_INTERAL, "Failed to send to receiver [%s]",
+						LOG.warning(EnumModule.COMMON, e, EnumLogType.LOG_INTERAL, "Failed to send to receiver [%s]",
 								receiver);
 					}
 				}
@@ -703,7 +703,7 @@ public class LOG {
 		return LOG_FILTER;
 	}
 
-	public static boolean haveReceiver(BdtdModule module, LogLevel logLevel, EnumLogType logType) {
+	public static boolean haveReceiver(EnumModule module, LogLevel logLevel, EnumLogType logType) {
 		return LOG_FILTER.getLogReceivers(module, logLevel, logType).size() != 0;
 	}
 	

@@ -361,7 +361,8 @@ public class FileUtil {
     }
     
     public static void main(String[] args) throws IOException {
-    	addFileSuffix("F:\\迅雷下载", ".torrent");
+    	addFileSuffix("G:\\迅雷下载", ".torrent");
+//    	clearEmptyDir(new File("G:\\迅雷下载"));
 	}
     
     public static void addFileSuffix(String path, String replaceSuffix) {
@@ -381,6 +382,31 @@ public class FileUtil {
     public static void renameTo(File item, String newName) {
 		item.renameTo(new File(newName));
 	}
+    
+    private static final long MIN_FILE_SIZE = 10 * 1024 * 1024L;
+    
+    public static void clearEmptyDir(File file) {
+    	if (!file.exists() || file.isFile()) {
+    		return;
+    	}
+    	
+    	File[] fileArr = file.listFiles();
+    	if (fileArr == null || fileArr.length == 0) {
+    		deleteDir(file);
+    		System.out.println(file.getAbsolutePath());
+    		return;
+    	}
+    	
+    	for (File file2 : fileArr) {
+    		if (file2.getTotalSpace() < MIN_FILE_SIZE) {
+    			file.delete();
+        		System.out.println(file2.getAbsolutePath());
+    		} else {
+    			clearEmptyDir(file2);
+    		}
+		}
+    	
+    }
 
 	public static List<File> scanPath(String path, FilenameFilter filter) {
     	File file = new File(path);

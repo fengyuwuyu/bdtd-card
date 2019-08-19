@@ -3,7 +3,7 @@ package com.bdtd.card.common.base.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum BdtdModule {
+public enum EnumModule {
 	
 	COMMON(1000, "通用模块"),
 	SYSTEM(1001, "系统模块"),
@@ -19,7 +19,7 @@ public enum BdtdModule {
 	private int moduleId;
 	private String desc;
 
-	private BdtdModule(int moduleId, String desc) {
+	private EnumModule(int moduleId, String desc) {
 		this.moduleId = moduleId;
 		this.desc = desc;
 	}
@@ -32,18 +32,18 @@ public enum BdtdModule {
 		return desc;
 	}
 
-	private final static Map<Integer, BdtdModule> MODULE_ENUM_MAP = new HashMap<>();
+	private final static Map<Integer, EnumModule> MODULE_ENUM_MAP = new HashMap<>();
 	
 	static {
-		for (BdtdModule module : BdtdModule.values()) {
-			BdtdModule old = MODULE_ENUM_MAP.put(module.getModuleId(), module);
+		for (EnumModule module : EnumModule.values()) {
+			EnumModule old = MODULE_ENUM_MAP.put(module.getModuleId(), module);
 			if (old != null) {
 				throw new IllegalStateException("重复的Module:" + old.name());
 			}
 		}
 	}
 	
-	public static BdtdModule getModule(Integer moduleId) {
+	public static EnumModule getModule(Integer moduleId) {
 		return MODULE_ENUM_MAP.get(moduleId);
 	}
 

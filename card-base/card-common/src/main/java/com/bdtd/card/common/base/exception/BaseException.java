@@ -5,7 +5,7 @@ import com.bdtd.card.common.base.model.ServiceException;
 /**
  * 封装全局异常
  */
-public class BdtdException extends RuntimeException {
+public class BaseException extends RuntimeException {
 
     /**
 	 * 
@@ -16,7 +16,7 @@ public class BdtdException extends RuntimeException {
 
     private String message;
 
-    public BdtdException(ServiceException serviceExceptionEnum) {
+    public BaseException(ServiceException serviceExceptionEnum) {
         this.code = serviceExceptionEnum.getCode();
         this.message = serviceExceptionEnum.getMessage();
     }

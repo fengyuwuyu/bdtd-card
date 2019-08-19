@@ -5,11 +5,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.common.base.model.EnumError;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Error {
 	
-	public BdtdError error();
+	public EnumError error();
 }

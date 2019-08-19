@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.exception.BaseException;
 import com.bdtd.card.common.base.model.BizException;
 import com.bdtd.card.common.model.OriginMask;
 import com.bdtd.card.common.model.ZTreeNode;
@@ -73,7 +73,7 @@ public class MenuController extends BaseController {
     @RequestMapping(value = "/menu_edit/{menuId}")
     public String menuEdit(@PathVariable Long menuId, Model model) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         Menu menu = this.menuService.getById(menuId);
 
@@ -106,7 +106,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip edit(@Valid Menu menu, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         //设置父级菜单编号
         menuSetPcode(menu);
@@ -135,13 +135,13 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip add(@Valid Menu menu, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
 
         //判断是否存在该编号
         String existedMenuName = ConstantFactory.me().getMenuNameByCode(menu.getCode());
         if (ToolUtil.isNotEmpty(existedMenuName)) {
-            throw new BdtdException(BizException.EXISTED_THE_MENU);
+            throw new BaseException(BizException.EXISTED_THE_MENU);
         }
 
         //设置父级菜单编号
@@ -161,7 +161,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip remove(@RequestParam Long menuId) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
 
         this.menuService.delMenuContainSubMenus(menuId);
@@ -175,7 +175,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public Tip view(@PathVariable Long menuId) {
         if (ToolUtil.isEmpty(menuId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         this.menuService.getById(menuId);
         return SUCCESS_TIP;
@@ -234,7 +234,7 @@ public class MenuController extends BaseController {
 
             //如果编号和父编号一致会导致无限递归
             if (menu.getCode().equals(menu.getPcode())) {
-                throw new BdtdException(BizException.MENU_PCODE_COINCIDENCE);
+                throw new BaseException(BizException.MENU_PCODE_COINCIDENCE);
             }
 
             menu.setLevels(pLevels + 1);

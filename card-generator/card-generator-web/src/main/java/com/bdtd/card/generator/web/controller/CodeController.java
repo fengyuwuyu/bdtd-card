@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bdtd.card.common.base.model.BdtdError;
+import com.bdtd.card.common.base.model.EnumError;
 import com.bdtd.card.common.util.FileUtil;
 import com.bdtd.card.common.web.base.BaseController;
 import com.bdtd.card.common.web.base.Tip;
@@ -53,7 +53,7 @@ public class CodeController extends BaseController {
     @ResponseBody
     public Object generate(GenQo genQo) {
     	if (!FileUtil.checkExist(genQo.getProjectPath()) || !FileUtil.checkExist(genQo.getDataProjectPath())) {
-    		return new Tip(BdtdError.FILE_NOT_EXIST);
+    		return new Tip(EnumError.FILE_NOT_EXIST);
     	}
         genQo.setUrl(dbProperties.getUrl());
         genQo.setUserName(dbProperties.getUsername());

@@ -1,7 +1,7 @@
 package com.bdtd.card.common.base.exception;
 
 import com.bdtd.card.common.base.annotation.Error;
-import com.bdtd.card.common.base.model.BdtdError;;
+import com.bdtd.card.common.base.model.EnumError;;
 
 public abstract class AbstractNoticeException extends Exception {
 
@@ -9,10 +9,10 @@ public abstract class AbstractNoticeException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = 216189853235784419L;
-	private BdtdError errorCode = BdtdError.UNKNOWN_ERROR;
+	private EnumError errorCode = EnumError.UNKNOWN_ERROR;
 	private volatile String message;
 
-	public BdtdError getErrorCode() {
+	public EnumError getErrorCode() {
 		return this.errorCode;
 	}
 
@@ -20,20 +20,20 @@ public abstract class AbstractNoticeException extends Exception {
 		this("", null);
 	}
 
-	public AbstractNoticeException(BdtdError errorCode) {
+	public AbstractNoticeException(EnumError errorCode) {
 		this(errorCode, "", null);
 	}
 
-	public AbstractNoticeException(BdtdError errorCode, String message) {
+	public AbstractNoticeException(EnumError errorCode, String message) {
 		this(errorCode, message, null);
 	}
 
-	public AbstractNoticeException(BdtdError errorCode, String message, Throwable cause) {
+	public AbstractNoticeException(EnumError errorCode, String message, Throwable cause) {
 		super(message, cause);
 		this.errorCode = errorCode;
 	}
 
-	public AbstractNoticeException(BdtdError errorCode, Throwable cause) {
+	public AbstractNoticeException(EnumError errorCode, Throwable cause) {
 		this(errorCode, "", cause);
 	}
 

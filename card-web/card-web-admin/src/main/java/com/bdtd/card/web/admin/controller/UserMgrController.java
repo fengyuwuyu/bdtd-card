@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.exception.BaseException;
 import com.bdtd.card.common.base.model.BizException;
 import com.bdtd.card.common.web.annotation.BussinessLog;
 import com.bdtd.card.common.web.annotation.Permission;
 import com.bdtd.card.common.web.base.BaseController;
 import com.bdtd.card.common.web.base.Tip;
-import com.bdtd.card.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.web.properties.BaseProperties;
 import com.bdtd.card.common.web.util.ToolUtil;
 import com.bdtd.card.data.admin.dao.UserMapper;
 import com.bdtd.card.data.admin.datascope.DataScope;
@@ -59,7 +59,7 @@ public class UserMgrController extends BaseController {
     private static String PREFIX = "/system/user/";
 
     @Autowired
-    private BdtdProperties bdtdProperties;
+    private BaseProperties bdtdProperties;
 
     @Autowired
     private IUserService userService;
@@ -89,7 +89,7 @@ public class UserMgrController extends BaseController {
     @RequestMapping("/role_assign/{userId}")
     public String roleAssign(@PathVariable Integer userId, Model model) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         User user = (User) Db.create(UserMapper.class).selectOneByCon("id", userId);
         model.addAttribute("userId", userId);
@@ -104,7 +104,7 @@ public class UserMgrController extends BaseController {
     @RequestMapping("/user_edit/{userId}")
     public String userEdit(@PathVariable Integer userId, Model model) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         assertAuth(userId);
         User user = this.userService.getById(userId);
@@ -123,7 +123,7 @@ public class UserMgrController extends BaseController {
     public String userInfo(Model model) {
         Integer userId = ShiroKit.getUser().getId();
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         User user = this.userService.getById(userId);
         
@@ -149,7 +149,7 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Object changePwd(@RequestParam String oldPwd, @RequestParam String newPwd, @RequestParam String rePwd) {
         if (!newPwd.equals(rePwd)) {
-            throw new BdtdException(BizException.TWO_PWD_NOT_MATCH);
+            throw new BaseException(BizException.TWO_PWD_NOT_MATCH);
         }
         Integer userId = ShiroKit.getUser().getId();
         User user = userService.getById(userId);
@@ -160,7 +160,7 @@ public class UserMgrController extends BaseController {
             user.updateById();
             return SUCCESS_TIP;
         } else {
-            throw new BdtdException(BizException.OLD_PWD_NOT_RIGHT);
+            throw new BaseException(BizException.OLD_PWD_NOT_RIGHT);
         }
     }
 
@@ -190,13 +190,13 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip add(@Valid UserDto user, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
 
         // 判断账号是否重复
         User theUser = userService.getByAccount(user.getAccount());
         if (theUser != null) {
-            throw new BdtdException(BizException.USER_ALREADY_REG);
+            throw new BaseException(BizException.USER_ALREADY_REG);
         }
 
         // 完善账号信息
@@ -219,7 +219,7 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip edit(@Valid UserDto user, BindingResult result) throws NoPermissionException {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         if (ShiroKit.hasRole(Const.ADMIN_NAME)) {
             this.userService.updateById(UserFactory.createUser(user));
@@ -231,7 +231,7 @@ public class UserMgrController extends BaseController {
                 this.userService.updateById(UserFactory.createUser(user));
                 return SUCCESS_TIP;
             } else {
-                throw new BdtdException(BizException.NO_PERMITION);
+                throw new BaseException(BizException.NO_PERMITION);
             }
         }
     }
@@ -245,11 +245,11 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip delete(@RequestParam Integer userId) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         //不能删除超级管理员
         if (userId.equals(Const.ADMIN_ID)) {
-            throw new BdtdException(BizException.CANT_DELETE_ADMIN);
+            throw new BaseException(BizException.CANT_DELETE_ADMIN);
         }
         assertAuth(userId);
         this.userService.setStatus(userId, ManagerStatus.DELETED.getCode());
@@ -263,7 +263,7 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public User view(@PathVariable Integer userId) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         assertAuth(userId);
         return this.userService.getById(userId);
@@ -278,7 +278,7 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip reset(@RequestParam Integer userId) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         assertAuth(userId);
         User user = this.userService.getById(userId);
@@ -297,11 +297,11 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip freeze(@RequestParam Integer userId) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         //不能冻结超级管理员
         if (userId.equals(Const.ADMIN_ID)) {
-            throw new BdtdException(BizException.CANT_FREEZE_ADMIN);
+            throw new BaseException(BizException.CANT_FREEZE_ADMIN);
         }
         assertAuth(userId);
         this.userService.setStatus(userId, ManagerStatus.FREEZED.getCode());
@@ -317,7 +317,7 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip unfreeze(@RequestParam Integer userId) {
         if (ToolUtil.isEmpty(userId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         assertAuth(userId);
         this.userService.setStatus(userId, ManagerStatus.OK.getCode());
@@ -333,11 +333,11 @@ public class UserMgrController extends BaseController {
     @ResponseBody
     public Tip setRole(@RequestParam("userId") Integer userId, @RequestParam("roleIds") String roleIds) {
         if (ToolUtil.isOneEmpty(userId, roleIds)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         //不能修改超级管理员
         if (userId.equals(Const.ADMIN_ID)) {
-            throw new BdtdException(BizException.CANT_CHANGE_ADMIN);
+            throw new BaseException(BizException.CANT_CHANGE_ADMIN);
         }
         assertAuth(userId);
         this.userService.setRoles(userId, roleIds);
@@ -355,7 +355,7 @@ public class UserMgrController extends BaseController {
             String fileSavePath = bdtdProperties.getFileUploadPath();
             picture.transferTo(new File(fileSavePath + pictureName));
         } catch (Exception e) {
-            throw new BdtdException(BizException.UPLOAD_ERROR);
+            throw new BaseException(BizException.UPLOAD_ERROR);
         }
         return pictureName;
     }
@@ -373,7 +373,7 @@ public class UserMgrController extends BaseController {
         if (deptDataScope.contains(deptid)) {
             return;
         } else {
-            throw new BdtdException(BizException.NO_PERMITION);
+            throw new BaseException(BizException.NO_PERMITION);
         }
 
     }

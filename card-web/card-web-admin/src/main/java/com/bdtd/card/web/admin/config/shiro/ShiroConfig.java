@@ -26,8 +26,8 @@ import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bdtd.card.common.web.properties.BdtdProperties;
-import com.bdtd.card.web.admin.filter.BdtdUserFilter;
+import com.bdtd.card.common.web.properties.BaseProperties;
+import com.bdtd.card.web.admin.filter.BaseUserFilter;
 
 /**
  * shiro权限管理的配置
@@ -65,7 +65,7 @@ public class ShiroConfig {
      */
     @Bean
     @ConditionalOnProperty(prefix = "bdtd", name = "spring-session-open", havingValue = "false")
-    public DefaultWebSessionManager defaultWebSessionManager(CacheManager cacheShiroManager, BdtdProperties gunsProperties) {
+    public DefaultWebSessionManager defaultWebSessionManager(CacheManager cacheShiroManager, BaseProperties gunsProperties) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setCacheManager(cacheShiroManager);
         sessionManager.setSessionValidationInterval(gunsProperties.getSessionValidationInterval() * 1000);
@@ -143,7 +143,7 @@ public class ShiroConfig {
          * 覆盖默认的user拦截器(默认拦截器解决不了ajax请求 session超时的问题,若有更好的办法请及时反馈作者)
          */
         HashMap<String, Filter> myFilters = new HashMap<>();
-        myFilters.put("user", new BdtdUserFilter());
+        myFilters.put("user", new BaseUserFilter());
         shiroFilter.setFilters(myFilters);
 
         /**

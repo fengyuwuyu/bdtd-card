@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.exception.BaseException;
 import com.bdtd.card.common.base.model.BizException;
 import com.bdtd.card.common.web.annotation.BussinessLog;
 import com.bdtd.card.common.web.base.BaseController;
@@ -92,7 +92,7 @@ public class NoticeController extends BaseController {
     @BussinessLog(value = "新增通知",key = "title",dict = NoticeMap.class)
     public Object add(Notice notice) {
         if (ToolUtil.isOneEmpty(notice, notice.getTitle(), notice.getContent())) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         notice.setCreater(ShiroKit.getUser().getId());
         notice.setCreatetime(new Date());
@@ -122,7 +122,7 @@ public class NoticeController extends BaseController {
     @BussinessLog(value = "修改通知",key = "title",dict = NoticeMap.class)
     public Object update(Notice notice) {
         if (ToolUtil.isOneEmpty(notice, notice.getId(), notice.getTitle(), notice.getContent())) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         Notice old = this.noticeService.getById(notice.getId());
         old.setTitle(notice.getTitle());

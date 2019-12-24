@@ -361,8 +361,9 @@ public class FileUtil {
     }
     
     public static void main(String[] args) throws IOException {
-    	addFileSuffix("G:\\迅雷下载", ".torrent");
+//    	replaceFileSuffix("Z:\\迅雷下载\\bak", "php", "zip");
 //    	clearEmptyDir(new File("G:\\迅雷下载"));
+    	addFileSuffix("Z:\\迅雷下载", ".torrent");
 	}
     
     public static void addFileSuffix(String path, String replaceSuffix) {
@@ -374,6 +375,19 @@ public class FileUtil {
     	});
     	files.forEach((item) -> {
     		String newName = item.getAbsolutePath() + replaceSuffix;
+			FileUtil.renameTo(item, newName);
+    	});
+    }
+    
+    public static void replaceFileSuffix(String path, String suffix, String replaceSuffix) {
+    	List<File> files = scanPath(path, (dir, name) -> {
+    		if (dir.isFile() && name.indexOf("." + suffix) != -1) {
+    			return true;
+    		}
+    		return false;
+    	});
+    	files.forEach((item) -> {
+    		String newName = item.getAbsolutePath().replace(suffix, replaceSuffix);
 			FileUtil.renameTo(item, newName);
     	});
     }

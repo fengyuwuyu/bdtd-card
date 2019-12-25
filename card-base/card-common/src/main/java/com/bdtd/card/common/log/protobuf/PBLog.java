@@ -398,7 +398,6 @@ public final class PBLog {
                 com.bdtd.card.common.log.protobuf.PBLog.PBKeyValuePair.class, com.bdtd.card.common.log.protobuf.PBLog.PBKeyValuePair.Builder.class);
       }
 
-      // Construct using com.bdtd.card.base.common.log.protobuf.PBLog.PBKeyValuePair.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1592,7 +1591,6 @@ public final class PBLog {
                 com.bdtd.card.common.log.protobuf.PBLog.PBLogInfo.class, com.bdtd.card.common.log.protobuf.PBLog.PBLogInfo.Builder.class);
       }
 
-      // Construct using com.bdtd.card.base.common.log.protobuf.PBLog.PBLogInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

@@ -2,7 +2,7 @@ package com.bdtd.card.web.admin.consts.factory;
 
 import java.lang.reflect.Method;
 
-import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.exception.BaseException;
 import com.bdtd.card.common.base.model.BizException;
 
 /**
@@ -23,7 +23,7 @@ public class DictFieldWarpperFactory {
                 Method method = IConstantFactory.class.getMethod(methodName, Integer.class);
                 return method.invoke(constantFactory, Integer.parseInt(parameter.toString()));
             } catch (Exception e1) {
-                throw new BdtdException(BizException.ERROR_WRAPPER_FIELD);
+                throw new BaseException(BizException.ERROR_WRAPPER_FIELD);
             }
         }
     }

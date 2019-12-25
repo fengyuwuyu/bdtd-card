@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bdtd.card.common.base.exception.BdtdException;
+import com.bdtd.card.common.base.exception.BaseException;
 import com.bdtd.card.common.base.model.BizException;
 import com.bdtd.card.common.model.ZTreeNode;
 import com.bdtd.card.common.util.Convert;
@@ -76,7 +76,7 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "/role_edit/{roleId}")
     public String roleEdit(@PathVariable Integer roleId, Model model) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         Role role = this.roleService.getById(roleId);
         model.addAttribute(role);
@@ -92,7 +92,7 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "/role_assign/{roleId}")
     public String roleAssign(@PathVariable("roleId") Integer roleId, Model model) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         model.addAttribute("roleId", roleId);
         model.addAttribute("roleName", ConstantFactory.me().getSingleRoleName(roleId));
@@ -119,7 +119,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip add(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         
         if (StringUtil.isNullEmpty(role.getTips())) {
@@ -139,7 +139,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip edit(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         
         if (StringUtil.isNullEmpty(role.getTips())) {
@@ -159,12 +159,12 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip remove(@RequestParam Integer roleId) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
 
         //不能删除超级管理员角色
         if (roleId.equals(Const.ADMIN_ROLE_ID)) {
-            throw new BdtdException(BizException.CANT_DELETE_ADMIN);
+            throw new BaseException(BizException.CANT_DELETE_ADMIN);
         }
 
         this.roleService.delRoleById(roleId);
@@ -178,7 +178,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip view(@PathVariable Integer roleId) {
         if (ToolUtil.isEmpty(roleId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         this.roleService.getById(roleId);
         return SUCCESS_TIP;
@@ -193,7 +193,7 @@ public class RoleController extends BaseController {
     @ResponseBody
     public Tip setAuthority(@RequestParam("roleId") Integer roleId, @RequestParam("ids") String ids) {
         if (ToolUtil.isOneEmpty(roleId)) {
-            throw new BdtdException(BizException.REQUEST_NULL);
+            throw new BaseException(BizException.REQUEST_NULL);
         }
         this.roleService.setAuthority(roleId, ids);
         return SUCCESS_TIP;

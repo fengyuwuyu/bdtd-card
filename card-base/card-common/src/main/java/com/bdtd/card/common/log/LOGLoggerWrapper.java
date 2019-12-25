@@ -4,13 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.helpers.MessageFormatter;
 
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumModule;
 
 public class LOGLoggerWrapper implements Logger {
 	
-	private BdtdModule module;
+	private EnumModule module;
 	
-	public LOGLoggerWrapper(BdtdModule module) {
+	public LOGLoggerWrapper(EnumModule module) {
 		this.module = module;
 	}
 

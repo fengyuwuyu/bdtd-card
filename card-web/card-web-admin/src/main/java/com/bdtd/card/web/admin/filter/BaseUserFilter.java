@@ -29,7 +29,7 @@ import org.apache.shiro.web.util.WebUtils;
 
 import com.bdtd.card.web.admin.config.shiro.ShiroKit;
 
-public class BdtdUserFilter extends AccessControlFilter {
+public class BaseUserFilter extends AccessControlFilter {
 
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         if (isLoginRequest(request, response)) {

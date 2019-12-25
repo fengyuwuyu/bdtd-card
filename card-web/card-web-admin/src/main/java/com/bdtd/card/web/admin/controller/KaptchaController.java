@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bdtd.card.common.util.FileUtil;
-import com.bdtd.card.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.web.properties.BaseProperties;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 
@@ -30,7 +30,7 @@ import com.google.code.kaptcha.Producer;
 public class KaptchaController {
 
     @Autowired
-    private BdtdProperties bdtdProperties;
+    private BaseProperties bdtdProperties;
 
     @Autowired
     private Producer producer;

@@ -3,7 +3,7 @@ package com.bdtd.card.common.log;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.exception.DuplicatedEnumIdException;
 
 public enum LogLevel {
@@ -49,7 +49,7 @@ public enum LogLevel {
 				int key = enm.getValue();
 				LogLevel old = ENUM_MAP.put(key, enm);
 				if(old != null) {
-					LOG.fatal(BdtdModule.COMMON, new DuplicatedEnumIdException("重复的Log type:" + old.name()), "");
+					LOG.fatal(EnumModule.COMMON, new DuplicatedEnumIdException("重复的Log type:" + old.name()), "");
 					throw new DuplicatedEnumIdException("重复的Log type:" + old.name());
 				}
 			}

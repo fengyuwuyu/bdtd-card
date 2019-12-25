@@ -21,7 +21,7 @@ import com.bdtd.card.common.web.convert.String2LocalTimeConverter;
 import com.bdtd.card.common.web.convert.String2LongArrayConverter;
 import com.bdtd.card.common.web.convert.String2StringArrayConverter;
 import com.bdtd.card.common.web.filter.XssFilter;
-import com.bdtd.card.common.web.properties.BdtdProperties;
+import com.bdtd.card.common.web.properties.BaseProperties;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
 
@@ -29,7 +29,7 @@ import com.google.code.kaptcha.util.Config;
 public class WebMvcConfig implements WebMvcConfigurer {
 	
 	@Autowired
-	private BdtdProperties bdtdProperties;
+	private BaseProperties bdtdProperties;
 
 	@Override
 	public void addFormatters(FormatterRegistry registry) {

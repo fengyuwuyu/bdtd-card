@@ -4,8 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = BdtdProperties.PREFIX)
-public class BdtdProperties {
+@ConfigurationProperties(prefix = BaseProperties.PREFIX)
+public class BaseProperties {
 
 	public static final String PREFIX = "bdtd";
 

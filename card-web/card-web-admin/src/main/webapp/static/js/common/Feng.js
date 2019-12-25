@@ -1,7 +1,7 @@
 var Feng = {
 	formatNum: function(num) {
 		if (num) {
-			return num.toFixed(2);
+			return num.toFixed(2)
 		}
 	},
 	checkTableSelect: function(id) {

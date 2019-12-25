@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.logging.log4j.Level;
 
-import com.bdtd.card.common.base.model.BdtdError;
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumError;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.util.DebugUtil;
 
 public class LogUtil {
@@ -73,7 +73,7 @@ public class LogUtil {
 		}
 	}
 
-	public static LogInfo formatLogInfo(boolean isDebug, Throwable exception, BdtdError error, BdtdModule module,
+	public static LogInfo formatLogInfo(boolean isDebug, Throwable exception, EnumError error, EnumModule module,
 			EnumLogType logType, LogLevel logLevel, String format, Object... objs) {
 
 		LogInfo info = new LogInfo(exception == null ? null : DebugUtil.exceptionStackTraceToString(exception), error,

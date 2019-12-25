@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.bdtd.card.common.base.model.BdtdModule;
+import com.bdtd.card.common.base.model.EnumModule;
 import com.bdtd.card.common.log.EnumLogType;
 import com.bdtd.card.common.log.LOG;
 import com.bdtd.card.common.log.LogLevel;
@@ -53,7 +53,7 @@ public class LogFilter {
 
 	public void setPolicies(List<LogPolicy> policies) {
 		synchronized (this) {
-			LOG.warning(BdtdModule.COMMON, "Reconfiguring log filter: %s, version: %s", policies, version.get());
+			LOG.warning(EnumModule.COMMON, "Reconfiguring log filter: %s, version: %s", policies, version.get());
 			Map<Class<? extends ILogReceiver>, Long> newLogReceiverIdentifierMap = new HashMap<>();
 			TreeMap<Integer, LogPolicy> newPolicyMap = new TreeMap<>();
 
@@ -72,7 +72,7 @@ public class LogFilter {
 			for (Class<? extends ILogReceiver> receiverClass : receivers) {
 
 				if (LOG.getReceiver(receiverClass) == null) {
-					LOG.warning(BdtdModule.COMMON, "Log receiver [%s] is not exist, ignore.", receiverClass.getName());
+					LOG.warning(EnumModule.COMMON, "Log receiver [%s] is not exist, ignore.", receiverClass.getName());
 					continue;
 				}
 
@@ -87,16 +87,16 @@ public class LogFilter {
 			policiesMap.clear();
 			policiesMap.putAll(newPolicyMap);
 			this.policies = policies;
-			LOG.warning(BdtdModule.COMMON, "Reconfiguring log filter finished, version: %s", version.incrementAndGet());
+			LOG.warning(EnumModule.COMMON, "Reconfiguring log filter finished, version: %s", version.incrementAndGet());
 		}
 	}
 
-	long makeKey(BdtdModule module, LogLevel logLevel, EnumLogType logType) {
+	long makeKey(EnumModule module, LogLevel logLevel, EnumLogType logType) {
 		return ((long) module.getModuleId()) + (((long) logLevel.getValue()) << 16)
 				+ (((long) logType.getValue()) << 32);
 	}
 
-	public Set<ILogReceiver> getLogReceivers(BdtdModule module, LogLevel logLevel, EnumLogType logType) {
+	public Set<ILogReceiver> getLogReceivers(EnumModule module, LogLevel logLevel, EnumLogType logType) {
 		LogThreadCache threadCache = threadLocal.get();
 		Map<Long, Set<ILogReceiver>> logReceiverSetCacheByMask = threadCache.getLogReceiverSetCacheByMask();
 		Map<Long, Set<ILogReceiver>> logReceiverSetCacheByKey = threadCache.getLogReceiverSetCacheByKey();

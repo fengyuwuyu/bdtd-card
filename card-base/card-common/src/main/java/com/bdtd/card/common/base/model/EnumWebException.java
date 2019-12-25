@@ -3,7 +3,7 @@ package com.bdtd.card.common.base.model;
 /**
  * Guns异常枚举
  */
-public enum BdtdWebException implements ServiceException {
+public enum EnumWebException implements ServiceException {
 
 	/**
 	 * 其他
@@ -22,7 +22,7 @@ public enum BdtdWebException implements ServiceException {
 	REQUEST_NULL(400, "请求有错误"),
 	SERVER_ERROR(500, "服务器异常");
 
-	BdtdWebException(int code, String message) {
+	EnumWebException(int code, String message) {
 		this.code = code;
 		this.message = message;
 	}

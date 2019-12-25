@@ -16,7 +16,7 @@
         this.toolbarId = bstableId + "Toolbar";
         this.columns = columns;
         this.height = conf.height || 686;						//默认表格高度665
-        this.pageSize = conf.pageSize || 15;
+        this.pageSize = conf.pageSize || 15
         this.data = {};
         this.queryParams = conf.queryParams || {}; // 向后台传递的自定义参数
         this.showRefresh = conf.hasOwnProperty('showRefresh') ? conf.showRefresh : false;
@@ -47,7 +47,7 @@
                     sortOrder: "desc",     		//排序方式
                     pageNumber: 1,      			//初始化加载第一页，默认第一页
                     pageSize: this.pageSize,      			//每页的记录行数（*）
-                    pageList: [this.pageSize, this.pageSize * 2, this.pageSize * 3],  	//可供选择的每页的行数（*）
+                    pageList: [this.pageSize, this.pageSize * 2, this.pageSize * 3, this.pageSize * 4, this.pageSize * 5],  	//可供选择的每页的行数（*）
                     queryParamsType: 'limit', 	//默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort
                     queryParams: function (param) {
                         return $.extend(me.queryParams, param);
